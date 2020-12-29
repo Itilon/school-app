@@ -9,6 +9,10 @@ body {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+button {
+    cursor: pointer;
+}
+
 /* UTILIYY CLASSES*/
 .container {
     display: flex;
@@ -363,6 +367,107 @@ nav {
 
 .blog-card h4 {
     font-size: 1.6em;
+    color: #ff9800;
+}
+
+/* COURSES PAGE */
+
+.courses-wrapper {
+    margin: 20px 0;
+}
+
+.courses-wrapper h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-align: center;
+    color: #009688;
+}
+
+/* FEEDBACK PAGE */
+
+.feedback-showcase {
+    position: relative;
+    background-image: url(./feedback.jpg);
+    background-position: top;
+    background-size: contain;
+    height: 300px;
+}
+
+.feedback-form {
+    position: absolute;
+    background:rgba(80, 80, 80, .8);
+    top: 100px;
+    left: 50%;
+    width: 500px;
+    padding: 20px;
+    transform: translate(-50%, 0);
+    border-radius: 10px;
+}
+
+.feedback-form button {
+    width: 100%;
+    font-weight: bold;
+}
+
+.feedback-wrapper {
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.feedback {
+    width: 40%;
+}
+
+.feedback h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #009688;
+}
+
+.feedback-card {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ff9800;
+    border-radius: 10px;
+    box-shadow: 4px 4px 6px -4px #9e9e9e;
+}
+
+.feedback-card p {
+    margin-bottom: 20px;
+}
+
+.practices {
+    width: 40%;
+}
+
+.practices h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ff9800;
+}
+
+.practice-card {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #009688;
+    border-radius: 10px;
+    box-shadow: 4px 4px 6px -4px #9e9e9e;
+}
+
+.practice-card p {
+    margin-bottom: 20px;
+}
+
+/* EVENTS PAGE */
+
+.events-wrapper {
+    margin: 20px 0;
+}
+
+.events-wrapper h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-align: center;
     color: #ff9800;
 }
 
