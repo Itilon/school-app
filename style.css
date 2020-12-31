@@ -18,6 +18,11 @@ button {
     display: flex;
 }
 
+.row {
+    display: flex;
+    justify-content: space-around;
+}
+
 .form-control {
     padding: 15px;
     text-align: left;
@@ -290,6 +295,12 @@ nav {
     border: 1px dotted #222;
 }
 
+.comment h4 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #ff9800;
+}
+
 .comment p {
     margin-bottom: 20px;
     color: #222;
@@ -359,15 +370,22 @@ nav {
     width: 30%;
     padding: 5px;
     text-align: center;
+    cursor: pointer;
 }
 
 .blog-card img {
     width: 100%;
+    filter: grayscale(40%);
+    transition: filter .8s ease-in-out;
 }
 
 .blog-card h4 {
     font-size: 1.6em;
     color: #ff9800;
+}
+
+.blog-card:hover img {
+    filter: grayscale(0%);
 }
 
 /* COURSES PAGE */
@@ -469,6 +487,56 @@ nav {
     font-size: 2em;
     text-align: center;
     color: #ff9800;
+}
+
+/* BLOG PAGE */
+.blog-showcase {
+    position: relative;
+    background-image: url(./blog.jpg);
+    background-position: top;
+    background-size: contain;
+    height: 150px;
+}
+
+.blog-showcase h1 {
+    position: absolute;
+    background:rgba(80, 80, 80, .8);
+    top: 30px;
+    left: 50%;
+    width: 500px;
+    padding: 20px;
+    transform: translate(-50%, 0);
+    font-size: 2.4em;
+    color: #fff;
+    text-align: center;
+    border: 1px solid #009688;
+    border-radius: 10px;
+    box-shadow: 4px 4px 6px -4px #9e9e9e;
+}
+
+.blog-container {
+    flex-direction: column;
+}
+
+.blog-post {
+    background: rgba(200, 200, 200, .4);
+    width: 30%;
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ff9800;
+    border-radius: 10px;
+    box-shadow: 4px 4px 6px -4px #9e9e9e;
+}
+
+.blog-post h3 {
+    margin: 10px 0 20px 0;
+    font-size: 1.4em;
+    color: #009688;
+    text-align: center;
+}
+
+.blog-post p {
+    margin-bottom: 20px;
 }
 
 /* FOOTER */
