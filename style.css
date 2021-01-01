@@ -13,6 +13,27 @@ button {
     cursor: pointer;
 }
 
+h1 {
+    font-size: 2.4em;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.4em;
+    text-align: center;
+}
+
+h4 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #ff9800;
+}
+
 /* UTILIYY CLASSES*/
 .container {
     display: flex;
@@ -131,7 +152,6 @@ nav {
 
 .showcase-text h1 {
     margin-bottom: 10px;
-    font-size: 2.4em;
     color: #ff9800;
 }
 
@@ -157,6 +177,7 @@ nav {
 }
 
 .showcase-form h2 {
+    margin-bottom: 0;
     font-size: 1.6em;
     color: #009688;
 }
@@ -235,8 +256,6 @@ nav {
 
 .client h3 {
     margin-bottom: 10px;
-    font-size: 1.4em;
-    text-align: center;
     color: #ff9800;
 }
 
@@ -286,19 +305,12 @@ nav {
 .comments h3 {
     margin-bottom: 20px;
     font-size: 1.6em;
-    text-align: center;
     color: #009688;
 }
 
 .comment {
     padding: 20px;
     border: 1px dotted #222;
-}
-
-.comment h4 {
-    margin-bottom: 10px;
-    font-size: 1.2em;
-    color: #ff9800;
 }
 
 .comment p {
@@ -313,7 +325,6 @@ nav {
 .contacts h3 {
     margin-bottom: 20px;
     font-size: 1.6em;
-    text-align: center;
     color: #ff9800;
 }
 
@@ -357,7 +368,6 @@ nav {
 .blog-wrapper h3 {
     margin-bottom: 20px;
     font-size: 1.6em;
-    text-align: center;
     color: #009688;
 }
 
@@ -380,8 +390,8 @@ nav {
 }
 
 .blog-card h4 {
+    margin-top: 5px;
     font-size: 1.6em;
-    color: #ff9800;
 }
 
 .blog-card:hover img {
@@ -395,9 +405,7 @@ nav {
 }
 
 .courses-wrapper h2 {
-    margin-bottom: 20px;
     font-size: 2em;
-    text-align: center;
     color: #009688;
 }
 
@@ -437,8 +445,6 @@ nav {
 }
 
 .feedback h2 {
-    margin-bottom: 20px;
-    text-align: center;
     color: #009688;
 }
 
@@ -459,8 +465,6 @@ nav {
 }
 
 .practices h2 {
-    margin-bottom: 20px;
-    text-align: center;
     color: #ff9800;
 }
 
@@ -483,9 +487,7 @@ nav {
 }
 
 .events-wrapper h2 {
-    margin-bottom: 20px;
     font-size: 2em;
-    text-align: center;
     color: #ff9800;
 }
 
@@ -506,9 +508,7 @@ nav {
     width: 500px;
     padding: 20px;
     transform: translate(-50%, 0);
-    font-size: 2.4em;
     color: #fff;
-    text-align: center;
     border: 1px solid #009688;
     border-radius: 10px;
     box-shadow: 4px 4px 6px -4px #9e9e9e;
@@ -530,9 +530,7 @@ nav {
 
 .blog-post h3 {
     margin: 10px 0 20px 0;
-    font-size: 1.4em;
     color: #009688;
-    text-align: center;
 }
 
 .blog-post p {
