@@ -403,13 +403,54 @@ nav {
 
 /* COURSES PAGE */
 
-.courses-wrapper {
+.courses-showcase {
     margin: 20px 0;
 }
 
-.courses-wrapper h2 {
+.courses-showcase h2 {
     font-size: 2em;
     color: #009688;
+}
+
+.course-wrapper {
+    justify-content: space-around;
+    padding: 30px 10px;
+    border-top: 1px dotted #ccc;
+}
+
+.course-wrapper:nth-child(odd) {
+    background: rgba(200, 200, 200, .4);
+}
+
+.course-wrapper:nth-child(odd) h3 {
+    color: #ff9800;
+}
+
+.course-wrapper:nth-child(even) h3 {
+    color: #009688;
+}
+
+.course-image-wrapper {
+    width: 45%;
+}
+
+.course-image-wrapper img {
+    display: block;
+    width: 95%;
+    margin: auto;
+}
+
+.course-text-wrapper {
+    width: 45%;
+}
+
+.course-text-wrapper h3 {
+    margin-bottom: 20px;
+}
+
+.course-text-wrapper p {
+    margin-bottom: 20px;
+    line-height: 1.4;
 }
 
 /* FEEDBACK PAGE */
