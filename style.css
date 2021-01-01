@@ -34,6 +34,10 @@ h4 {
     color: #ff9800;
 }
 
+p {
+    text-align: left;
+}
+
 /* UTILIYY CLASSES*/
 .container {
     display: flex;
@@ -159,7 +163,6 @@ nav {
     margin-bottom: 10px;
     color: #fff;
     line-height: 1.4;
-    text-align: left;
 }
 
 .showcase-form {
@@ -419,25 +422,77 @@ nav {
     height: 300px;
 }
 
+.feedback-btn-container,
 .feedback-form {
     position: absolute;
     background:rgba(80, 80, 80, .8);
-    top: 100px;
-    left: 50%;
     width: 500px;
     padding: 20px;
+    left: 50%;
     transform: translate(-50%, 0);
     border-radius: 10px;
 }
 
-.feedback-form button {
+.feedback-btn-container {
+    top: 100px;
+}
+
+.feedback-btn-container button {
     width: 100%;
     font-weight: bold;
 }
 
+.feedback-form {
+    top: 200px;
+}
+
+.feedback-form .form-control {
+    position: relative;
+}
+
+.feedback-form label {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: block;
+    width: 100%;
+    color: #fff;
+    cursor: text;
+    transition: all .6s ease-in-out;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+    background: inherit;
+    width: 100%;
+    color: #fff;
+    line-height: 1.4;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #ff9800;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+    outline: none;
+}
+
+.feedback-form input:focus + label,
+.feedback-form input:valid + label,
+.feedback-form textarea:focus + label {
+    top: 0;
+    font-size: 12px;
+    cursor: default;
+}
+
+.feedback-form button {
+    width: 100%;
+}
+
 .feedback-wrapper {
+    background: rgba(200, 200, 200, .4);
     justify-content: space-around;
-    margin: 20px 0;
+    padding: 20px 0;
 }
 
 .feedback {
@@ -449,6 +504,7 @@ nav {
 }
 
 .feedback-card {
+    background: #fff;
     margin-bottom: 20px;
     padding: 20px;
     border: 1px solid #ff9800;
@@ -456,7 +512,20 @@ nav {
     box-shadow: 4px 4px 6px -4px #9e9e9e;
 }
 
-.feedback-card p {
+.feedback-container {
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.feedback-container img {
+    float: left;
+    max-height: 95%;
+    max-width: 40%;
+    margin: 0 20px 10px 0;
+    border-radius: 5px;
+}
+
+.feedback-container p {
     margin-bottom: 20px;
 }
 
@@ -469,10 +538,12 @@ nav {
 }
 
 .practice-card {
+    background: #fff;
     margin-bottom: 20px;
     padding: 20px;
     border: 1px solid #009688;
     border-radius: 10px;
+    text-align: right;
     box-shadow: 4px 4px 6px -4px #9e9e9e;
 }
 
@@ -542,9 +613,9 @@ nav {
 .footer {
     background: #009688;
     padding: 30px 10px;
-    text-align: center;
 }
 
 .footer p {
     color: #fff;
+    text-align: center;
 }

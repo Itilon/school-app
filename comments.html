@@ -24,26 +24,54 @@
         </nav>
     </header>
     <section class="feedback-showcase">
-        <div class="feedback-form">
+        <div class="feedback-btn-container">
             <button class="btn btn-light">Остави ни отзив</button>
+        </div>
+        <div class="feedback-form">
+            <form action="POST">
+                <div class="form-control">
+                    <input id="name" type="name" autocomplete="off" required>
+                    <label for="name">Име</label>
+                </div>
+                <div class="form-control">
+                    <input id="email" type="email" autocomplete="off" required>
+                    <label for="email">Електронна поща</label>
+                </div>
+                <div class="form-control">
+                    <textarea name="comment" id="comment" cols="30" rows="1"></textarea>
+                    <label for="comment">Коментар</label>
+                </div>
+                <div class="form-control">
+                    <button class="btn btn-light">Изпрати</button>
+                </div>
+            </form>
         </div>
     </section>
     <section class="feedback-wrapper container">
         <div class="feedback">
             <h2>Другите за нас</h2>
             <div class="feedback-card">
-                <h4>Автор на отзива:</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis praesentium commodi et dolores fuga veniam exercitationem beatae provident maiores ratione.</p>
+                <div class="feedback-container">
+                    <img src="./person1.jpg" alt="person 1">
+                    <h4>Автор на отзива:</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis praesentium commodi et dolores fuga veniam exercitationem beatae provident maiores ratione.</p>
+                </div>
                 <a href="./comments.html" class="btn btn-dark">Научи още</a>
             </div>
             <div class="feedback-card">
-                <h4>Автор на отзива:</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis praesentium commodi et dolores fuga veniam exercitationem beatae provident maiores ratione.</p>
+                <div class="feedback-container">
+                    <img src="./person2.jpg" alt="person 2">
+                    <h4>Автор на отзива:</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis praesentium commodi et dolores fuga veniam exercitationem beatae provident maiores ratione.</p>
+                </div>
                 <a href="./comments.html" class="btn btn-dark">Научи още</a>
             </div>
             <div class="feedback-card">
-                <h4>Автор на отзива:</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis praesentium commodi et dolores fuga veniam exercitationem beatae provident maiores ratione.</p>
+                <div class="feedback-container">
+                    <img src="./person3.jpg" alt="person 3">
+                    <h4>Автор на отзива:</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis praesentium commodi et dolores fuga veniam exercitationem beatae provident maiores ratione.</p>
+                </div>
                 <a href="./comments.html" class="btn btn-dark">Научи още</a>
             </div>
         </div>
@@ -51,15 +79,19 @@
             <h2>Успешни практики</h2>
             <div class="practice-card">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis praesentium commodi et dolores fuga veniam exercitationem beatae provident maiores ratione.</p>
-                <a href="./comments.html" class="btn btn-dark">Научи още</a>
+                <a href="./comments.html" class="btn btn-light">Научи още</a>
             </div>
             <div class="practice-card">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis praesentium commodi et dolores fuga veniam exercitationem beatae provident maiores ratione.</p>
-                <a href="./comments.html" class="btn btn-dark">Научи още</a>
+                <a href="./comments.html" class="btn btn-light">Научи още</a>
             </div>
             <div class="practice-card">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis praesentium commodi et dolores fuga veniam exercitationem beatae provident maiores ratione.</p>
-                <a href="./comments.html" class="btn btn-dark">Научи още</a>
+                <a href="./comments.html" class="btn btn-light">Научи още</a>
+            </div>
+            <div class="practice-card">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis praesentium commodi et dolores fuga veniam exercitationem beatae provident maiores ratione.</p>
+                <a href="./comments.html" class="btn btn-light">Научи още</a>
             </div>
         </div>
     </section>
