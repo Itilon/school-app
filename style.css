@@ -71,6 +71,11 @@ p {
     background: #ff9800;
 }
 
+@media only screen and (max-width: 420px) {
+    .container {
+        flex-direction: column;
+    }   
+}
 
 /* HEADER SECTION */
 
@@ -226,6 +231,18 @@ nav {
     }
 }
 
+
+@media only screen and (max-width: 420px) {
+    .showcase-text,
+    .showcase-form {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 85%;
+        margin: 15px auto;
+    }
+}
+
 /* QUOTE SECTION */
 
 .quote {
@@ -294,6 +311,16 @@ nav {
     border-radius: 10px;
 }
 
+@media only screen and (max-width: 768px) {
+    .courses {
+        padding: 20px 10px;
+    }
+
+    .courses h3 {
+        margin: 0 20px 20px 20px;
+    }   
+}
+
 /* COMMENTS SECTION */
 
 .comments-wrapper {
@@ -359,6 +386,27 @@ nav {
     width: 100%;
 }
 
+@media only screen and (max-width: 420px) {
+    .comments-wrapper {
+        margin-top: 10px;
+    }
+
+    .comments,
+    .contacts {
+        width: 85%;
+        margin: 10px auto;
+    }
+
+    .contacts label {
+        width: 30%;
+    }
+
+    .contacts input,
+    .contacts select {
+        width: 65%;
+    }
+}
+
 /* BLOG SECTION */
 
 .blog-wrapper {
@@ -399,6 +447,13 @@ nav {
 
 .blog-card:hover img {
     filter: grayscale(0%);
+}
+
+@media only screen and (max-width: 420px) {
+    .blog-card {
+        width: 85%;
+        margin: 10px auto;
+    }
 }
 
 /* COURSES PAGE */
