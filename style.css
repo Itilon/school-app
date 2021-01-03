@@ -121,6 +121,47 @@ nav {
     border-bottom: 2px solid #fff;
 }
 
+.hamburger-menu {
+    display: none;
+    padding: 5px;
+}
+
+.hamburger-menu i {
+    color: #fff;
+}
+
+@media only screen and (max-width: 1024px) {
+    .branding {
+        flex: 15%;
+    }
+
+    .navigation {
+        flex: 85%;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .branding {
+        flex: 50%;
+    }
+    .navigation {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: block;
+        flex: 50%;
+        text-align: right;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    header .container {
+        flex-direction: row;
+    }   
+}
+
+
 /* SHOWCASE SECTION */
 
 .showcase {
