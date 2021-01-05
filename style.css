@@ -516,6 +516,39 @@ nav {
     }
 }
 
+/* ABOUT PAGE */
+
+.values-wrapper {
+    background: rgba(200, 200, 200, .4);
+    padding: 20px 0;
+}
+
+.values-wrapper h3 {
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    color: #009688;
+}
+
+.values-wrapper .subheading {
+    text-align: center;
+}
+
+.values {
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.value-card {
+    background: #fff;
+    width: 20%;
+    padding: 10px;
+    box-shadow: 4px 4px 6px -4px #9e9e9e;
+}
+
+.value-card h4 {
+    text-align: center;
+}
+
 /* COURSES PAGE */
 
 .courses-showcase {
