@@ -545,7 +545,17 @@ nav {
     box-shadow: 4px 4px 6px -4px #9e9e9e;
 }
 
-.value-card h4 {
+.value-card-title {
+    background-position: top;
+    background-size: cover;
+    height: 200px;
+    padding-top: 150px;
+}
+
+.value-card-title h4 {
+    background: rgba(80, 80, 80, .8);
+    height: 50px;
+    padding-top: 10px;
     text-align: center;
 }
 
