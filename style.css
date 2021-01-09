@@ -34,6 +34,12 @@ h4 {
     color: #ff9800;
 }
 
+h6 {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #ff9800;
+}
+
 p {
     text-align: left;
 }
@@ -879,6 +885,67 @@ nav {
 
 .contact-showcase h1 {
     border: 1px solid #ff9800;
+}
+
+.contact-wrapper {
+    background:rgba(200, 200, 200, .4);
+    justify-content: space-around;
+    padding: 20px 10px;
+}
+
+.contact-data {
+    background: #fff;
+    width: 45%;
+    padding: 20px 40px;
+    box-shadow: 4px 4px 6px -4px #9e9e9e;
+}
+
+.contact {
+    margin: 20px 0;
+}
+
+.contact a {
+    color: #009688;
+}
+
+.contact-form {
+    background: #fff;
+    width: 45%;
+    padding: 20px;
+    box-shadow: 4px 4px 6px -4px #9e9e9e;
+}
+
+.contact-form h3 {
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    color: #ff9800;
+}
+
+.contact-form form {
+    padding: 10px;
+}
+
+.contact-form .form-control {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: inline-block;
+    width: 40%;
+}
+
+.contact-form input,
+.contact-form select {
+    float: right;
+    width: 55%;
+    padding: 5px;
+    border-radius: 5px;
+    line-height: 1.8;
+    color: #222;
+}
+
+.contact-form button {
+    width: 100%;
 }
 
 /* FOOTER */

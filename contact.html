@@ -30,6 +30,49 @@
     <section class="contact-showcase">
         <h1>Контакти</h1>
     </section>
+    <div class="contact-wrapper container">
+        <div class="contact-data">
+            <div class="contact">
+                <h6>Електронна поща:</h6>
+                <a href="mailto:example@gmail.com">example@gmail.com</a>
+            </div>
+            <div class="contact">
+                <h6>Телефон:</h6>
+                <p>0888 888 888</p>
+            </div>
+            <div class="contact">
+                <h6>Facebook страница:</h6>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">https://facebook.com</a>
+            </div>
+        </div>
+        <div class="contact-form">
+            <h3>Запиши се за безплатна консултация</h3>
+            <form action="POST">
+                <div class="form-control">
+                    <label for="name">Име</label>
+                    <input id="name" type="name" autocomplete="off" required>
+                </div>
+                <div class="form-control">
+                    <label for="email">Електронна поща</label>
+                    <input id="email" type="email" autocomplete="off" required>
+                </div>
+                <div class="form-control">
+                    <label for="telephone">Телефонен номер</label>
+                    <input id="telephone" type="tel" autocomplete="off" required>
+                </div>
+                <div class="form-control">
+                    <label for="courses">Желан курс</label>
+                    <select name="courses" id="courses">
+                        <option value="pubspeak">Публично говорене</option>
+                        <option value="english">Английски език</option>
+                        <option value="theater">Актьорско майсторство</option>
+                        <option value="singing">Пеене</option>
+                    </select>
+                </div>
+                <button class="btn btn-light">Заяви консултация</button>
+            </form>
+        </div>
+    </div>
     <footer class="footer">
         <p>&copy 2020 Студио за творческо обучение "АЯ". Всички права запазени.</p>
     </footer>
