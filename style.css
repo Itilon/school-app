@@ -90,6 +90,62 @@ p {
     box-shadow: 4px 4px 6px -4px #9e9e9e;
 }
 
+.left-slide {
+    animation: slideInFromLeft .8s ease-in;
+}
+
+.right-slide {
+    animation: slideInFromRight .8s ease-in;
+}
+
+.top-slide {
+    animation: slideInFromTop .8s ease-in;
+}
+
+.bottom-slide {
+    animation:slideInFromBottom .8s ease-in;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-300%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    0% {
+      transform: translateY(300%);
+    }
+  
+    100% {
+      transform: translateY(0);
+    }
+}
+
 @media only screen and (max-width: 420px) {
     .container {
         flex-direction: column;
@@ -216,7 +272,6 @@ nav {
     border-radius: 10px;
     padding: 10px;
     text-align: center;
-    animation: slideInFromLeft .8s ease-in;
 }
 
 .showcase-text h1 {
@@ -241,7 +296,6 @@ nav {
     padding: 10px;
     text-align: center;
     z-index: 1;
-    animation: slideInFromRight .8s ease-in;
 }
 
 .showcase-form h2 {
@@ -270,27 +324,6 @@ nav {
     width: 40%;
     font-weight: bold;
 }
-
-@keyframes slideInFromLeft {
-    0% {
-        transform: translateX(-100%);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInFromRight {
-    0% {
-      transform: translateX(100%);
-    }
-  
-    100% {
-      transform: translateX(0);
-    }
-}
-
 
 @media only screen and (max-width: 420px) {
     .showcase-text,
@@ -518,6 +551,33 @@ nav {
 
 /* ABOUT PAGE */
 
+.interview-wrapper {
+    background-image: url(./fun.jpg);
+    background-position: center;
+    background-size: cover;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px dotted #222;
+}
+
+.interview-wrapper h3 {
+    background: rgba(80, 80, 80, .8);
+    width: 560px;
+    margin: 20px auto;
+    padding: 5px 15px;
+    font-size: 1.6em;
+    color: #ff9800;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.interview-wrapper iframe {
+    height: 315px;
+    width: 560px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
 .values-wrapper {
     background: rgba(200, 200, 200, .4);
     padding: 20px 0;
@@ -557,6 +617,24 @@ nav {
     height: 50px;
     padding-top: 10px;
     text-align: center;
+}
+
+@media only screen and (max-width: 1024px) {
+    .values {
+        flex-wrap: wrap;
+    }
+
+    .value-card {
+        width: 40%;
+        margin: 20px 0;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .interview-wrapper iframe {
+        height: 245px;
+        width: 435px;
+    }
 }
 
 /* COURSES PAGE */
