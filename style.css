@@ -49,11 +49,6 @@ p {
     display: flex;
 }
 
-.row {
-    display: flex;
-    justify-content: space-around;
-}
-
 .form-control {
     padding: 15px;
     text-align: left;
@@ -160,10 +155,6 @@ p {
 
 @media only screen and (max-width: 420px) {
     .container {
-        flex-direction: column;
-    }
-    
-    .row {
         flex-direction: column;
     }
 }
@@ -864,7 +855,8 @@ nav {
 }
 
 .blog-container {
-    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .blog-post {
@@ -877,41 +869,36 @@ nav {
     box-shadow: 4px 4px 6px -4px #9e9e9e;
 }
 
-.blog-post h3 {
+.blog-heading {
+    background-position: top;
+    background-size: cover;
+    height: 200px;
     margin: 10px 0 20px 0;
-    color: #009688;
+    padding-top: 150px;
+    border-radius: 5px;
+}
+
+.blog-heading h3 {
+    background:rgba(80, 80, 80, .8);
+    height: 50px;
+    padding: 10px 5px 0 5px;
+    color: #ff9800;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .blog-post p {
     margin-bottom: 20px;
 }
 
-.pagination {
-    margin: 10px;
-    text-align: center;
+@media only screen and (max-width: 1024px) {
+    .blog-post {
+        width: 45%;
+    }
 }
 
-.pagination span {
-    display: inline-flex;
-    height: 30px;
-    width: 30px;
-    border: 1px solid #9e9e9e;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.pagination span:first-child,
-.pagination span:last-child {
-    color: #009688;
-}
-
-.pagination .current {
-    background: #009688;
-    color: #fff;
-}
-
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 540px) {
     .blog-post {
         width: 90%;
         margin: 20px auto;
@@ -1000,6 +987,33 @@ nav {
         width: 90%;
         margin: 10px auto;
     }
+}
+
+/* PAGINATION */
+
+.pagination {
+    margin: 10px;
+    text-align: center;
+}
+
+.pagination span {
+    display: inline-flex;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #9e9e9e;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.pagination span:first-child,
+.pagination span:last-child {
+    color: #009688;
+}
+
+.pagination .current {
+    background: #009688;
+    color: #fff;
 }
 
 /* FOOTER */
