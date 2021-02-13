@@ -153,7 +153,7 @@ p {
     }
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 680px) {
     .container {
         flex-direction: column;
     }
@@ -205,6 +205,7 @@ nav {
 
 .hamburger-menu {
     display: none;
+    margin-right: 10px;
     padding: 5px;
 }
 
@@ -238,7 +239,7 @@ nav {
     }
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 680px) {
     header .container {
         flex-direction: row;
     }   
@@ -486,7 +487,7 @@ nav {
     width: 100%;
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 680px) {
     .comments-wrapper {
         margin-top: 10px;
     }
@@ -549,7 +550,7 @@ nav {
     filter: grayscale(0%);
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 680px) {
     .blog-card {
         width: 85%;
         margin: 10px auto;
@@ -638,9 +639,31 @@ nav {
 }
 
 @media only screen and (max-width: 760px) {
+    .interview-wrapper h3 {
+        width: 435px;
+    }
+
     .interview-wrapper iframe {
         height: 245px;
         width: 435px;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .value-card {
+        width: 80%;
+        margin: 20px auto;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .interview-wrapper h3 {
+        width: 345px;
+    }
+
+    .interview-wrapper iframe {
+        height: 195px;
+        width: 345px;
     }
 }
 
@@ -694,6 +717,23 @@ nav {
 .course-text-wrapper p {
     margin-bottom: 20px;
     line-height: 1.4;
+}
+
+@media only screen and (max-width: 680px) {
+    .course-wrapper:nth-child(even) {
+        flex-direction: column-reverse;
+    }
+
+    .course-image-wrapper,
+    .course-text-wrapper {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .course-text-wrapper a {
+        display: block;
+        margin: 0 auto;
+    }
 }
 
 /* FEEDBACK PAGE */
