@@ -872,6 +872,18 @@ nav {
     margin-bottom: 20px;
 }
 
+@media only screen and (max-width: 680px) {
+    .feedback-btn-container,
+    .feedback-form {
+        width:90%;
+        margin: 0 auto;
+    }
+    .feedback, .practices {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
 /* EVENTS PAGE */
 
 .events-wrapper {
