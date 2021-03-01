@@ -629,6 +629,49 @@ nav {
     border-radius: 10px;
 }
 
+.about-wrapper {
+    padding: 20px 0;
+}
+
+.about-wrapper h3 {
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    color: #ff9800;
+}
+
+.about-wrapper .container {
+    background: rgba(200, 200, 200, .4);
+    margin: 0 40px;
+    border: 1px dotted #9e9e9e;
+    border-radius: 5px;
+    box-shadow: 4px 4px 6px -4px #9e9e9e;
+}
+
+.img-container {
+    width: 40%;
+}
+
+.img-container img {
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 5px;
+    box-shadow: 4px 4px 6px -4px #9e9e9e;
+}
+
+.text-container {
+    width: 60%;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.text-container p {
+    margin-bottom: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 1.4;
+    color: #222;
+}
+
 .values-wrapper {
     background: rgba(200, 200, 200, .4);
     padding: 20px 0;
