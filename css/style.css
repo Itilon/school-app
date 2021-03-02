@@ -584,13 +584,19 @@ nav {
     transition: filter .8s ease-in-out;
 }
 
+.blog-card:hover img {
+    filter: grayscale(0%);
+}
+
 .blog-card h4 {
     margin-top: 5px;
     font-size: 1.6em;
 }
 
-.blog-card:hover img {
-    filter: grayscale(0%);
+.blog-card time {
+    margin-bottom: 5px;
+    font-size: .8em;
+    color: #009688;
 }
 
 @media only screen and (max-width: 680px) {
@@ -822,6 +828,17 @@ nav {
     }
 }
 
+/* COURSE PAGE */
+
+.course-showcase {
+    margin: 20px 0;
+}
+
+.course-showcase h2 {
+    font-size: 2em;
+    color: #009688;
+}
+
 /* FEEDBACK PAGE */
 
 .feedback-showcase {
@@ -1011,7 +1028,7 @@ nav {
     background-position: top;
     background-size: cover;
     height: 200px;
-    margin: 10px 0 20px 0;
+    margin: 10px 0;
     padding-top: 150px;
     border-radius: 5px;
 }
@@ -1024,6 +1041,14 @@ nav {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.blog-post .author,
+.blog-post time {
+    display: inline-block;
+    margin: 0 0 10px 0;
+    font-size: .8em;
+    color: #666;
 }
 
 .blog-post p {
@@ -1041,6 +1066,17 @@ nav {
         width: 90%;
         margin: 20px auto;
     }
+}
+
+/* POST PAGE */
+
+.post-showcase {
+    margin: 20px 0;
+}
+
+.post-showcase h2 {
+    font-size: 2em;
+    color: #ff9800;
 }
 
 /* CONTACT PAGE */
