@@ -45,6 +45,7 @@ p {
 }
 
 /* UTILIYY CLASSES*/
+
 .container {
     display: flex;
 }
@@ -89,6 +90,26 @@ p {
     color: #fff;
     border-radius: 10px;
     box-shadow: 4px 4px 6px -4px #9e9e9e;
+}
+
+[class$="-heading"] {
+    background-position: top;
+    background-size: cover;
+    height: 200px;
+    margin: 10px 0;
+    padding-top: 150px;
+    border-radius: 5px;
+}
+
+[class$="-heading"] h3,
+[class$="-heading"] h5 {
+    background:rgba(80, 80, 80, .8);
+    height: 50px;
+    padding: 10px 5px 0 5px;
+    color: #ff9800;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .left-slide {
@@ -742,6 +763,19 @@ nav {
 }
 
 @media only screen and (max-width: 680px) {
+    .img-container,
+    .text-container {
+        width: 100%;
+    }
+
+    .img-container {
+        padding: 0 20px;
+    }
+
+    .img-container img {
+        width: 100%;
+    }
+
     .value-card {
         width: 80%;
         margin: 20px auto;
@@ -1024,25 +1058,6 @@ nav {
     box-shadow: 4px 4px 6px -4px #9e9e9e;
 }
 
-.blog-heading {
-    background-position: top;
-    background-size: cover;
-    height: 200px;
-    margin: 10px 0;
-    padding-top: 150px;
-    border-radius: 5px;
-}
-
-.blog-heading h3 {
-    background:rgba(80, 80, 80, .8);
-    height: 50px;
-    padding: 10px 5px 0 5px;
-    color: #ff9800;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .blog-post .author,
 .blog-post time {
     display: inline-block;
@@ -1061,7 +1076,7 @@ nav {
     }
 }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 680px) {
     .blog-post {
         width: 90%;
         margin: 20px auto;
@@ -1107,16 +1122,17 @@ nav {
 }
 
 .post-wrapper aside {
-    background: rgba(200, 200, 200, .4);
     width: 35%;
     margin: 10px;
-    padding: 20px 10px;
-    border: 1px dotted #666;
-    border-radius: 5px;
-    box-shadow: 4px 4px 6px -4px #9e9e9e;
+    padding: 0 10px;
 }
 
 .post-wrapper h4 {
+    background: rgba(200, 200, 200, .4);
+    padding: 10px 0;
+    border: 1px dotted #666;
+    border-radius: 5px;
+    box-shadow: 4px 4px 6px -4px #9e9e9e;
     text-align: center;
     color: #00796b;
 }
@@ -1124,6 +1140,17 @@ nav {
 .post-wrapper .selected-post {
     padding: 10px;
     border: 1px dotted #ff9800;
+}
+
+.post-heading {
+    cursor: pointer;
+}
+
+.post-heading h5 {
+    text-align: center;
+    font-size: 1.4em;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 /* CONTACT PAGE */
