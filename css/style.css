@@ -1122,6 +1122,7 @@ nav {
 
 .post-wrapper p {
     margin: 10px 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.4;
 }
 
@@ -1144,6 +1145,11 @@ nav {
 .post-wrapper .selected-post {
     padding: 10px;
     border: 1px dotted #ff9800;
+}
+
+.post-wrapper .selected-post:nth-child(2),
+.post-wrapper .selected-post:nth-child(3) {
+    border-bottom: none;
 }
 
 .post-heading {
@@ -1299,6 +1305,35 @@ a.breadcrumb:hover {
 
 .tag-container a:hover {
     color: #00796b;
+}
+
+/* SUBSCRIBER WARNING */
+
+.subscriber-warning {
+    background: #fff;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px dotted #666;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.subscriber-warning p {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.subscriber-warning .form-control {
+    text-align: center;
+}
+
+.subscriber-warning input {
+    line-height: 25px;
+    width: calc(60% + 15px);
+}
+
+.subscriber-warning button {
+    width: 60%;
 }
 
 /* PAGINATION */
