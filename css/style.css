@@ -189,12 +189,12 @@ header {
 }
 
 nav {
-    padding: 25px 5px;
+    padding: 10px 5px;
 }
 
 .branding {
     flex: 40%;
-    padding: 5px 15px;
+    padding: 0 15px;
 }
 
 .branding a {
@@ -202,9 +202,13 @@ nav {
     color: #fff;
 }
 
+.branding img {
+    height: 60px;
+}
+
 .navigation {
     flex: 60%;
-    padding: 5px;
+    padding: 20px 5px;
     text-align: center;
 }
 
