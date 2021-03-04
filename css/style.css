@@ -233,7 +233,7 @@ nav {
 .hamburger-menu {
     display: none;
     margin-right: 10px;
-    padding: 5px;
+    padding: 20px 5px;
 }
 
 .hamburger-menu i {
@@ -1155,6 +1155,18 @@ nav {
     font-size: 1.4em;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+}
+
+@media only screen and (max-width: 680px) {
+    .post-wrapper article,
+    .post-wrapper aside {
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    .post-wrapper aside {
+        padding: 0;
+    }
 }
 
 /* CONTACT PAGE */
