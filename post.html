@@ -48,11 +48,11 @@
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam magni aspernatur reprehenderit suscipit quod autem consequatur praesentium animi temporibus sed aliquam, illum perspiciatis odit? Suscipit alias ab aspernatur est ex?</p>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque deleniti accusantium harum! Quisquam voluptates debitis corporis, quia nesciunt modi mollitia!</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae distinctio dolorem, accusamus voluptatem enim ab totam esse doloribus cumque fugit perspiciatis temporibus eveniet laboriosam fuga similique dicta dignissimos omnis magnam fugiat consequuntur vel nam! Asperiores tenetur deserunt earum natus repellendus hic, harum deleniti quisquam, error numquam nulla porro inventore? Illum!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus iste tenetur tempore soluta laboriosam eos nam commodi molestias eius. Sint ducimus rem odit repellat aliquid incidunt corrupti doloribus ea similique?</p>
+            <p class="blurred">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus iste tenetur tempore soluta laboriosam eos nam commodi molestias eius. Sint ducimus rem odit repellat aliquid incidunt corrupti doloribus ea similique?</p>
             <div class="subscriber-warning">
                 <p>Пълното съдържание на този материал е достъпно само за потребители, които са се абонирали за сайта. Ако искаш да го прочетеш, моля въведи електронната си поща в полето отдолу.</p>
                 <div class="form-control">
-                    <input type="email" name="email" id="email">
+                    <input id="subscriber-email" type="email" name="email">
                 </div>
                 <button class="btn btn-dark">Потвърди електронната си поща</button>
             </div>
@@ -60,6 +60,41 @@
                 <span>Етикети: </span>
                 <a href="./blog.html">lorem</a>
                 <a href="./blog.html">ipsum</a>
+            </div>
+            <div class="comment-container">
+                <h5>За този материал има 3 коментара</h5>
+                <div class="comment-card">
+                    <h6>Коментиращ 1 написа:</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam vel, laudantium sapiente labore impedit cumque repellat accusantium! Quam, distinctio corrupti!</p>
+                </div>
+                <div class="comment-card">
+                    <h6>Коментиращ 2 написа:</h6>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, cum!</p>
+                </div>
+                <div class="comment-card">
+                    <h6>Коментиращ 3 написа:</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem dignissimos quis mollitia repellendus ea deleniti harum aliquid animi totam et, voluptatum rerum facere iure optio culpa explicabo ullam. Itaque, a.</p>
+                </div>
+                <h5>Остави коментар</h5>
+                <div class="comment-form">
+                    <form action="POST">
+                        <div class="form-control">
+                            <input id="name" type="text" autocomplete="off" required>
+                            <label for="name">Име</label>
+                        </div>
+                        <div class="form-control">
+                            <input id="email" type="email" autocomplete="off" required>
+                            <label for="email">Електронна поща</label>
+                        </div>
+                        <div class="form-control">
+                            <textarea id="comment" name="comment" cols="30" rows="10"></textarea>
+                            <label for="comment">Коментар</label>
+                        </div>
+                        <div class="form-control">
+                            <button class="btn btn-light">Добави коментара си</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </article>
         <aside>
