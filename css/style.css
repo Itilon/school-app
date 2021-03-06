@@ -200,12 +200,12 @@ header {
 }
 
 nav {
-    padding: 10px 5px;
+    padding: 0 5px;
 }
 
 .branding {
     flex: 40%;
-    padding: 0 15px;
+    padding: 0 15px 0 5px;
 }
 
 .branding a {
@@ -214,12 +214,12 @@ nav {
 }
 
 .branding img {
-    height: 60px;
+    height: 80px;
 }
 
 .navigation {
     flex: 60%;
-    padding: 20px 5px;
+    padding: 30px 5px;
     text-align: center;
 }
 
@@ -244,7 +244,7 @@ nav {
 .hamburger-menu {
     display: none;
     margin-right: 10px;
-    padding: 20px 5px;
+    padding: 30px 5px;
 }
 
 .hamburger-menu i {
@@ -273,7 +273,7 @@ nav {
 
     .navigation.block {
         position: absolute;
-        top: 55px;
+        top: 70px;
         left: 0;
         background: #009688;
         display: block;
@@ -1173,7 +1173,6 @@ nav {
 .comment-form textarea {
     background: inherit;
     width: 100%;
-    color: #fff;
     line-height: 1.4;
     padding: 5px;
     border: none;
