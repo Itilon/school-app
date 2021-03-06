@@ -1169,6 +1169,17 @@ nav {
     position: relative;
 }
 
+.comment-form label {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: block;
+    width: 100%;
+    color: #ff9800;
+    cursor: text;
+    transition: all .6s ease-in-out;
+}
+
 .comment-form input,
 .comment-form textarea {
     background: inherit;
@@ -1179,14 +1190,17 @@ nav {
     border-bottom: 1px solid #ff9800;
 }
 
-.comment-form label {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    display: block;
-    width: 100%;
-    cursor: text;
-    transition: all .6s ease-in-out;
+.comment-form input:focus,
+.comment-form textarea:focus {
+    outline: none;
+}
+
+.comment-form input:focus + label,
+.comment-form input:valid + label,
+.comment-form textarea:focus + label {
+    top: 0;
+    font-size: 12px;
+    cursor: default;
 }
 
 .post-wrapper aside {

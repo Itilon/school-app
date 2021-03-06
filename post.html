@@ -51,10 +51,12 @@
             <p class="blurred">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus iste tenetur tempore soluta laboriosam eos nam commodi molestias eius. Sint ducimus rem odit repellat aliquid incidunt corrupti doloribus ea similique?</p>
             <div class="subscriber-warning">
                 <p>Пълното съдържание на този материал е достъпно само за потребители, които са се абонирали за сайта. Ако искаш да го прочетеш, моля въведи електронната си поща в полето отдолу.</p>
-                <div class="form-control">
-                    <input id="subscriber-email" type="email" name="email">
-                </div>
-                <button class="btn btn-dark">Потвърди електронната си поща</button>
+                <form action="check-email" method="POST">
+                    <div class="form-control">
+                        <input id="subscriber-email" type="email" name="email" required>
+                    </div>
+                    <button class="btn btn-dark">Изпрати</button>
+                </form>
             </div>
             <div class="tag-container">
                 <span>Етикети: </span>
@@ -77,13 +79,13 @@
                 </div>
                 <h5>Остави коментар</h5>
                 <div class="comment-form">
-                    <form action="POST">
+                    <form action="comment" method="POST">
                         <div class="form-control">
-                            <input id="name" type="text" autocomplete="off" required>
+                            <input id="name" name="name" type="text" autocomplete="off" required>
                             <label for="name">Име</label>
                         </div>
                         <div class="form-control">
-                            <input id="email" type="email" autocomplete="off" required>
+                            <input id="email" name="email" type="email" autocomplete="off" required>
                             <label for="email">Електронна поща</label>
                         </div>
                         <div class="form-control">
