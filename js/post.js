@@ -33,15 +33,18 @@ const submitSubscriberForm = (form) => {
 const submitCommentForm = (form, container) => {
     this.event.preventDefault();
 
+    const currentDate = new Date();
+
     if (form.checkValidity()) {
-        sendFormData(form)
+        sendFormData(form, currentDate)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error();
                 }
 
+
                 if (container) {
-                    const formData = new FormData(form);
+                    createCommentCard(container, response.data);
                 }
             })
             .catch(() => {
@@ -55,10 +58,38 @@ const redirectToBlogPost = (post) => {
     this.location.href = './post.html';
 };
 
-const sendFormData = (form) => {
+const sendFormData = (form, currentDate) => {
     const endpoint = form.action;
     const method = form.method;
     const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => data[key] = value);
+    data['date'] = currentDate;
 
-    return Promise.resolve({ ok: true });
+    return Promise.resolve({ ok: true, data });
+};
+
+const createCommentCard = (container, data) => {
+    const commentCard = document.createElement('div');
+    commentCard.classList.add('comment-card');
+
+    const commenter = document.createElement('span');
+    commenter.classList.add('commenter');
+    commenter.innerText = data.name;
+
+    const heading = document.createElement('h6');
+    heading.appendChild(commenter);
+    heading.innerHTML += ' написа:';
+
+    const date = document.createElement('time');
+    date.innerText = data.date;
+
+    const comment = document.createElement('p');
+    comment.innerText = data.comment;
+
+    commentCard.appendChild(heading);
+    commentCard.appendChild(date);
+    commentCard.appendChild(comment);
+
+    container.appendChild(commentCard);
 };

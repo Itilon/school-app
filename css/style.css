@@ -1137,7 +1137,8 @@ nav {
     line-height: 1.4;
 }
 
-.comment-container h5 {
+.comment-container h5,
+.comment-form-container h5 {
     padding: 10px 0;
     font-size: 1.2em;
     color: #00796b;
@@ -1163,6 +1164,38 @@ nav {
 .comment-card:nth-child(odd) {
     background: #696969;
     color: #fff;
+}
+
+.comment-card h6 {
+    margin-bottom: 0;
+}
+
+.comment-card:nth-child(even) h6 {
+    color: #696969;
+}
+
+.comment-card:nth-child(odd) h6 {
+    color: #ddd;
+}
+
+.comment-card:nth-child(even) .commenter {
+    color: #222;
+}
+
+.comment-card:nth-child(odd) .commenter {
+    color: #ff9800;
+}
+
+.comment-card time {
+    font-size: .72em;
+}
+
+.comment-card:nth-child(even) time {
+    color: #9e9e9e;
+}
+
+.comment-card:nth-child(odd) time {
+    color: #ccc;
 }
 
 .comment-form .form-control {
