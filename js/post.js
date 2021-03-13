@@ -5,11 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const commentForm = document.querySelector('.comment-form form');
     const commentContainer = document.querySelector('.comment-container');
     const selectedPosts = document.querySelectorAll('.selected-post');
-
+    
     if (subscriberForm) {
         subscriberForm.addEventListener('submit', submitSubscriberForm.bind(null, subscriberForm));
     }
-    commentForm.addEventListener('submit', submitCommentForm.bind(null, commentForm, commentContainer))
+
+    commentForm.addEventListener('submit', submitCommentForm.bind(null, commentForm, commentContainer));
+
+    [...commentForm.children].forEach((child, index) => {
+        if (index !== 3) {
+            child.children[0].addEventListener('focusout', styleElementLabel.bind(null, child.children[0]));
+        }
+    });
 
     selectedPosts.forEach((post) => {
         post.addEventListener('click', redirectToBlogPost.bind(null, post));
@@ -45,9 +52,18 @@ const submitCommentForm = (form, container) => {
                 }
 
 
-                if (container) {
-                    createCommentCard(container, response.data);
-                }
+                if (!container) {
+                    container = createCommentContainer();
+                } 
+                
+                createCommentCard(container, response.data);
+
+                [...form.elements].forEach((element) => {
+                    if (element.type !== 'submit') {
+                        element.value = '';
+                        element.labels[0].classList.remove('top-positioned');
+                    }
+                });
             })
             .catch(() => {
 
@@ -70,6 +86,16 @@ const sendFormData = (form, currentDate) => {
 
     return Promise.resolve({ ok: true, data });
 };
+
+const createCommentContainer = () => {
+    const container = createHTMLElement('div', 'comment-container', null);
+    const title = createHTMLElement('h5', null, 'За този материал има 1 коментар');
+    container.appendChild(title);
+
+    document.querySelector('.post-wrapper article').insertBefore(container, document.querySelector('.comment-form-container'));
+
+    return container;
+}
 
 const createCommentCard = (container, data) => {
     const commentCard = createHTMLElement('div', 'comment-card', null);
@@ -102,4 +128,12 @@ const createHTMLElement = (tagName, className, innerText) => {
 
 const convertDate = (date) => {
     return `${date.getDay()} ${months[date.getMonth()]} ${date.getFullYear()} г. в ${date.getHours()}:${date.getMinutes()} часа`;
+};
+
+const styleElementLabel = (element) => {
+    if (element.value) {
+        element.labels[0].classList.add('top-positioned');
+    } else if (element.labels[0].classList.contains('top-positioned')) {
+        element.labels[0].classList.remove('top-positioned');
+    }
 };
