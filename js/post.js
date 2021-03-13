@@ -1,3 +1,5 @@
+const months = ['януари', 'февруари', 'март', 'април', 'май', 'юни', 'юли', 'август', 'септември', 'октомври', 'ноември', 'декември'];
+
 document.addEventListener('DOMContentLoaded', () => {
     const subscriberForm = document.querySelector('.subscriber-warning form');
     const commentForm = document.querySelector('.comment-form form');
@@ -70,26 +72,34 @@ const sendFormData = (form, currentDate) => {
 };
 
 const createCommentCard = (container, data) => {
-    const commentCard = document.createElement('div');
-    commentCard.classList.add('comment-card');
-
-    const commenter = document.createElement('span');
-    commenter.classList.add('commenter');
-    commenter.innerText = data.name;
+    const commentCard = createHTMLElement('div', 'comment-card', null);
+    const commenter = createHTMLElement('span', 'commenter', data.name);
 
     const heading = document.createElement('h6');
     heading.appendChild(commenter);
     heading.innerHTML += ' написа:';
 
-    const date = document.createElement('time');
-    date.innerText = data.date;
-
-    const comment = document.createElement('p');
-    comment.innerText = data.comment;
+    const date = createHTMLElement('time', null, convertDate(data.date));
+    const comment = createHTMLElement('p', null, data.comment);
 
     commentCard.appendChild(heading);
     commentCard.appendChild(date);
     commentCard.appendChild(comment);
 
     container.appendChild(commentCard);
+};
+
+const createHTMLElement = (tagName, className, innerText) => {
+    const element = document.createElement(tagName);
+    if (className) {
+        element.classList.add(className);
+    }
+    if (innerText) {
+        element.innerText = innerText;
+    }
+    return element;
+};
+
+const convertDate = (date) => {
+    return `${date.getDay()} ${months[date.getMonth()]} ${date.getFullYear()} г. в ${date.getHours()}:${date.getMinutes()} часа`;
 };

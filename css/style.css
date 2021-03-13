@@ -556,10 +556,18 @@ nav {
 .contacts select {
     float: right;
     width: 55%;
-    padding: 5px;
     border-radius: 5px;
     line-height: 1.8;
     color: #222;
+}
+
+.contacts input {
+    padding: 5px 8px;
+}
+
+.contacts select {
+    padding: 8px 5px;
+    border-width: 2px;
 }
 
 .contacts button {
