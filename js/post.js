@@ -3,14 +3,13 @@ const months = ['януари', 'февруари', 'март', 'април', '�
 document.addEventListener('DOMContentLoaded', () => {
     const subscriberForm = document.querySelector('.subscriber-warning form');
     const commentForm = document.querySelector('.comment-form form');
-    const commentContainer = document.querySelector('.comment-container');
     const selectedPosts = document.querySelectorAll('.selected-post');
     
     if (subscriberForm) {
         subscriberForm.addEventListener('submit', submitSubscriberForm.bind(null, subscriberForm));
     }
 
-    commentForm.addEventListener('submit', submitCommentForm.bind(null, commentForm, commentContainer));
+    commentForm.addEventListener('submit', submitCommentForm.bind(null, commentForm));
 
     [...commentForm.children].forEach((child, index) => {
         if (index !== 3) {
@@ -39,9 +38,10 @@ const submitSubscriberForm = (form) => {
     }
 };
 
-const submitCommentForm = (form, container) => {
+const submitCommentForm = (form) => {
     this.event.preventDefault();
 
+    let container = document.querySelector('.comment-container');
     const currentDate = new Date();
 
     if (form.checkValidity()) {
@@ -57,6 +57,7 @@ const submitCommentForm = (form, container) => {
                 } 
                 
                 createCommentCard(container, response.data);
+                upgradeCommentContainerTitle(container);
 
                 [...form.elements].forEach((element) => {
                     if (element.type !== 'submit') {
@@ -115,6 +116,10 @@ const createCommentCard = (container, data) => {
     container.appendChild(commentCard);
 };
 
+const upgradeCommentContainerTitle = (container) => {
+    container.children[0].innerText = `За този материал има ${container.children.length - 1} ${container.children.length === 2 ? 'коментар' : 'коментара'}`;
+};
+
 const createHTMLElement = (tagName, className, innerText) => {
     const element = document.createElement(tagName);
     if (className) {
@@ -127,7 +132,7 @@ const createHTMLElement = (tagName, className, innerText) => {
 };
 
 const convertDate = (date) => {
-    return `${date.getDay()} ${months[date.getMonth()]} ${date.getFullYear()} г. в ${date.getHours()}:${date.getMinutes()} часа`;
+    return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()} г. в ${date.getHours()}:${date.getMinutes()} часа`;
 };
 
 const styleElementLabel = (element) => {
