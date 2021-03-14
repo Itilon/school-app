@@ -123,6 +123,26 @@ p {
     text-shadow: none;
 }
 
+[class$="-message"] {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: #fdfdfd;
+}
+
+.success-message {
+    background: #009688;
+}
+
+.error-message {
+    background: #b71c1c;
+    margin-bottom: 10px;
+}
+
+.exit-btn {
+    cursor: pointer;
+}
+
 .left-slide {
     animation: slideInFromLeft .8s ease-in;
 }
@@ -1145,11 +1165,15 @@ nav {
     line-height: 1.4;
 }
 
+.post-wrapper [class$="-message"] p {
+    margin: 0;
+}
+
 .comment-container h5,
 .comment-form-container h5 {
     padding: 10px 0;
     font-size: 1.2em;
-    color: #00796b;
+    color: #009688;
 }
 
 .comment-card {
@@ -1258,7 +1282,7 @@ nav {
     border-radius: 5px;
     box-shadow: 4px 4px 6px -4px #9e9e9e;
     text-align: center;
-    color: #00796b;
+    color: #009688;
 }
 
 .post-wrapper .selected-post {

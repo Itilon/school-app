@@ -31,6 +31,9 @@ const submitSubscriberForm = (form) => {
                 if (!response.ok) {
                     throw new Error();
                 }
+
+                document.querySelector('.blurred').classList.remove('blurred');
+                form.parentElement.remove();
             })
             .catch(() => {
 
@@ -65,9 +68,11 @@ const submitCommentForm = (form) => {
                         element.labels[0].classList.remove('top-positioned');
                     }
                 });
+
+                populateFormMessage(form, true);
             })
             .catch(() => {
-
+                populateFormMessage(form, false);
             });
     }
 };
@@ -126,7 +131,7 @@ const createHTMLElement = (tagName, className, innerText) => {
         element.classList.add(className);
     }
     if (innerText) {
-        element.innerText = innerText;
+        element.innerHTML = innerText;
     }
     return element;
 };
@@ -141,4 +146,19 @@ const styleElementLabel = (element) => {
     } else if (element.labels[0].classList.contains('top-positioned')) {
         element.labels[0].classList.remove('top-positioned');
     }
+};
+
+const populateFormMessage = (form, isSuccess) => {
+    const messageContainer = isSuccess ?
+        createHTMLElement('div', 'success-message', null) :
+        createHTMLElement('div', 'error-message', null);
+    const message = isSuccess ?
+        createHTMLElement('p', null, 'Коментарът ти е изпратен успешно и очаква одобрение от модератор.') :
+        createHTMLElement('p', null, 'Нещо се обърка. Моля, опитай отново!');
+    const exitBtn = createHTMLElement('span', 'exit-btn', '&#10005;');
+
+    messageContainer.appendChild(message);
+    messageContainer.appendChild(exitBtn);
+
+    form.prepend(messageContainer);
 };
