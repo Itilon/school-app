@@ -1066,13 +1066,63 @@ nav {
 
 /* EVENTS PAGE */
 
-.events-wrapper {
+.events-showcase {
     margin: 20px 0;
 }
 
-.events-wrapper h2 {
+.events-showcase.dark {
+    background: rgba(80, 80, 80, .8);
+    padding: 20px 0;
+}
+
+.events-showcase h2 {
     font-size: 2em;
     color: #ff9800;
+}
+
+.events-showcase.dark h2 {
+    margin-bottom: 0;
+}
+
+.event-wrapper {
+    justify-content: space-around;
+    padding: 30px 10px;
+    border-top: 1px dotted #ccc;
+}
+
+.event-wrapper:nth-child(odd) {
+    background: rgba(200, 200, 200, .4);
+}
+
+.event-wrapper:nth-child(odd) h3 {
+    color: #ff9800;
+}
+
+.event-wrapper:nth-child(even) h3 {
+    color: #009688;
+}
+
+.event-image-wrapper {
+    width: 45%;
+}
+
+.event-image-wrapper img {
+    display: block;
+    width: 95%;
+    margin: auto;
+}
+
+.event-text-wrapper {
+    width: 45%;
+}
+
+.event-text-wrapper h3 {
+    margin-bottom: 20px;
+}
+
+.event-text-wrapper p {
+    margin-bottom: 20px;
+    line-height: 1.4;
 }
 
 /* BLOG PAGE */

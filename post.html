@@ -51,7 +51,7 @@
             <p class="blurred">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus iste tenetur tempore soluta laboriosam eos nam commodi molestias eius. Sint ducimus rem odit repellat aliquid incidunt corrupti doloribus ea similique?</p>
             <div class="subscriber-warning">
                 <p>Пълното съдържание на този материал е достъпно само за потребители, които са се абонирали за сайта. Ако искаш да го прочетеш, моля въведи електронната си поща в полето отдолу.</p>
-                <form action="check-email" method="POST">
+                <form action="check-email" method="POST" novalidate>
                     <div class="form-control">
                         <input id="subscriber-email" type="email" name="email" required>
                     </div>
@@ -84,7 +84,7 @@
             <div class="comment-form-container">
                 <h5>Остави коментар</h5>
                 <div class="comment-form">
-                    <form action="comment" method="POST">
+                    <form action="comment" method="POST" novalidate>
                         <div class="form-control">
                             <input id="name" name="name" type="text" autocomplete="off" minlength="3" required>
                             <label for="name">Име</label>

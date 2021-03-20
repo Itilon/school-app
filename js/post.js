@@ -33,10 +33,10 @@ const submitSubscriberForm = (form) => {
                 }
 
                 document.querySelector('.blurred').classList.remove('blurred');
-                form.parentElement.remove();
+                removeHTMLElement(form.parentElement);
             })
             .catch(() => {
-
+                populateFormMessage(form, false);
             });
     }
 };
@@ -136,6 +136,10 @@ const createHTMLElement = (tagName, className, innerText) => {
     return element;
 };
 
+const removeHTMLElement = (element) => {
+    element.remove();
+};
+
 const convertDate = (date) => {
     return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()} г. в ${date.getHours()}:${date.getMinutes()} часа`;
 };
@@ -161,4 +165,6 @@ const populateFormMessage = (form, isSuccess) => {
     messageContainer.appendChild(exitBtn);
 
     form.prepend(messageContainer);
+
+    exitBtn.addEventListener('click', () => removeHTMLElement(messageContainer));
 };
