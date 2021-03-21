@@ -50,6 +50,16 @@ p {
     display: flex;
 }
 
+.overlay {
+    background:rgba(20, 20, 20, .92);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
 .form-control {
     padding: 15px;
     text-align: left;
@@ -1067,7 +1077,8 @@ nav {
 /* EVENTS PAGE */
 
 .events-showcase {
-    margin: 20px 0;
+    background-image: url(../assets/event.jpg);
+    padding: 40px 0;
 }
 
 .events-showcase.dark {
@@ -1076,12 +1087,18 @@ nav {
 }
 
 .events-showcase h2 {
+    background: rgba(80, 80, 80, .8);
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
     font-size: 2em;
-    color: #ff9800;
+    color: #fff;
+    border: 1px solid #ff9800;
+    border-radius: 10px;
 }
 
 .events-showcase.dark h2 {
-    margin-bottom: 0;
+    border: 1px solid #009688;
 }
 
 .event-wrapper {
@@ -1123,6 +1140,58 @@ nav {
 .event-text-wrapper p {
     margin-bottom: 20px;
     line-height: 1.4;
+}
+
+.signup-form-container {
+    background: #444;
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    display: none;
+    width: 60%;
+    transform: translate(-50%, 0);
+    padding: 10px;
+    border: 1px dotted #ddd;
+    border-radius: 5px;
+    color: #fff;
+    z-index: 2;
+}
+
+.signup-form-container.visible {
+    display: block;
+}
+
+.signup-form-container .form-control {
+    margin-bottom: 20px;
+}
+
+.signup-form-container label {
+    display: inline-block;
+    width: 40%;
+}
+
+.signup-form-container input,
+.signup-form-container select {
+    float: right;
+    width: 55%;
+    border-radius: 5px;
+    line-height: 1.8;
+    color: #222;
+}
+
+.signup-form-container input {
+    padding: 5px 8px;
+}
+
+.signup-form-container select {
+    padding: 8px 5px;
+    border-width: 2px;
+}
+
+.signup-form-container button {
+    display: block;
+    width: 80%;
+    margin: 40px auto 20px;
 }
 
 /* BLOG PAGE */

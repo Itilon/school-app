@@ -125,21 +125,6 @@ const upgradeCommentContainerTitle = (container) => {
     container.children[0].innerText = `За този материал има ${container.children.length - 1} ${container.children.length === 2 ? 'коментар' : 'коментара'}`;
 };
 
-const createHTMLElement = (tagName, className, innerText) => {
-    const element = document.createElement(tagName);
-    if (className) {
-        element.classList.add(className);
-    }
-    if (innerText) {
-        element.innerHTML = innerText;
-    }
-    return element;
-};
-
-const removeHTMLElement = (element) => {
-    element.remove();
-};
-
 const convertDate = (date) => {
     return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()} г. в ${date.getHours()}:${date.getMinutes()} часа`;
 };

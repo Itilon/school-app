@@ -37,14 +37,18 @@
         <div class="event-text-wrapper">
             <h3>Семинар по ораторско майсторство</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quam, omnis perspiciatis facere ab molestiae eum odit repellendus vel sit. Eius perspiciatis excepturi fugit aliquam vel placeat, libero neque officia.</p>
-            <a href="./event.html" class="btn btn-light">Научи още</a>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, sunt?</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, provident explicabo! Reiciendis officiis explicabo dolore odio accusantium suscipit minima eligendi odit consequuntur iure ea eius, ipsam ut culpa amet vel!</p>
+            <button class="btn btn-light" data-event="seminar">Запиши се</button>
         </div>
     </section>
     <section class="event-wrapper container">
         <div class="event-text-wrapper">
             <h3>Финален изпит по английски език</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quam, omnis perspiciatis facere ab molestiae eum odit repellendus vel sit. Eius perspiciatis excepturi fugit aliquam vel placeat, libero neque officia.</p>
-            <a href="./event.html" class="btn btn-dark">Научи още</a>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi corporis corrupti, rem quisquam fuga exercitationem reprehenderit veritatis cumque consequatur voluptates dignissimos cupiditate doloremque, aut quas expedita vel eligendi animi aspernatur! Esse, minus maiores cupiditate ducimus quo iste necessitatibus similique expedita?</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia unde doloremque perspiciatis earum, deleniti inventore veniam mollitia dolor totam amet.</p>
+            <button class="btn btn-dark" data-event="exam">Запиши се</button>
         </div>
         <div class="event-image-wrapper">
             <img src="./assets/person2.jpg" alt="person 2">
@@ -52,10 +56,35 @@
     </section>
     <section class="events-showcase dark">
         <h2>Архив на изминалите събития</h2>
-    </section>  
+    </section>
+    <div class="signup-form-container">
+        <form action="signup" method="POST" novalidate>
+            <div class="form-control">
+                <label for="personal-name">Име</label>
+                <input id="personal-name" type="name" autocomplete="off" required>
+            </div>
+            <div class="form-control">
+                <label for="personal-email">Електронна поща</label>
+                <input id="personal-email" type="email" autocomplete="off" required>
+            </div>
+            <div class="form-control">
+                <label for="telephone">Телефонен номер</label>
+                <input id="telephone" type="tel" autocomplete="off" required>
+            </div>
+            <div class="form-control">
+                <label for="courses">Събитие</label>
+                <select name="courses" id="courses">
+                    <option value="seminar">Семинар по ораторско майсторство</option>
+                    <option value="exam">Финален изпит по английски език</option>
+                </select>
+            </div>
+            <button class="btn btn-light">Регистрирай се</button>
+        </form>
+    </div>
     <footer class="footer">
         <p>&copy 2020 Студио за творческо обучение "АЯ". Всички права запазени.</p>
     </footer>
     <script src="./js/main.js"></script>
+    <script src="./js/events.js"></script>
 </body>
 </html>
