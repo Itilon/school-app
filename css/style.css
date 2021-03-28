@@ -1150,15 +1150,24 @@ nav {
     justify-content: space-around;
 }
 
+.events-wrapper a {
+    display: block;
+    width: 30%;
+    text-decoration: none;
+}
+
 .event-card {
     background-position: top;
     background-size: cover;
+    position: relative;
     height: 300px;
-    width: 30%;
     padding-top: 260px;
     border: 1px dotted #009688;
     border-radius: 5px;
     box-shadow: 4px 4px 6px -4px #9e9e9e;
+    cursor: pointer;
+    filter: grayscale(0%);
+    transition: filter .6s ease-in-out;
 }
 
 .event-card h4 {
@@ -1166,6 +1175,29 @@ nav {
     height: 40px;
     padding-top: 8px;
     text-align: center;
+    transition: color .6s ease-in-out;
+}
+
+.event-card .fa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    opacity: 0;
+    transition: opacity .6s ease-in-out;
+}
+
+.event-card:hover {
+    filter: grayscale(80%);
+}
+
+.event-card:hover h4 {
+    color: #fff;
+}
+
+.event-card:hover .fa {
+    opacity: 1;
 }
 
 .signup-form-container {
