@@ -1142,6 +1142,32 @@ nav {
     line-height: 1.4;
 }
 
+.events-wrapper {
+    padding: 20px 0;
+}
+
+.events-wrapper .container {
+    justify-content: space-around;
+}
+
+.event-card {
+    background-position: top;
+    background-size: cover;
+    height: 300px;
+    width: 30%;
+    padding-top: 260px;
+    border: 1px dotted #009688;
+    border-radius: 5px;
+    box-shadow: 4px 4px 6px -4px #9e9e9e;
+}
+
+.event-card h4 {
+    background: rgba(80, 80, 80, .8);
+    height: 40px;
+    padding-top: 8px;
+    text-align: center;
+}
+
 .signup-form-container {
     background: #444;
     position: fixed;
