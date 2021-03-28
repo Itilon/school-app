@@ -51,7 +51,7 @@ p {
 }
 
 .overlay {
-    background:rgba(20, 20, 20, .92);
+    background: rgba(20, 20, 20, .92);
     position: fixed;
     top: 0;
     left: 0;
@@ -91,7 +91,7 @@ p {
 
 [class$="-showcase"] h1 {
     position: absolute;
-    background:rgba(80, 80, 80, .8);
+    background: rgba(80, 80, 80, .8);
     top: 30px;
     left: 50%;
     width: 500px;
@@ -113,7 +113,7 @@ p {
 
 [class$="-heading"] h3,
 [class$="-heading"] h5 {
-    background:rgba(80, 80, 80, .8);
+    background: rgba(80, 80, 80, .8);
     height: 50px;
     padding: 10px 5px 0 5px;
     color: #ff9800;
@@ -469,7 +469,7 @@ nav {
 
 .client {
     flex-basis: 100%;
-    background:rgba(200, 200, 200, .4);
+    background: rgba(200, 200, 200, .4);
     margin: 5px 15px;
     padding: 10px;
     border-radius: 10px;
@@ -513,7 +513,7 @@ nav {
 }
 
 .courses h3 {
-    background:rgba(80, 80, 80, .8);
+    background: rgba(80, 80, 80, .8);
     margin: 0 80px 20px 80px;
     padding: 5px;
     font-size: 1.6em;
@@ -628,7 +628,7 @@ nav {
 /* BLOG SECTION */
 
 .blog-wrapper {
-    background:rgba(200, 200, 200, .4);
+    background: rgba(200, 200, 200, .4);
     margin-top: 20px;
     padding: 20px 0 80px 0;
     border-top: 1px dotted #ccc;
@@ -682,7 +682,7 @@ nav {
 
 /* ABOUT PAGE */
 
-.interview-wrapper {
+.message-wrapper {
     background-image: url(../assets/fun.jpg);
     background-position: center;
     background-size: cover;
@@ -691,7 +691,7 @@ nav {
     border-bottom: 1px dotted #222;
 }
 
-.interview-wrapper h3 {
+.message-wrapper h3 {
     background: rgba(80, 80, 80, .8);
     width: 560px;
     margin: 20px auto;
@@ -700,13 +700,20 @@ nav {
     color: #ff9800;
     border: 1px solid #ccc;
     border-radius: 10px;
+    opacity: 0;
 }
 
-.interview-wrapper iframe {
+.message-wrapper iframe {
     height: 315px;
     width: 560px;
     border: 1px solid #ccc;
     border-radius: 10px;
+    opacity: 0;
+}
+
+.message-wrapper .top-slide,
+.message-wrapper .bottom-slide {
+    opacity: 1;
 }
 
 .about-wrapper {
@@ -737,6 +744,12 @@ nav {
     margin: 20px auto;
     border-radius: 5px;
     box-shadow: 4px 4px 6px -4px #9e9e9e;
+}
+
+.img-container a {
+    display: block;
+    width: 80%;
+    margin: 20px auto;
 }
 
 .text-container {
@@ -805,17 +818,19 @@ nav {
 }
 
 @media only screen and (max-width: 760px) {
-    .interview-wrapper h3 {
+    .message-wrapper h3 {
         width: 435px;
     }
 
-    .interview-wrapper iframe {
+    .message-wrapper iframe {
         height: 245px;
         width: 435px;
     }
-}
 
-@media only screen and (max-width: 680px) {
+    .about-container {
+        flex-direction: column;
+    }
+
     .img-container,
     .text-container {
         width: 100%;
@@ -825,10 +840,13 @@ nav {
         padding: 0 20px;
     }
 
-    .img-container img {
+    .img-container img,
+    .img-container a {
         width: 100%;
     }
+}
 
+@media only screen and (max-width: 680px) {
     .value-card {
         width: 80%;
         margin: 20px auto;
@@ -836,11 +854,11 @@ nav {
 }
 
 @media only screen and (max-width: 440px) {
-    .interview-wrapper h3 {
+    .message-wrapper h3 {
         width: 345px;
     }
 
-    .interview-wrapper iframe {
+    .message-wrapper iframe {
         height: 195px;
         width: 345px;
     }
@@ -936,7 +954,7 @@ nav {
 .feedback-btn-container,
 .feedback-form {
     position: absolute;
-    background:rgba(80, 80, 80, .8);
+    background: rgba(80, 80, 80, .8);
     width: 500px;
     padding: 20px;
     left: 50%;
@@ -1179,11 +1197,15 @@ nav {
 }
 
 .event-card .fa {
+    background: rgba(80, 80, 80, .8);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding: 10px;
     color: #fff;
+    border-radius: 50%;
+    border: 2px solid #9e9e9e;
     opacity: 0;
     transition: opacity .6s ease-in-out;
 }
@@ -1319,7 +1341,7 @@ nav {
 }
 
 .post-wrapper article {
-    background:rgba(200, 200, 200, .4);
+    background: rgba(200, 200, 200, .4);
     width: 65%;
     margin: 10px 20px;
     padding: 20px;
@@ -1507,7 +1529,7 @@ nav {
 }
 
 .contact-wrapper {
-    background:rgba(200, 200, 200, .4);
+    background: rgba(200, 200, 200, .4);
     justify-content: space-around;
     padding: 20px 10px;
 }
