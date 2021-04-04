@@ -18,12 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        const intersectionOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 1.0
-        };
-        
+        const intersectionOptions = { rootMargin: '0px', threshold: .75 };
         const observer = new IntersectionObserver(onIntersection, intersectionOptions);
         observer.observe(messageWrapper);  
     } else {
