@@ -44,6 +44,27 @@ p {
     text-align: left;
 }
 
+iframe {
+    height: 315px;
+    width: 560px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 760px) {
+    iframe {
+        height: 245px;
+        width: 435px;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    iframe {
+        height: 195px;
+        width: 345px;
+    }
+}
+
 /* UTILIYY CLASSES */
 
 .container {
@@ -100,6 +121,11 @@ p {
     color: #fff;
     border-radius: 10px;
     box-shadow: 4px 4px 6px -4px #9e9e9e;
+}
+
+
+[class$="-showcase"] h2 {
+    font-size: 2em;
 }
 
 [class$="-heading"] {
@@ -704,10 +730,6 @@ nav {
 }
 
 .message-wrapper iframe {
-    height: 315px;
-    width: 560px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
     opacity: 0;
 }
 
@@ -822,11 +844,6 @@ nav {
         width: 435px;
     }
 
-    .message-wrapper iframe {
-        height: 245px;
-        width: 435px;
-    }
-
     .about-container {
         flex-direction: column;
     }
@@ -857,11 +874,56 @@ nav {
     .message-wrapper h3 {
         width: 345px;
     }
+}
 
-    .message-wrapper iframe {
-        height: 195px;
-        width: 345px;
-    }
+/* INTERVIEW PAGE */
+
+.interview-showcase {
+    margin: 20px 0;
+}
+
+.interview-showcase h2 {
+    color: #009688;
+}
+
+.interview-wrapper {
+    padding: 20px;
+}
+
+.interview-inner-wrapper {
+    background: rgba(200, 200, 200, .4);
+    margin: 20px;
+    padding: 20px;
+    border: 1px dotted #666;
+    border-radius: 5px;
+    box-shadow: 4px 4px 6px -4px #9e9e9e;
+}
+
+.interview-inner-wrapper:nth-child(1) {
+    background-image: url(../assets/interview.jpg);
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.interview-inner-wrapper h3 {
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 1.6em;
+    color: #ff9800;
+}
+
+.interview-inner-wrapper h6 {
+    margin: 20px 0;
+    font-size: 1.4em;
+    color: #009688;
+}
+
+.interview-inner-wrapper p {
+    margin: 10px 0;
+    line-height: 1.4;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 /* COURSES PAGE */
@@ -871,7 +933,6 @@ nav {
 }
 
 .courses-showcase h2 {
-    font-size: 2em;
     color: #009688;
 }
 
@@ -940,7 +1001,6 @@ nav {
 }
 
 .course-showcase h2 {
-    font-size: 2em;
     color: #009688;
 }
 
@@ -1109,7 +1169,6 @@ nav {
     width: 500px;
     margin: 0 auto;
     padding: 20px;
-    font-size: 2em;
     color: #fff;
     border: 1px solid #ff9800;
     border-radius: 10px;
@@ -1332,7 +1391,6 @@ nav {
 }
 
 .post-showcase h2 {
-    font-size: 2em;
     color: #ff9800;
 }
 
