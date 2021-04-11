@@ -408,6 +408,7 @@ nav {
     border-radius: 10px;
     padding: 10px;
     text-align: center;
+    z-index: 1;
 }
 
 .showcase-text h1 {
@@ -449,6 +450,7 @@ nav {
 .showcase-form label {
     display: inline-block;
     width: 40%;
+    margin-right: 5px;
     color: #fff;
 }
 
@@ -465,10 +467,11 @@ nav {
 .showcase-form .check {
     flex-grow: 1;
     width: fit-content;
+    margin-right: 0;
     padding-left: 10px;
     font-size: .9em;
     text-align: justify;
-    font-style: italic;
+    line-height: 1.2;
 }
 
 .showcase-form input[type="checkbox"] {
@@ -476,6 +479,7 @@ nav {
     height: 24px;
     width: 24px;
     opacity: 0;
+    cursor: pointer;
 }
 
 .showcase-form .checkmark {
@@ -506,14 +510,56 @@ nav {
     font-weight: bold;
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 1024px) {
+    .showcase-text,
+    .showcase-form {
+        width: 40%;
+    }
+
+    .showcase-form label {
+        font-size: .9em;
+    }
+
+    .showcase-form .check {
+        font-size: .8em;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .showcase {
+        flex-direction: column;
+    }
+
     .showcase-text,
     .showcase-form {
         position: relative;
         top: 0;
         left: 0;
-        width: 85%;
+        width: 75%;
         margin: 15px auto;
+    }
+
+    .showcase-form label {
+        font-size: 1em;
+    }
+
+    .showcase-form .check {
+        font-size: .9em;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .showcase-text,
+    .showcase-form {
+        width: 85%;
+    }
+
+    .showcase-form label {
+        font-size: .9em;
+    }
+
+    .showcase-form .check {
+        font-size: .8em;
     }
 }
 
