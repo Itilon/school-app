@@ -82,17 +82,6 @@ const redirectToBlogPost = (post) => {
     this.location.href = './post.html';
 };
 
-const sendFormData = (form, currentDate) => {
-    const endpoint = form.action;
-    const method = form.method;
-    const formData = new FormData(form);
-    const data = {};
-    formData.forEach((value, key) => data[key] = value);
-    data['date'] = currentDate;
-
-    return Promise.resolve({ ok: true, data });
-};
-
 const createCommentContainer = () => {
     const container = createHTMLElement('div', 'comment-container', null);
     const title = createHTMLElement('h5', null, 'За този материал има 1 коментар');

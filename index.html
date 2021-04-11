@@ -35,7 +35,7 @@
         </div>
         <div class="showcase-form right-slide">
             <h2>Запиши се за безплатни материали и полезни съвети</h2>
-            <form action="POST">
+            <form action="POST" novalidate>
                 <div class="form-control">
                     <label for="name">Име</label>
                     <input id="name" type="name" name="name" autocomplete="off" required>
@@ -127,21 +127,27 @@
     <section class="blog-wrapper">
         <h3>Най-новите публикации в блога</h3>
         <div class="blog container">
-            <div class="blog-card" data-id="1">
-                <img src="./assets/person1.jpg" alt="client">
-                <h4>Заглавие на публикация 1</h4>
-                <time datetime="2021-03-02">02.03.2021</time>
-            </div>
-            <div class="blog-card" data-id="2">
-                <img src="./assets/person2.jpg" alt="client">
-                <h4>Заглавие на публикация 2</h4>
-                <time datetime="2021-03-02">02.03.2021</time>
-            </div>
-            <div class="blog-card" data-id="3">
-                <img src="./assets/person3.jpg" alt="client">
-                <h4>Заглавие на публикация 3</h4>
-                <time datetime="2021-03-01">01.03.2021</time>
-            </div>
+            <a href="./post.html">
+                <div class="blog-card" data-id="1">
+                    <img src="./assets/person1.jpg" alt="client">
+                    <h4>Заглавие на публикация 1</h4>
+                    <time datetime="2021-03-02">02.03.2021</time>
+                </div>
+            </a>
+            <a href="./post.html">
+                <div class="blog-card" data-id="2">
+                    <img src="./assets/person2.jpg" alt="client">
+                    <h4>Заглавие на публикация 2</h4>
+                    <time datetime="2021-03-02">02.03.2021</time>
+                </div>
+            </a>
+            <a href="./post.html">
+                <div class="blog-card" data-id="3">
+                    <img src="./assets/person3.jpg" alt="client">
+                    <h4>Заглавие на публикация 3</h4>
+                    <time datetime="2021-03-01">01.03.2021</time>
+                </div>
+            </a>
         </div>
     </section>
     <footer class="footer">

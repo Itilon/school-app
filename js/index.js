@@ -1,12 +1,3 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const blogCards = document.querySelectorAll('.blog-card');
-
-    blogCards.forEach((blogCard) => {
-        blogCard.addEventListener('click', redirectToBlogPost.bind(null, blogCard));
-    });
+    const showcaseForm = document.querySelector('.showcase-form form');
 });
-
-const redirectToBlogPost = (blogCard) => {
-    const postId = blogCard.dataset.id;
-    this.location.href = './post.html';
-};
