@@ -1754,6 +1754,38 @@ nav {
     }
 }
 
+/* POLICY PAGE */
+
+.policy-showcase {
+    margin: 20px 0;
+}
+
+.policy-showcase h2 {
+    color: #009688;
+}
+
+.policy-wrapper {
+    padding: 20px 40px;
+}
+
+.policy {
+    background: rgba(200, 200, 200, .4);
+    padding: 10px;
+    border: 1px dotted #696969;
+    border-radius: 5px;
+    box-shadow: 4px 4px 6px -4px #9e9e9e;
+}
+
+.policy h4 {
+    margin: 40px 0 20px 0;
+}
+
+.policy p {
+    margin: 10px 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 1.4;
+}
+
 /* BREADCRUMBS */
 
 .breadcrumb-container {
