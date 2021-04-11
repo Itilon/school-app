@@ -440,6 +440,12 @@ nav {
     color: #009688;
 }
 
+.showcase-form .form-control {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
 .showcase-form label {
     display: inline-block;
     width: 40%;
@@ -448,12 +454,51 @@ nav {
 
 .showcase-form input {
     background: rgba(80, 80, 80, .8);
-    width: 55%;
+    flex-grow: 100;
     padding: 5px;
     border: 1px solid #fff;
     border-radius: 5px;
     line-height: 1.8;
     color: #fff;
+}
+
+.showcase-form .check {
+    flex-grow: 1;
+    width: fit-content;
+    padding-left: 10px;
+    font-size: .9em;
+    text-align: justify;
+    font-style: italic;
+}
+
+.showcase-form input[type="checkbox"] {
+    flex-grow: 0;
+    height: 24px;
+    width: 24px;
+    opacity: 0;
+}
+
+.showcase-form .checkmark {
+    background: rgba(80, 80, 80, .8);
+    position: absolute;
+    top: 50%;
+    height: 24px;
+    width: 24px;
+    pointer-events: none;
+    transform: translate(0, -50%);
+    border: 1px solid #fff;
+    border-radius: 5px;
+    line-height: .8;
+}
+
+.showcase-form input[type="checkbox"]:checked ~ .checkmark {
+    border: 1px solid #009688;
+}
+
+.showcase-form input[type="checkbox"]:checked ~ .checkmark:before {
+    content: "\2713";
+    font-size: 28px;
+    color: #009688;
 }
 
 .showcase-form button {

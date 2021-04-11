@@ -38,11 +38,16 @@
             <form action="POST">
                 <div class="form-control">
                     <label for="name">Име</label>
-                    <input id="name" type="name" autocomplete="off" required>
+                    <input id="name" type="name" name="name" autocomplete="off" required>
                 </div>
                 <div class="form-control">
                     <label for="email">Електронна поща</label>
-                    <input id="email" type="email" autocomplete="off" required>
+                    <input id="email" type="email" name="email" autocomplete="off" required>
+                </div>
+                <div class="form-control">
+                    <input id="check" type="checkbox" name="check" required>
+                    <span class="checkmark"></span>
+                    <label for="check" class="check">Съгласен съм личните ми данни да бъдат обработени от сайта с цел получаване на полезни материали.</label>
                 </div>
                 <button class="btn btn-light">Изпрати</button>
             </form>
