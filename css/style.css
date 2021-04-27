@@ -1128,7 +1128,12 @@ nav {
 }
 
 .feedback-form {
-    top: 200px;
+    top: 100px;
+}
+
+.feedback-btn-container.hidden,
+.feedback-form.hidden {
+    top: -800px;
 }
 
 .feedback-form .form-control {
