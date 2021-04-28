@@ -1121,7 +1121,7 @@ nav {
 
 .feedback-btn-container.hidden,
 .feedback-form.hidden {
-    top: -800px;
+    display: none;
 }
 
 .feedback-btn-container button {
@@ -1129,7 +1129,7 @@ nav {
     font-weight: bold;
 }
 
-.feedback-form .exit-btn {
+.feedback-form .closing-btn {
     position: absolute;
     top: 5px;
     right: 10px;
@@ -1182,6 +1182,11 @@ nav {
 
 .feedback-form button {
     width: 100%;
+}
+
+.feedback-form .error-message {
+    margin-top: 5px;
+    font-size: .8em;
 }
 
 .feedback-wrapper {
