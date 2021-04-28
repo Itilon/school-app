@@ -1104,7 +1104,7 @@ nav {
 
 .feedback-showcase {
     background-image: url(../assets/feedback.jpg);
-    height: 300px;
+    height: 200px;
 }
 
 .feedback-btn-container,
@@ -1113,13 +1113,15 @@ nav {
     background: rgba(80, 80, 80, .8);
     width: 500px;
     padding: 20px;
+    top: 60px;
     left: 50%;
     transform: translate(-50%, 0);
     border-radius: 10px;
 }
 
-.feedback-btn-container {
-    top: 100px;
+.feedback-btn-container.hidden,
+.feedback-form.hidden {
+    top: -800px;
 }
 
 .feedback-btn-container button {
@@ -1127,13 +1129,16 @@ nav {
     font-weight: bold;
 }
 
-.feedback-form {
-    top: 100px;
-}
-
-.feedback-btn-container.hidden,
-.feedback-form.hidden {
-    top: -800px;
+.feedback-form .exit-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    padding: 5px 10px;
+    color: #b71c1c;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 5;
 }
 
 .feedback-form .form-control {
