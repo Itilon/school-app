@@ -13,13 +13,23 @@ document.addEventListener('DOMContentLoaded', () => {
 const toggleFeedbackFormContainer = (feedbackBtnContainer, formContainer) => {
     feedbackBtnContainer.classList.toggle('hidden');
     formContainer.classList.toggle('hidden');
+
+    if (formContainer.classList.contains('hidden')) {
+        clearForm(formContainer);
+    }
 };
 
 const submitFeedbackForm = (form) => {
     this.event.preventDefault();
 
     if (form.checkValidity()) {
+        sendFormData(form)
+            .then((response) => {
+                clearForm(form);
+            })
+            .catch(() => {
 
+            });
     } else {
         const invalidFields = form.querySelectorAll(':invalid');
         invalidFields.forEach((field) => populateErrorMessage(field));
@@ -55,4 +65,20 @@ const createErrorMessage = (text) => {
     exitBtn.addEventListener('click', () => removeHTMLElement(messageContainer));
 
     return messageContainer;
+};
+
+const clearForm = (container) => {
+    const formControls = [...container.querySelectorAll('.form-control')];
+    formControls.pop();
+
+    formControls.forEach((formControl) => {
+        const errorMessage = formControl.querySelector('.error-message');
+        if (errorMessage) {
+            removeHTMLElement(errorMessage);
+        }
+
+        if (formControl.children[0].value) {
+            formControl.children[0].value = '';
+        }
+    });
 };
