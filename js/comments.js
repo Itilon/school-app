@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     [...feedbackForm.children].forEach((child, index) => {
         if (index !== 3) {
+            child.children[0].addEventListener('keyup', checkForErrorMessage.bind(null, child.children[0]));
             child.children[0].addEventListener('focusout', styleElementLabel.bind(null, child.children[0]));
         }
     });
@@ -34,10 +35,14 @@ const submitFeedbackForm = (form, feedbackBtnContainer, feedbackFormContainer) =
     if (form.checkValidity()) {
         sendFormData(form)
             .then((response) => {
+                if (!response.ok) {
+                    throw new Error();
+                }
+
                 toggleFeedbackFormContainer(feedbackBtnContainer, feedbackFormContainer);
             })
             .catch(() => {
-
+                populateErrorMessage(form);
             });
     } else {
         const invalidFields = form.querySelectorAll(':invalid');
@@ -55,12 +60,14 @@ const populateErrorMessage = (field) => {
         case 'email':
             messageContainer = createErrorMessage('Моля, попълни електронната си поща!');
             break;
-        default:
+        case 'textarea':
             messageContainer = createErrorMessage('Моля, остави ни отзив!');
             break;
+        default:
+            messageContainer = createErrorMessage('Нещо се обърка. Моля, опитай отново!');
     }
 
-    field.parentNode.appendChild(messageContainer);
+    field.type ? field.parentNode.appendChild(messageContainer) : field.insertBefore(messageContainer, field.firstChild);;
 };
 
 const createErrorMessage = (text) => {
@@ -96,6 +103,14 @@ const clearForm = (container) => {
             formControl.children[0].value = '';
         }
     });
+};
+
+const checkForErrorMessage = (field) => {
+    const errorMessage = field.parentElement.querySelector('.error-message');
+
+    if (field.checkValidity() && errorMessage) {
+        removeHTMLElement(errorMessage);
+    }
 };
 
 const resizeTextarea = (textarea) => {

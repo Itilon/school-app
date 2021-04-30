@@ -1195,6 +1195,10 @@ nav {
     font-size: .8em;
 }
 
+.feedback-form .error-message:first-child {
+    margin: 20px 15px;
+}
+
 .feedback-wrapper {
     background: rgba(200, 200, 200, .4);
     justify-content: space-around;
