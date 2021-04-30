@@ -118,14 +118,6 @@ const convertDate = (date) => {
     return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()} г. в ${date.getHours()}:${date.getMinutes()} часа`;
 };
 
-const styleElementLabel = (element) => {
-    if (element.value) {
-        element.labels[0].classList.add('top-positioned');
-    } else if (element.labels[0].classList.contains('top-positioned')) {
-        element.labels[0].classList.remove('top-positioned');
-    }
-};
-
 const populateFormMessage = (form, isSuccess) => {
     const messageContainer = isSuccess ?
         createHTMLElement('div', 'success-message', null) :

@@ -34,3 +34,12 @@ const createHTMLElement = (tagName, className, innerText) => {
 const removeHTMLElement = (element) => {
     element.remove();
 };
+
+
+const styleElementLabel = (element) => {
+    if (element.value) {
+        element.labels[0].classList.add('top-positioned');
+    } else if (element.labels[0].classList.contains('top-positioned')) {
+        element.labels[0].classList.remove('top-positioned');
+    }
+};

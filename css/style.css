@@ -1174,7 +1174,9 @@ nav {
 
 .feedback-form input:focus + label,
 .feedback-form input:valid + label,
-.feedback-form textarea:focus + label {
+.feedback-form textarea:focus + label,
+.feedback-form textarea:valid + label,
+.feedback-form .top-positioned {
     top: 0;
     font-size: 12px;
     cursor: default;

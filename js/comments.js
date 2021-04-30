@@ -7,7 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     feedbackBtn.addEventListener('click', toggleFeedbackFormContainer.bind(null, feedbackBtnContainer, feedbackFormContainer));
     closingBtn.addEventListener('click', toggleFeedbackFormContainer.bind(null, feedbackBtnContainer, feedbackFormContainer));
-    feedbackForm.addEventListener('submit', submitFeedbackForm.bind(null, feedbackForm));
+    feedbackForm.addEventListener('submit', submitFeedbackForm.bind(null, feedbackForm, feedbackBtnContainer, feedbackFormContainer));
+
+    [...feedbackForm.children].forEach((child, index) => {
+        if (index !== 3) {
+            child.children[0].addEventListener('focusout', styleElementLabel.bind(null, child.children[0]));
+        }
+    });
 });
 
 const toggleFeedbackFormContainer = (feedbackBtnContainer, formContainer) => {
@@ -19,13 +25,13 @@ const toggleFeedbackFormContainer = (feedbackBtnContainer, formContainer) => {
     }
 };
 
-const submitFeedbackForm = (form) => {
+const submitFeedbackForm = (form, feedbackBtnContainer, feedbackFormContainer) => {
     this.event.preventDefault();
 
     if (form.checkValidity()) {
         sendFormData(form)
             .then((response) => {
-                clearForm(form);
+                toggleFeedbackFormContainer(feedbackBtnContainer, feedbackFormContainer);
             })
             .catch(() => {
 
@@ -73,8 +79,14 @@ const clearForm = (container) => {
 
     formControls.forEach((formControl) => {
         const errorMessage = formControl.querySelector('.error-message');
+        const topPositionedLabel = formControl.querySelector('.top-positioned');
+
         if (errorMessage) {
             removeHTMLElement(errorMessage);
+        }
+
+        if (topPositionedLabel) {
+            topPositionedLabel.classList.remove('top-positioned');
         }
 
         if (formControl.children[0].value) {
