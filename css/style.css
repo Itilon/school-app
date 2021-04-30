@@ -1167,6 +1167,10 @@ nav {
     border-bottom: 1px solid #ff9800;
 }
 
+.feedback-form textarea {
+    overflow: hidden;
+}
+
 .feedback-form input:focus,
 .feedback-form textarea:focus {
     outline: none;

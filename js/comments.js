@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const feedbackFormContainer = document.querySelector('.feedback-form');
     const closingBtn = feedbackFormContainer.querySelector('.closing-btn');
     const feedbackForm = feedbackFormContainer.querySelector('form');
+    const textarea = feedbackForm.querySelector('textarea');
 
     feedbackBtn.addEventListener('click', toggleFeedbackFormContainer.bind(null, feedbackBtnContainer, feedbackFormContainer));
     closingBtn.addEventListener('click', toggleFeedbackFormContainer.bind(null, feedbackBtnContainer, feedbackFormContainer));
@@ -14,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
             child.children[0].addEventListener('focusout', styleElementLabel.bind(null, child.children[0]));
         }
     });
+
+    textarea.addEventListener('keydown', resizeTextarea.bind(null, textarea));
 });
 
 const toggleFeedbackFormContainer = (feedbackBtnContainer, formContainer) => {
@@ -93,4 +96,9 @@ const clearForm = (container) => {
             formControl.children[0].value = '';
         }
     });
+};
+
+const resizeTextarea = (textarea) => {
+    textarea.style.height = 'auto';
+    textarea.style.height = `${textarea.scrollHeight}px`;
 };
