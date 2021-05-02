@@ -20,6 +20,46 @@ const sendFormData = (form, currentDate) => {
     return Promise.resolve({ ok: true, data });
 };
 
+const populateErrorMessage = (field, isShowcaseForm) => {
+    const fieldParent = field.parentNode;
+    let messageContainer;
+    
+    switch(field.type) {
+        case 'text':
+            messageContainer = createErrorMessage('Моля, попълни името си!');
+            break;
+        case 'email':
+            messageContainer = createErrorMessage('Моля, попълни електронната си поща!');
+            break;
+        case 'textarea':
+            messageContainer = createErrorMessage('Моля, остави ни отзив!');
+            break;
+        case 'checkbox':
+            messageContainer = createErrorMessage('Моля, приеми условията на сайта!');
+            break;
+        default:
+            messageContainer = createErrorMessage('Нещо се обърка. Моля, опитай отново!');
+    }
+
+    isShowcaseForm ?
+        fieldParent.parentNode.insertBefore(messageContainer, fieldParent.nextElementSibling) :
+        field.type ?
+            fieldParent.appendChild(messageContainer) : field.insertBefore(messageContainer, field.firstChild);
+};
+
+const createErrorMessage = (text) => {
+    const messageContainer = createHTMLElement('div', 'error-message', null);
+    const message = createHTMLElement('p', null, text);
+    const exitBtn = createHTMLElement('span', 'exit-btn', '&#10005;');
+
+    messageContainer.appendChild(message);
+    messageContainer.appendChild(exitBtn);
+
+    exitBtn.addEventListener('click', () => removeHTMLElement(messageContainer));
+
+    return messageContainer;
+};
+
 const createHTMLElement = (tagName, className, innerText) => {
     const element = document.createElement(tagName);
     if (className) {
@@ -34,7 +74,6 @@ const createHTMLElement = (tagName, className, innerText) => {
 const removeHTMLElement = (element) => {
     element.remove();
 };
-
 
 const styleElementLabel = (element) => {
     if (element.value) {

@@ -9,9 +9,7 @@ body {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-button {
-    cursor: pointer;
-}
+button { cursor: pointer; }
 
 h1 {
     font-size: 2.4em;
@@ -40,9 +38,7 @@ h6 {
     color: #ff9800;
 }
 
-p {
-    text-align: left;
-}
+p { text-align: left; }
 
 iframe {
     height: 315px;
@@ -50,6 +46,8 @@ iframe {
     border: 1px solid #ccc;
     border-radius: 10px;
 }
+
+input:focus { outline: none; }
 
 @media only screen and (max-width: 760px) {
     iframe {
@@ -67,9 +65,7 @@ iframe {
 
 /* UTILIYY CLASSES */
 
-.container {
-    display: flex;
-}
+.container { display: flex; }
 
 .overlay {
     background: rgba(20, 20, 20, .92);
@@ -96,13 +92,9 @@ iframe {
     border-radius: 5px;
 }
 
-.btn-dark {
-    background: #009688;
-}
+.btn-dark { background: #009688; }
 
-.btn-light {
-    background: #ff9800;
-}
+.btn-light { background: #ff9800; }
 
 [class$="-showcase"] {
     position: relative;
@@ -123,10 +115,7 @@ iframe {
     box-shadow: 4px 4px 6px -4px #9e9e9e;
 }
 
-
-[class$="-showcase"] h2 {
-    font-size: 2em;
-}
+[class$="-showcase"] h2 { font-size: 2em; }
 
 [class$="-heading"] {
     background-position: top;
@@ -166,42 +155,30 @@ iframe {
     color: #fdfdfd;
 }
 
-.success-message {
-    background: #009688;
-}
+.success-message { background: #009688; }
 
 .error-message {
     background: #b71c1c;
     margin-bottom: 10px;
 }
 
-.exit-btn {
-    cursor: pointer;
-}
+.exit-btn { cursor: pointer; }
 
-.left-slide {
-    animation: slideInFromLeft .8s ease-in;
-}
+.top-slide { animation: slideInFromTop .8s ease-in; }
 
-.right-slide {
-    animation: slideInFromRight .8s ease-in;
-}
+.right-slide { animation: slideInFromRight .8s ease-in; }
 
-.top-slide {
-    animation: slideInFromTop .8s ease-in;
-}
+.bottom-slide { animation:slideInFromBottom .8s ease-in; }
 
-.bottom-slide {
-    animation:slideInFromBottom .8s ease-in;
-}
+.left-slide { animation: slideInFromLeft .8s ease-in; }
 
-@keyframes slideInFromLeft {
+@keyframes slideInFromTop {
     0% {
-        transform: translateX(-100%);
+        transform: translateY(-300%);
     }
 
     100% {
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
@@ -215,16 +192,6 @@ iframe {
     }
 }
 
-@keyframes slideInFromTop {
-    0% {
-        transform: translateY(-300%);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
 @keyframes slideInFromBottom {
     0% {
       transform: translateY(300%);
@@ -235,6 +202,15 @@ iframe {
     }
 }
 
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
 
 @media only screen and (max-width: 680px) {
     .container {
@@ -256,9 +232,7 @@ header {
     height: 80px;
 }
 
-nav {
-    padding: 0 5px;
-}
+nav { padding: 0 5px; }
 
 .branding {
     flex: 40%;
@@ -270,9 +244,7 @@ nav {
     color: #fff;
 }
 
-.branding img {
-    height: 80px;
-}
+.branding img { height: 80px; }
 
 .navigation {
     flex: 60%;
@@ -310,23 +282,15 @@ nav {
 }
 
 @media only screen and (max-width: 1024px) {
-    .branding {
-        flex: 15%;
-    }
+    .branding { flex: 15%; }
 
-    .navigation {
-        flex: 85%;
-    }
+    .navigation { flex: 85%; }
 }
 
 @media only screen and (max-width: 760px) {
-    .branding {
-        flex: 50%;
-    }
+    .branding { flex: 50%; }
 
-    .navigation {
-        display: none;
-    }
+    .navigation { display: none; }
 
     .navigation.block {
         position: absolute;
@@ -369,9 +333,7 @@ nav {
 }
 
 @media only screen and (max-width: 680px) {
-    header .container {
-        flex-direction: row;
-    }   
+    header .container { flex-direction: row; }   
 }
 
 /* SHOWCASE SECTION */
@@ -506,9 +468,19 @@ nav {
     color: #009688;
 }
 
+.showcase-form .invalid {
+    border: 1px solid #b71c1c;
+}
+
 .showcase-form button {
     width: 40%;
     font-weight: bold;
+}
+
+.showcase-form .error-message {
+    margin: 0 15px 10px;
+    border-radius: 5px;
+    font-size: .8em;
 }
 
 @media only screen and (max-width: 1024px) {

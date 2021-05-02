@@ -46,41 +46,8 @@ const submitFeedbackForm = (form, feedbackBtnContainer, feedbackFormContainer) =
             });
     } else {
         const invalidFields = form.querySelectorAll(':invalid');
-        invalidFields.forEach((field) => populateErrorMessage(field));
+        invalidFields.forEach((field) => populateErrorMessage(field, false));
     }
-};
-
-const populateErrorMessage = (field) => {
-    let messageContainer;
-    
-    switch(field.type) {
-        case 'text':
-            messageContainer = createErrorMessage('Моля, попълни името си!');
-            break;
-        case 'email':
-            messageContainer = createErrorMessage('Моля, попълни електронната си поща!');
-            break;
-        case 'textarea':
-            messageContainer = createErrorMessage('Моля, остави ни отзив!');
-            break;
-        default:
-            messageContainer = createErrorMessage('Нещо се обърка. Моля, опитай отново!');
-    }
-
-    field.type ? field.parentNode.appendChild(messageContainer) : field.insertBefore(messageContainer, field.firstChild);;
-};
-
-const createErrorMessage = (text) => {
-    const messageContainer = createHTMLElement('div', 'error-message', null);
-    const message = createHTMLElement('p', null, text);
-    const exitBtn = createHTMLElement('span', 'exit-btn', '&#10005;');
-
-    messageContainer.appendChild(message);
-    messageContainer.appendChild(exitBtn);
-
-    exitBtn.addEventListener('click', () => removeHTMLElement(messageContainer));
-
-    return messageContainer;
 };
 
 const clearForm = (container) => {
