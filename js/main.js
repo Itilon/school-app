@@ -34,6 +34,9 @@ const populateErrorMessage = (field, isShowcaseFormField) => {
         case 'textarea':
             messageContainer = createErrorMessage('Моля, остави ни отзив!');
             break;
+        case 'tel':
+            messageContainer = createErrorMessage('Моля, въведи телефонния си номер!');
+            break;
         case 'checkbox':
             messageContainer = createErrorMessage('Моля, приеми условията на сайта!');
             break;

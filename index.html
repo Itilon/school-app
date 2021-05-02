@@ -98,7 +98,7 @@
         </div>
         <div class="contacts">
             <h3>Запиши се за безплатна консултация</h3>
-            <form action="POST">
+            <form action="consult" method="POST" novalidate>
                 <div class="form-control">
                     <label for="personal-name">Име</label>
                     <input id="personal-name" type="name" autocomplete="off" required>
@@ -109,7 +109,7 @@
                 </div>
                 <div class="form-control">
                     <label for="telephone">Телефонен номер</label>
-                    <input id="telephone" type="tel" autocomplete="off" required>
+                    <input id="telephone" type="tel" autocomplete="off" minlength="5" pattern="^[0-9 +-\/]*$" required>
                 </div>
                 <div class="form-control">
                     <label for="courses">Желан курс</label>

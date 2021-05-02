@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const showcaseForm = document.querySelector('.showcase-form form');
-    const inputFields = showcaseForm.querySelectorAll('input');
+    const showcaseInputFields = showcaseForm.querySelectorAll('input');
 
-    showcaseForm.addEventListener('submit', submitSubscriberForm.bind(null, showcaseForm));
-    inputFields.forEach((field) => {
+    const contactForm = document.querySelector('.contacts form');
+    const contactInputFields = contactForm.querySelectorAll('input');
+
+    showcaseForm.addEventListener('submit', submitForm.bind(null, showcaseForm));
+    showcaseInputFields.forEach((field) => {
         field.addEventListener('focusout', checkFieldValidity.bind(null, field));
 
         if (field.type === 'checkbox') {
@@ -12,9 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
             field.addEventListener('keyup', checkForInvalidBorderAndErrorMessage.bind(null, field));
         }
     });
+
+    contactForm.addEventListener('submit', submitForm.bind(null, contactForm));
 });
 
-const submitSubscriberForm = (form) => {
+const submitForm = (form) => {
     this.event.preventDefault();
 
     if (form.checkValidity()) {
@@ -77,6 +82,8 @@ const populateSuccessMessage = (form) => {
     form.prepend(messageContainer);
 
     exitBtn.addEventListener('click', () => removeHTMLElement(messageContainer));
+    setTimeout(() => messageContainer.classList.add('opaque'), 2000);
+    setTimeout(() => removeHTMLElement(messageContainer), 4000);
 };
 
 const clearForm = (form) => {

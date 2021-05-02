@@ -148,12 +148,16 @@ input:focus { outline: none; }
     text-shadow: none;
 }
 
-[class$="-message"] {
+[class*="-message"] {
     display: flex;
     justify-content: space-between;
     padding: 10px;
     color: #fdfdfd;
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
 }
+
+[class*="-message"].opaque { opacity: 0; }
 
 .success-message { background: #009688; }
 
@@ -477,7 +481,7 @@ nav { padding: 0 5px; }
     font-weight: bold;
 }
 
-.showcase-form [class$="-message"] {
+.showcase-form [class*="-message"] {
     margin: 5px 15px 10px;
     border-radius: 5px;
     font-size: .8em;
@@ -633,7 +637,10 @@ nav { padding: 0 5px; }
     border: 1px dotted #222;
 }
 
-.contacts .form-control { margin-bottom: 20px; }
+.contacts .form-control {
+    margin-bottom: 20px;
+    padding: 15px 0;
+}
 
 .contacts label {
     display: inline-block;
@@ -657,6 +664,11 @@ nav { padding: 0 5px; }
 }
 
 .contacts button { width: 100%; }
+
+.contacts [class*="-message"] {
+    border-radius: 5px;
+    font-size: .8em;
+}
 
 @media only screen and (max-width: 680px) {
     .comments-wrapper { margin-top: 10px; }
@@ -1376,7 +1388,7 @@ nav { padding: 0 5px; }
     line-height: 1.4;
 }
 
-.post-wrapper [class$="-message"] p { margin: 0; }
+.post-wrapper [class*="-message"] p { margin: 0; }
 
 .comment-container h5,
 .comment-form-container h5 {
