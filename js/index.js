@@ -24,9 +24,8 @@ const submitSubscriberForm = (form) => {
                     throw new Error();
                 }
 
-                console.log('Here');
-
                 populateSuccessMessage(form);
+                clearForm(form);
             })
             .catch(() => {
                 populateErrorMessage(form, false);
@@ -78,4 +77,16 @@ const populateSuccessMessage = (form) => {
     form.prepend(messageContainer);
 
     exitBtn.addEventListener('click', () => removeHTMLElement(messageContainer));
+};
+
+const clearForm = (form) => {
+    const inputFields = form.querySelectorAll('input');
+
+    inputFields.forEach((field) => {
+        if (field.type === 'checkbox') {
+            field.checked = false;
+        } else {
+            field.value = '';
+        }
+    });
 };
