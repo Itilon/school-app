@@ -1550,7 +1550,10 @@ nav { padding: 0 5px; }
 
 .contact-form form { padding: 10px; }
 
-.contact-form .form-control { margin-bottom: 20px; }
+.contact-form .form-control {
+    margin-bottom: 20px;
+    padding: 15px 0;
+}
 
 .contact-form label {
     display: inline-block;
