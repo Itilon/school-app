@@ -3,20 +3,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputFields = showcaseForm.querySelectorAll('input');
 
     showcaseForm.addEventListener('submit', submitSubscriberForm.bind(null, showcaseForm));
-    inputFields.forEach((field) => field.addEventListener('focusout', checkFieldValidity.bind(null, field)));
+    inputFields.forEach((field) => {
+        field.addEventListener('focusout', checkFieldValidity.bind(null, field));
+
+        if (field.type === 'checkbox') {
+            field.addEventListener('click', checkForInvalidBorderAndErrorMessage.bind(null, field));
+        } else {
+            field.addEventListener('keyup', checkForInvalidBorderAndErrorMessage.bind(null, field));
+        }
+    });
 });
 
 const submitSubscriberForm = (form) => {
     this.event.preventDefault();
+
     if (form.checkValidity()) {
         sendFormData(form)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error();
                 }
+
+                console.log('Here');
+
+                populateSuccessMessage(form);
             })
             .catch(() => {
-                
+                populateErrorMessage(form, false);
             });
     } else {
         const invalidFields = form.querySelectorAll(':invalid');
@@ -29,9 +42,40 @@ const submitSubscriberForm = (form) => {
 };
 
 const checkFieldValidity = (field) => {
-    if (field.checkValidity()) {
-        field.classList.remove('invalid');
-    } else {
-        field.classList.add('invalid');
+    if (!field.checkValidity()) {
+        if (field.type === 'checkbox') {
+            field.nextElementSibling.classList.add('invalid');
+        } else {
+            field.classList.add('invalid');
+        }
     }
+};
+
+const checkForInvalidBorderAndErrorMessage = (field) => {
+    if (field.checkValidity()) {
+        const nextSibling = field.parentNode.nextElementSibling;
+
+        if (field.type === 'checkbox') {
+            field.nextElementSibling.classList.remove('invalid');
+        } else {
+            field.classList.remove('invalid');
+        }
+
+        if (nextSibling.classList.contains('error-message')) {
+            removeHTMLElement(nextSibling);
+        }
+    }
+};
+
+const populateSuccessMessage = (form) => {
+    const messageContainer = createHTMLElement('div', 'success-message', null);
+    const message = createHTMLElement('p', null, 'Записването е успешно.');
+    const exitBtn = createHTMLElement('span', 'exit-btn', '&#10005;');
+
+    messageContainer.appendChild(message);
+    messageContainer.appendChild(exitBtn);
+
+    form.prepend(messageContainer);
+
+    exitBtn.addEventListener('click', () => removeHTMLElement(messageContainer));
 };

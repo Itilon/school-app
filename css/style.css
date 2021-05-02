@@ -427,6 +427,10 @@ nav { padding: 0 5px; }
     color: #fff;
 }
 
+.showcase-form input:valid {
+    border: 1px solid #009688;
+}
+
 .showcase-form .check {
     flex-grow: 1;
     width: fit-content;
@@ -458,9 +462,7 @@ nav { padding: 0 5px; }
     line-height: .8;
 }
 
-.showcase-form input[type="checkbox"]:checked ~ .checkmark {
-    border: 1px solid #009688;
-}
+.showcase-form input[type="checkbox"]:checked ~ .checkmark { border: 1px solid #009688; }
 
 .showcase-form input[type="checkbox"]:checked ~ .checkmark:before {
     content: "\2713";
@@ -468,40 +470,29 @@ nav { padding: 0 5px; }
     color: #009688;
 }
 
-.showcase-form .invalid {
-    border: 1px solid #b71c1c;
-}
+.showcase-form .invalid { border: 1px solid #b71c1c; }
 
 .showcase-form button {
     width: 40%;
     font-weight: bold;
 }
 
-.showcase-form .error-message {
-    margin: 0 15px 10px;
+.showcase-form [class$="-message"] {
+    margin: 5px 15px 10px;
     border-radius: 5px;
     font-size: .8em;
 }
 
 @media only screen and (max-width: 1024px) {
-    .showcase-text,
-    .showcase-form {
-        width: 40%;
-    }
+    .showcase-text, .showcase-form { width: 40%; }
 
-    .showcase-form label {
-        font-size: .9em;
-    }
+    .showcase-form label { font-size: .9em; }
 
-    .showcase-form .check {
-        font-size: .8em;
-    }
+    .showcase-form .check { font-size: .8em; }
 }
 
 @media only screen and (max-width: 768px) {
-    .showcase {
-        flex-direction: column;
-    }
+    .showcase { flex-direction: column; }
 
     .showcase-text,
     .showcase-form {
@@ -512,35 +503,22 @@ nav { padding: 0 5px; }
         margin: 15px auto;
     }
 
-    .showcase-form label {
-        font-size: 1em;
-    }
+    .showcase-form label { font-size: 1em; }
 
-    .showcase-form .check {
-        font-size: .9em;
-    }
+    .showcase-form .check { font-size: .9em; }
 }
 
 @media only screen and (max-width: 440px) {
-    .showcase-text,
-    .showcase-form {
-        width: 85%;
-    }
+    .showcase-text, .showcase-form { width: 85%; }
 
-    .showcase-form label {
-        font-size: .9em;
-    }
+    .showcase-form label { font-size: .9em; }
 
-    .showcase-form .check {
-        font-size: .8em;
-    }
+    .showcase-form .check { font-size: .8em; }
 }
 
 /* QUOTE SECTION */
 
-.quote {
-    margin-top: 120px;
-}
+.quote { margin-top: 120px; }
 
 .quote blockquote {
     display: inline-block;
@@ -1708,9 +1686,7 @@ nav { padding: 0 5px; }
     height: 150px;
 }
 
-.contact-showcase h1 {
-    border: 1px solid #ff9800;
-}
+.contact-showcase h1 { border: 1px solid #ff9800; }
 
 .contact-wrapper {
     background: rgba(200, 200, 200, .4);
@@ -1725,13 +1701,9 @@ nav { padding: 0 5px; }
     box-shadow: 4px 4px 6px -4px #9e9e9e;
 }
 
-.contact {
-    margin: 20px 0;
-}
+.contact { margin: 20px 0; }
 
-.contact a {
-    color: #009688;
-}
+.contact a { color: #009688; }
 
 .contact-form {
     background: #fff;
@@ -1746,13 +1718,9 @@ nav { padding: 0 5px; }
     color: #ff9800;
 }
 
-.contact-form form {
-    padding: 10px;
-}
+.contact-form form { padding: 10px; }
 
-.contact-form .form-control {
-    margin-bottom: 20px;
-}
+.contact-form .form-control { margin-bottom: 20px; }
 
 .contact-form label {
     display: inline-block;
@@ -1769,14 +1737,10 @@ nav { padding: 0 5px; }
     color: #222;
 }
 
-.contact-form button {
-    width: 100%;
-}
+.contact-form button { width: 100%; }
 
 @media only screen and (max-width: 768px) {
-    .contact-wrapper {
-        flex-direction: column;
-    }
+    .contact-wrapper { flex-direction: column; }
 
     .contact-data,
     .contact-form {
@@ -1787,17 +1751,11 @@ nav { padding: 0 5px; }
 
 /* POLICY PAGE */
 
-.policy-showcase {
-    margin: 20px 0;
-}
+.policy-showcase { margin: 20px 0; }
 
-.policy-showcase h2 {
-    color: #009688;
-}
+.policy-showcase h2 { color: #009688; }
 
-.policy-wrapper {
-    padding: 20px 40px;
-}
+.policy-wrapper { padding: 20px 40px; }
 
 .policy {
     background: rgba(200, 200, 200, .4);
@@ -1807,9 +1765,7 @@ nav { padding: 0 5px; }
     box-shadow: 4px 4px 6px -4px #9e9e9e;
 }
 
-.policy h4 {
-    margin: 40px 0 20px 0;
-}
+.policy h4 { margin: 40px 0 20px 0; }
 
 .policy p {
     margin: 10px 20px;
@@ -1833,13 +1789,9 @@ nav { padding: 0 5px; }
     color: #444;
 }
 
-a.breadcrumb {
-    color: #009688;
-}
+a.breadcrumb { color: #009688; }
 
-a.breadcrumb:hover {
-    color: #00796b;
-}
+a.breadcrumb:hover { color: #00796b; }
 
 /* TAGS */
 
@@ -1852,18 +1804,14 @@ a.breadcrumb:hover {
     font-size: .88em;
 }
 
-.tag-container span {
-    color: #666;
-}
+.tag-container span { color: #666; }
 
 .tag-container a {
     text-decoration: none;
     color: #009688;
 }
 
-.tag-container a:hover {
-    color: #00796b;
-}
+.tag-container a:hover { color: #00796b; }
 
 /* SUBSCRIBER WARNING */
 
@@ -1877,22 +1825,16 @@ a.breadcrumb:hover {
     text-align: center;
 }
 
-.subscriber-warning p {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
+.subscriber-warning p { font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
 
-.subscriber-warning .form-control {
-    text-align: center;
-}
+.subscriber-warning .form-control { text-align: center; }
 
 .subscriber-warning input {
     line-height: 25px;
     width: calc(60% + 15px);
 }
 
-.subscriber-warning button {
-    width: 60%;
-}
+.subscriber-warning button { width: 60%; }
 
 /* PAGINATION */
 
@@ -1911,10 +1853,7 @@ a.breadcrumb:hover {
     cursor: pointer;
 }
 
-.pagination span:first-child,
-.pagination span:last-child {
-    color: #009688;
-}
+.pagination span:first-child, .pagination span:last-child { color: #009688; }
 
 .pagination .current {
     background: #009688;
@@ -1930,9 +1869,7 @@ a.breadcrumb:hover {
     color: #fff;
 }
 
-.footer p {
-    color: #ddd;
-}
+.footer p { color: #ddd; }
 
 .footer a {
     text-decoration: none;
@@ -1952,15 +1889,9 @@ a.breadcrumb:hover {
         padding: 25px 15px;
     }
 
-    .footer .copyright {
-        margin-bottom: 20px;
-    }
+    .footer .copyright { margin-bottom: 20px; }
 
-    .footer p {
-        text-align: center;
-    }
+    .footer p { text-align: center; }
 
-    .footer .links {
-        text-align: center;
-    }
+    .footer .links { text-align: center; }
 }

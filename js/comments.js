@@ -42,7 +42,7 @@ const submitFeedbackForm = (form, feedbackBtnContainer, feedbackFormContainer) =
                 toggleFeedbackFormContainer(feedbackBtnContainer, feedbackFormContainer);
             })
             .catch(() => {
-                populateErrorMessage(form);
+                populateErrorMessage(form, false);
             });
     } else {
         const invalidFields = form.querySelectorAll(':invalid');

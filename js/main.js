@@ -20,7 +20,7 @@ const sendFormData = (form, currentDate) => {
     return Promise.resolve({ ok: true, data });
 };
 
-const populateErrorMessage = (field, isShowcaseForm) => {
+const populateErrorMessage = (field, isShowcaseFormField) => {
     const fieldParent = field.parentNode;
     let messageContainer;
     
@@ -41,7 +41,7 @@ const populateErrorMessage = (field, isShowcaseForm) => {
             messageContainer = createErrorMessage('Нещо се обърка. Моля, опитай отново!');
     }
 
-    isShowcaseForm ?
+    isShowcaseFormField ?
         fieldParent.parentNode.insertBefore(messageContainer, fieldParent.nextElementSibling) :
         field.type ?
             fieldParent.appendChild(messageContainer) : field.insertBefore(messageContainer, field.firstChild);
