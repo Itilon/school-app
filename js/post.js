@@ -36,8 +36,12 @@ const submitSubscriberForm = (form) => {
                 removeHTMLElement(form.parentElement);
             })
             .catch(() => {
-                populateFormMessage(form, false);
+                populateFormMessage(form, false, 'Нещо се обърка. Моля, опитай отново!');
             });
+    } else {
+        if (!form.querySelector('.error-message')) {
+            populateFormMessage(form, false, 'Моля, попълни електронната си поща!');
+        }
     }
 };
 
@@ -69,10 +73,10 @@ const submitCommentForm = (form) => {
                     }
                 });
 
-                populateFormMessage(form, true);
+                populateFormMessage(form, true, 'Коментарът ти е изпратен успешно и очаква одобрение от модератор.');
             })
             .catch(() => {
-                populateFormMessage(form, false);
+                populateFormMessage(form, false, 'Нещо се обърка. Моля, опитай отново!');
             });
     }
 };
@@ -118,13 +122,11 @@ const convertDate = (date) => {
     return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()} г. в ${date.getHours()}:${date.getMinutes()} часа`;
 };
 
-const populateFormMessage = (form, isSuccess) => {
+const populateFormMessage = (form, isSuccess, messageText) => {
     const messageContainer = isSuccess ?
         createHTMLElement('div', 'success-message', null) :
         createHTMLElement('div', 'error-message', null);
-    const message = isSuccess ?
-        createHTMLElement('p', null, 'Коментарът ти е изпратен успешно и очаква одобрение от модератор.') :
-        createHTMLElement('p', null, 'Нещо се обърка. Моля, опитай отново!');
+    const message = createHTMLElement('p', null, messageText);
     const exitBtn = createHTMLElement('span', 'exit-btn', '&#10005;');
 
     messageContainer.appendChild(message);
