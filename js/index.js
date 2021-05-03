@@ -17,6 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     contactForm.addEventListener('submit', submitForm.bind(null, contactForm));
+    contactInputFields.forEach((field) => {
+        field.addEventListener('focusout', checkFieldValidity.bind(null, field));
+        field.addEventListener('keyup', checkForInvalidBorderAndErrorMessage.bind(null, field));
+    });
 });
 
 const submitForm = (form) => {
