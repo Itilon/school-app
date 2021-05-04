@@ -85,10 +85,10 @@ input:focus { outline: none; }
 .btn {
     display: inline-block;
     padding: 8px 12px;
-    color: #fff;
     text-transform: uppercase;
     text-decoration: none;
     text-align: center;
+    color: #fff;
     border-radius: 5px;
 }
 
@@ -512,6 +512,8 @@ nav { padding: 0 5px; }
 
 @media only screen and (max-width: 440px) {
     .showcase-text, .showcase-form { width: 85%; }
+
+    .showcase-text h1 { font-size: 1.6em; }
 
     .showcase-form label { font-size: .9em; }
 
@@ -1368,6 +1370,7 @@ nav { padding: 0 5px; }
 
 .post-wrapper article {
     background: rgba(200, 200, 200, .4);
+    position: relative;
     width: 65%;
     margin: 10px 20px;
     padding: 20px;
@@ -1383,6 +1386,37 @@ nav { padding: 0 5px; }
     object-position: 0 0;
     border-radius: 5px;
 }
+
+.post-wrapper .author-info {
+    background: rgba(200, 200, 200, .4);
+    position: absolute;
+    top: 386px;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 40px);
+    padding: 10px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: .8em;
+}
+
+.author-info span {
+    background: #fff;
+    margin-right: 5px;
+    padding: 5px;
+    border: 1px solid #ff9800;
+    border-radius: 5px;
+    color: #ff9800;
+}
+
+.author-info a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.author-info a:hover { border-bottom: 1px solid #ff9800; }
+
+.author-info time { color: #fff; }
 
 .post-wrapper p {
     margin: 10px 0;
