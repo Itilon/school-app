@@ -3,7 +3,6 @@ const months = ['януари', 'февруари', 'март', 'април', '�
 document.addEventListener('DOMContentLoaded', () => {
     const subscriberForm = document.querySelector('.subscriber-warning form');
     const commentForm = document.querySelector('.comment-form form');
-    const selectedPosts = document.querySelectorAll('.selected-post');
     
     if (subscriberForm) {
         subscriberForm.addEventListener('submit', submitSubscriberForm.bind(null, subscriberForm));
@@ -15,10 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (index !== 3) {
             child.children[0].addEventListener('focusout', styleElementLabel.bind(null, child.children[0]));
         }
-    });
-
-    selectedPosts.forEach((post) => {
-        post.addEventListener('click', redirectToBlogPost.bind(null, post));
     });
 });
 
@@ -79,11 +74,6 @@ const submitCommentForm = (form) => {
                 populateFormMessage(form, false, 'Нещо се обърка. Моля, опитай отново!');
             });
     }
-};
-
-const redirectToBlogPost = (post) => {
-    const postId = post.dataset.id;
-    this.location.href = './post.html';
 };
 
 const createCommentContainer = () => {
