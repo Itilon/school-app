@@ -1179,6 +1179,24 @@ nav { padding: 0 5px; }
     color: #009688;
 }
 
+.practice-wrapper .selected-practice {
+    padding: 10px;
+    border: 1px dotted #ff9800;
+}
+
+.practice-wrapper .practice-heading {
+    height: auto;
+    padding-top: 0;
+}
+
+.practice-heading h5 {
+    height: auto;
+    padding: 15px 5px;
+    text-align: center;
+    font-size: 1.2em;
+    border-radius: 5px;
+}
+
 /* EVENTS PAGE */
 
 .events-showcase {
