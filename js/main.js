@@ -20,6 +20,21 @@ const sendFormData = (form, currentDate) => {
     return Promise.resolve({ ok: true, data });
 };
 
+const populateSuccessMessage = (container, text) => {
+    const messageContainer = createHTMLElement('div', 'success-message', null);
+    const message = createHTMLElement('p', null, text);
+    const exitBtn = createHTMLElement('span', 'exit-btn', '&#10005;');
+
+    messageContainer.appendChild(message);
+    messageContainer.appendChild(exitBtn);
+
+    container.prepend(messageContainer);
+
+    exitBtn.addEventListener('click', () => removeHTMLElement(messageContainer));
+    setTimeout(() => messageContainer.classList.add('opaque'), 2000);
+    setTimeout(() => removeHTMLElement(messageContainer), 4000);
+};
+
 const populateErrorMessage = (field, isShowcaseFormField) => {
     const fieldParent = field.parentNode;
     let messageContainer;

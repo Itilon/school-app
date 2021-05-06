@@ -732,6 +732,10 @@ nav { padding: 0 5px; }
     font-size: .8em;
 }
 
+.contacts p {
+    margin: 0;
+}
+
 @media only screen and (max-width: 680px) {
     .comments-wrapper { margin-top: 10px; }
 
@@ -1031,6 +1035,13 @@ nav { padding: 0 5px; }
 .feedback-btn-container button {
     width: 100%;
     font-weight: bold;
+}
+
+.feedback-btn-container .success-message {
+    position: absolute;
+    top: 17px;
+    width: 460px;
+    border-radius: 5px;
 }
 
 .feedback-form .closing-btn {

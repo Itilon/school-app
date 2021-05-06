@@ -33,7 +33,7 @@ const submitForm = (form) => {
                     throw new Error();
                 }
 
-                populateSuccessMessage(form);
+                populateSuccessMessage(form, 'Записването е успешно.');
                 clearForm(form);
             })
             .catch(() => {
@@ -63,21 +63,6 @@ const checkForInvalidBorderAndErrorMessage = (field) => {
             removeHTMLElement(nextSibling);
         }
     }
-};
-
-const populateSuccessMessage = (form) => {
-    const messageContainer = createHTMLElement('div', 'success-message', null);
-    const message = createHTMLElement('p', null, 'Записването е успешно.');
-    const exitBtn = createHTMLElement('span', 'exit-btn', '&#10005;');
-
-    messageContainer.appendChild(message);
-    messageContainer.appendChild(exitBtn);
-
-    form.prepend(messageContainer);
-
-    exitBtn.addEventListener('click', () => removeHTMLElement(messageContainer));
-    setTimeout(() => messageContainer.classList.add('opaque'), 2000);
-    setTimeout(() => removeHTMLElement(messageContainer), 4000);
 };
 
 const clearForm = (form) => {

@@ -41,6 +41,7 @@ const submitFeedbackForm = (form, feedbackBtnContainer, feedbackFormContainer) =
                 }
 
                 toggleFeedbackFormContainer(feedbackBtnContainer, feedbackFormContainer);
+                populateSuccessMessage(feedbackBtnContainer, 'Отзивът е изпратен успешно.');
             })
             .catch(() => {
                 if (!form.children[0].classList.contains('error-message')) {
