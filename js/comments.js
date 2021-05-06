@@ -43,11 +43,17 @@ const submitFeedbackForm = (form, feedbackBtnContainer, feedbackFormContainer) =
                 toggleFeedbackFormContainer(feedbackBtnContainer, feedbackFormContainer);
             })
             .catch(() => {
-                populateErrorMessage(form, false);
+                if (!form.children[0].classList.contains('error-message')) {
+                    populateErrorMessage(form, false);
+                }
             });
     } else {
         const invalidFields = form.querySelectorAll(':invalid');
-        invalidFields.forEach((field) => populateErrorMessage(field, false));
+        invalidFields.forEach((field) => {
+            if (!field.nextElementSibling.nextElementSibling) {
+                populateErrorMessage(field, false);
+            }
+        });
     }
 };
 
