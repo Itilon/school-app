@@ -12,8 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     [...feedbackForm.children].forEach((child, index) => {
         if (index !== 3) {
-            child.children[0].addEventListener('keyup', checkForErrorMessage.bind(null, child.children[0]));
+            child.children[0].addEventListener('keyup', checkForInvalidBorderAndErrorMessage.bind(null, child.children[0]));
             child.children[0].addEventListener('focusout', styleElementLabel.bind(null, child.children[0]));
+            child.children[0].addEventListener('focusout', checkElementValidity.bind(null, child.children[0]));
         }
     });
 
@@ -57,6 +58,7 @@ const clearForm = (container) => {
     formControls.forEach((formControl) => {
         const errorMessage = formControl.querySelector('.error-message');
         const topPositionedLabel = formControl.querySelector('.top-positioned');
+        const invalidField = formControl.querySelector('.invalid');
 
         if (errorMessage) {
             removeHTMLElement(errorMessage);
@@ -66,17 +68,29 @@ const clearForm = (container) => {
             topPositionedLabel.classList.remove('top-positioned');
         }
 
+        if (invalidField) {
+            invalidField.classList.remove('invalid');
+        }
+
         if (formControl.children[0].value) {
             formControl.children[0].value = '';
+        }
+
+        if (formControl.children[0].type === 'textarea') {
+            formControl.children[0].style.height = 'auto';
         }
     });
 };
 
-const checkForErrorMessage = (field) => {
-    const errorMessage = field.parentElement.querySelector('.error-message');
+const checkForInvalidBorderAndErrorMessage = (field) => {
+    if (field.checkValidity()) {
+        const errorMessage = field.parentElement.querySelector('.error-message');
 
-    if (field.checkValidity() && errorMessage) {
-        removeHTMLElement(errorMessage);
+        if (errorMessage) {
+            removeHTMLElement(errorMessage);
+        }
+
+        field.classList.remove('invalid');
     }
 };
 

@@ -85,3 +85,13 @@ const styleElementLabel = (element) => {
         element.labels[0].classList.remove('top-positioned');
     }
 };
+
+const checkElementValidity = (element) => {
+    if (!element.checkValidity()) {
+        if (element.type === 'checkbox') {
+            element.nextElementSibling.classList.add('invalid');
+        } else {
+            element.classList.add('invalid');
+        }
+    }
+};

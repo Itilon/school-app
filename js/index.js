@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showcaseForm.addEventListener('submit', submitForm.bind(null, showcaseForm));
     showcaseInputFields.forEach((field) => {
-        field.addEventListener('focusout', checkFieldValidity.bind(null, field));
+        field.addEventListener('focusout', checkElementValidity.bind(null, field));
 
         if (field.type === 'checkbox') {
             field.addEventListener('click', checkForInvalidBorderAndErrorMessage.bind(null, field));
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     contactForm.addEventListener('submit', submitForm.bind(null, contactForm));
     contactInputFields.forEach((field) => {
-        field.addEventListener('focusout', checkFieldValidity.bind(null, field));
+        field.addEventListener('focusout', checkElementValidity.bind(null, field));
         field.addEventListener('keyup', checkForInvalidBorderAndErrorMessage.bind(null, field));
     });
 });
@@ -46,16 +46,6 @@ const submitForm = (form) => {
                 populateErrorMessage(field, true);
             }
         });
-    }
-};
-
-const checkFieldValidity = (field) => {
-    if (!field.checkValidity()) {
-        if (field.type === 'checkbox') {
-            field.nextElementSibling.classList.add('invalid');
-        } else {
-            field.classList.add('invalid');
-        }
     }
 };
 

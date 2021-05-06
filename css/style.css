@@ -1083,6 +1083,10 @@ nav { padding: 0 5px; }
     cursor: default;
 }
 
+.feedback-form input:valid, .feedback-form textarea:valid { border-bottom: 1px solid #009688; }
+
+.feedback-form .invalid { border-bottom: 1px solid #b71c1c; }
+
 .feedback-form button { width: 100%; }
 
 .feedback-form .error-message {
