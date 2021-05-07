@@ -1,3 +1,5 @@
+let signupFormTimeout = null;
+
 document.addEventListener('DOMContentLoaded', () => {
     const signupButtons = document.querySelectorAll('.signup-btn');
     const signupFormContainer = document.querySelector('.signup-form-container');
@@ -40,7 +42,7 @@ const submitForm = (form, signupFormContainer, inputs) => {
 
                 populateSuccessMessage(form, 'Записването е успешно.');
                 clearForm(form);
-                setTimeout(() => closeSignupForm(signupFormContainer, inputs), 4000);
+                signupFormTimeout = setTimeout(() => closeSignupForm(signupFormContainer, inputs), 4000);
             })
             .catch(() => {
                 if (!form.children[0].classList.contains('error-message')) {
@@ -58,6 +60,16 @@ const submitForm = (form, signupFormContainer, inputs) => {
 };
 
 const closeSignupForm = (signupFormContainer, inputs) => {
+    const successMessage = document.querySelector('.success-message');
+    if (successMessage) {
+        removeHTMLElement(successMessage);
+    }
+
+    if (signupFormTimeout) {
+        clearTimeout(signupFormTimeout);
+        signupFormTimeout = null;
+    }
+
     signupFormContainer.classList.remove('visible');
     removeHTMLElement(document.querySelector('.overlay'));
 
