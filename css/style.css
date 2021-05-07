@@ -1395,6 +1395,10 @@ nav { padding: 0 5px; }
 
 .signup-form-container input { padding: 5px 8px; }
 
+.signup-form-container input.invalid { border: 3px solid #b71c1c; }
+
+.signup-form-container input:valid { border: 3px solid #009688; }
+
 .signup-form-container select {
     padding: 8px 5px;
     border-width: 2px;
