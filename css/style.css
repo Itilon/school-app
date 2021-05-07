@@ -1410,6 +1410,10 @@ nav { padding: 0 5px; }
     margin: 40px auto 20px;
 }
 
+.signup-form-container [class*="-message"] {
+    margin: 0 15px;
+    border-radius: 5px;
+}
 
 @media only screen and (max-width: 680px) {
     .event-wrapper:nth-child(even) { flex-direction: column-reverse; }

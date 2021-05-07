@@ -64,15 +64,3 @@ const checkForInvalidBorderAndErrorMessage = (field) => {
         }
     }
 };
-
-const clearForm = (form) => {
-    const inputFields = form.querySelectorAll('input');
-
-    inputFields.forEach((field) => {
-        if (field.type === 'checkbox') {
-            field.checked = false;
-        } else {
-            field.value = '';
-        }
-    });
-};

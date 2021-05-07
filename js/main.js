@@ -20,6 +20,18 @@ const sendFormData = (form, currentDate) => {
     return Promise.resolve({ ok: true, data });
 };
 
+const clearForm = (form) => {
+    const inputFields = form.querySelectorAll('input');
+
+    inputFields.forEach((field) => {
+        if (field.type === 'checkbox') {
+            field.checked = false;
+        } else {
+            field.value = '';
+        }
+    });
+};
+
 const populateSuccessMessage = (container, text) => {
     const messageContainer = createHTMLElement('div', 'success-message', null);
     const message = createHTMLElement('p', null, text);
