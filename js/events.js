@@ -23,14 +23,21 @@ const openSignupForm = (button) => {
 
     signupFormContainer.classList.add('visible');
 
-    darkOverlay.addEventListener('click', () => {
-        signupFormContainer.classList.remove('visible');
-        removeHTMLElement(darkOverlay);
-    });
+    darkOverlay.addEventListener('click', closeSignupForm.bind(null, signupFormContainer, darkOverlay, inputs));
 };
 
 const checkForInvalidBorderAndErrorMessage = (input) => {
     if (input.checkValidity()) {
         input.classList.remove('invalid');
     }
+};
+
+const closeSignupForm = (signupFormContainer, darkOverlay, inputs) => {
+    signupFormContainer.classList.remove('visible');
+    removeHTMLElement(darkOverlay);
+
+    inputs.forEach((input) => {
+        input.value = '';
+        input.classList.remove('invalid');
+    });
 };
