@@ -1,35 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
     const signupButtons = document.querySelectorAll('.signup-btn');
-    signupButtons.forEach((button) => button.addEventListener('click', openSignupForm.bind(null, button)));
-});
-
-const openSignupForm = (button) => {
-    const darkOverlay = createHTMLElement('div', 'overlay', null);
-    document.body.prepend(darkOverlay);
-    
     const signupFormContainer = document.querySelector('.signup-form-container');
     const form = signupFormContainer.querySelector('form');
     const inputs = signupFormContainer.querySelectorAll('input');
-    const select = signupFormContainer.querySelector('select');
-    const options = signupFormContainer.querySelectorAll('option');
 
+    signupButtons.forEach((button) => button.addEventListener('click', openSignupForm.bind(null, button, signupFormContainer, inputs)));
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-        submitForm(form, { signupFormContainer, darkOverlay, inputs });
+        submitForm(form, signupFormContainer, inputs);
     });
     inputs.forEach((input) => {
         input.addEventListener('keyup', checkForInvalidBorderAndErrorMessage.bind(null, input));
         input.addEventListener('focusout', checkElementValidity.bind(null, input));
     });
+});
+
+const openSignupForm = (button, signupFormContainer, inputs) => {
+    const darkOverlay = createHTMLElement('div', 'overlay', null);
+    document.body.prepend(darkOverlay);
+
+    const select = signupFormContainer.querySelector('select');
+    const options = signupFormContainer.querySelectorAll('option');
+
     select.disabled = true;
     [...options].find((option) => option.value === button.dataset.event).selected = 'selected';
 
     signupFormContainer.classList.add('visible');
 
-    darkOverlay.addEventListener('click', closeSignupForm.bind(null, signupFormContainer, darkOverlay, inputs));
+    darkOverlay.addEventListener('click', closeSignupForm.bind(null, signupFormContainer, inputs));
 };
 
-const submitForm = (form, { signupFormContainer, darkOverlay, inputs }) => {
+const submitForm = (form, signupFormContainer, inputs) => {
     if (form.checkValidity()) {
         sendFormData(form)
             .then((response) => {
@@ -39,7 +40,7 @@ const submitForm = (form, { signupFormContainer, darkOverlay, inputs }) => {
 
                 populateSuccessMessage(form, 'Записването е успешно.');
                 clearForm(form);
-                setTimeout(() => closeSignupForm(signupFormContainer, darkOverlay, inputs), 4000);
+                setTimeout(() => closeSignupForm(signupFormContainer, inputs), 4000);
             })
             .catch(() => {
                 if (!form.children[0].classList.contains('error-message')) {
@@ -56,18 +57,27 @@ const submitForm = (form, { signupFormContainer, darkOverlay, inputs }) => {
     }
 };
 
-const checkForInvalidBorderAndErrorMessage = (input) => {
-    if (input.checkValidity()) {
-        input.classList.remove('invalid');
-    }
-};
-
-const closeSignupForm = (signupFormContainer, darkOverlay, inputs) => {
+const closeSignupForm = (signupFormContainer, inputs) => {
     signupFormContainer.classList.remove('visible');
-    removeHTMLElement(darkOverlay);
+    removeHTMLElement(document.querySelector('.overlay'));
 
     inputs.forEach((input) => {
         input.value = '';
-        input.classList.remove('invalid');
+        removeInvalidBorderAndErrorMessage(input);
     });
 };
+
+
+const checkForInvalidBorderAndErrorMessage = (input) => {
+    if (input.checkValidity()) {
+        removeInvalidBorderAndErrorMessage(input);
+    }
+};
+
+const removeInvalidBorderAndErrorMessage = (input) => {
+    const nextSibling = input.parentNode.nextElementSibling;
+    if (nextSibling.classList.contains('error-message')) {
+        removeHTMLElement(nextSibling);
+    }
+    input.classList.remove('invalid');
+}
