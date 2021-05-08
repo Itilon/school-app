@@ -405,6 +405,7 @@ nav { padding: 0 5px; }
     background-image: url(../assets/background.jpg);
     background-position: center;
     background-size: cover;
+    min-height: 540px;
     height: 80vh;
 }
 
@@ -593,7 +594,7 @@ nav { padding: 0 5px; }
 /* CLIENT SECTION */
 
 .client-wrapper {
-    margin-top: 20px;
+    margin: 20px 0;
     padding: 10px;
 }
 
