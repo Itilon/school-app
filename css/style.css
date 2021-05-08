@@ -1494,7 +1494,10 @@ nav { padding: 0 5px; }
     left: 5px;
 }
 
-.gallery-container .gallery-img { height: 390px; }
+.image-container .gallery-img {
+    height: 390px;
+    cursor: zoom-in;
+}
 
 .gallery-container .right-slider {
     display: flex;
@@ -1503,9 +1506,14 @@ nav { padding: 0 5px; }
     width: 25%;
 }
 
-.gallery-container .right-container { height: 33%; }
+.right-slider .right-container { height: 33%; }
 
-.gallery-container .right-img { height: 100%; }
+.right-container .right-img {
+    height: 100%;
+    cursor: pointer;
+}
+
+.right-container .previous, .right-container .next { filter: grayscale(60%) blur(1px); }
 
 /* BLOG PAGE */
 
