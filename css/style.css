@@ -1234,6 +1234,16 @@ nav { padding: 0 5px; }
     border-bottom-left-radius: 5px;
 }
 
+@media only screen and (max-width: 680px) {
+    .comment-wrapper article,
+    .comment-wrapper aside {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .comment-wrapper aside { padding: 0; }
+}
+
 /* PRACTICE PAGE */
 
 .practice-wrapper {
@@ -1279,6 +1289,16 @@ nav { padding: 0 5px; }
 .practice-heading a { color: #ff9800; }
 
 .practice-heading a:hover { border-bottom: 1px solid #ff9800; }
+
+@media only screen and (max-width: 680px) {
+    .practice-wrapper article,
+    .practice-wrapper aside {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .practice-wrapper aside { padding: 0; }
+}
 
 /* EVENTS PAGE */
 
