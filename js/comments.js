@@ -26,7 +26,7 @@ const toggleFeedbackFormContainer = (feedbackBtnContainer, formContainer) => {
     formContainer.classList.toggle('hidden');
 
     if (formContainer.classList.contains('hidden')) {
-        clearForm(formContainer);
+        clearFeedbackForm(formContainer);
     }
 };
 
@@ -58,7 +58,7 @@ const submitFeedbackForm = (form, feedbackBtnContainer, feedbackFormContainer) =
     }
 };
 
-const clearForm = (container) => {
+const clearFeedbackForm = (container) => {
     const formControls = [...container.querySelectorAll('.form-control')];
     formControls.pop();
 
