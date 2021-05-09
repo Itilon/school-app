@@ -121,6 +121,7 @@ a {
 }
 
 [class$="-showcase"] h2 {
+    padding: 0 5px;
     font-size: 2em;
     color: #009688;
 }
@@ -590,11 +591,12 @@ nav { padding: 0 5px; }
 
 /* QUOTE SECTION */
 
-.quote { margin-top: 120px; }
+.quote { margin-top: 100px; }
 
 .quote blockquote {
     display: inline-block;
     margin: auto;
+    padding: 0 5px;
     font-size: 1.6em;
     text-align: center;
     color: #222;
@@ -834,6 +836,8 @@ nav { padding: 0 5px; }
 .message-wrapper .top-slide, .message-wrapper .bottom-slide { opacity: 1; }
 
 .about-wrapper { padding: 20px 0; }
+
+.about-wrapper h3 { padding: 0 5px; }
 
 .about-container {
     background: rgba(200, 200, 200, .4);
@@ -1185,13 +1189,18 @@ nav { padding: 0 5px; }
 @media only screen and (max-width: 680px) {
     .feedback-btn-container,
     .feedback-form {
-        width:90%;
+        width: 90%;
         margin: 0 auto;
     }
+
+    .feedback-btn-container .success-message { width: calc(100% - 40px); }
+
     .feedback, .practices {
         width: 90%;
         margin: 0 auto;
     }
+
+    .practices { margin-top: 20px; }
 }
 
 /* COMMENT PAGE */
