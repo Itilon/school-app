@@ -1597,6 +1597,7 @@ nav { padding: 0 5px; }
         flex-direction: row;
         height: 120px;
         width: 100%;
+        padding: 5px 0 5px 5px;
     }
 
     .right-slider .right-container {
@@ -1640,9 +1641,7 @@ nav { padding: 0 5px; }
 
 .blog-post p { margin-bottom: 20px; }
 
-.empty-space {
-    width: 30%;
-}
+.empty-space { width: 30%; }
 
 @media only screen and (max-width: 1024px) {
     .blog-post, .empty-space { width: 45%; }
