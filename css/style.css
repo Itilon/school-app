@@ -1512,7 +1512,7 @@ nav { padding: 0 5px; }
 .gallery-container [class*="-slider"] {
     position: relative;
     height: 400px;
-    padding: 5px;
+    padding: 5px 0;
 }
 
 .gallery-container .left-slider {
@@ -1534,26 +1534,20 @@ nav { padding: 0 5px; }
 
 .left-slider [class*="-right"] { right: 0; }
 
-.left-slider [class*="-left"] { left: 5px; }
+.left-slider [class*="-left"] { left: 0; }
 
 .left-slider .image-container {
     position: absolute;
     top: 5px;
-    width: calc(100% - 5px);
+    width: 100%;
     transition: left .5s ease-in;
 }
 
-.left-slider .previous-container {
-    left: -100%;
-}
+.left-slider .previous-container { left: -100%; }
 
-.left-slider .current-container {
-    left: 5px;
-}
+.left-slider .current-container { left: 0; }
 
-.left-slider .next-container {
-    left: 125%;
-}
+.left-slider .next-container { left: 125%; }
 
 .image-container .gallery-img {
     height: 390px;
@@ -1568,26 +1562,35 @@ nav { padding: 0 5px; }
 }
 
 .gallery-container .right-slider {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     width: 25%;
+    margin-left: 10px;
 }
 
-.right-slider .right-container { height: 33%; }
+.right-slider .right-container {
+    position: absolute;
+    height: 128px;
+    transition: all .5s ease-in;
+}
 
 .right-container .right-img {
     height: 100%;
     cursor: pointer;
 }
 
-.right-container .previous, .right-container .next { filter: grayscale(60%) blur(1px); }
+.right-container.previous, .right-container.next { filter: grayscale(60%) blur(1px); }
+
+.right-container.previous { top: 5px; }
+
+.right-container.current { top: 136px; }
+
+.right-container.next { top: 267px; }
 
 @media only screen and (max-width: 760px) {
     .single-event-wrapper { padding: 20px 0; }
 }
 
 @media only screen and (max-width: 680px) {
+    .gallery-container [class*="-slider"] { padding: 5px 0; }
     .gallery-container .left-slider {
         height: 280px;
         width: 100%;
@@ -1597,13 +1600,20 @@ nav { padding: 0 5px; }
         flex-direction: row;
         height: 120px;
         width: 100%;
-        padding: 5px 0 5px 5px;
+        margin-left: 0;
     }
 
     .right-slider .right-container {
-        height: auto;
+        top: 5px;
+        height: 110px;
         width: 32%;
     }
+
+    .right-container.previous { right: 68%; }
+
+    .right-container.current { right: 34%; }
+
+    .right-container.next { right: 0; }
 }
 
 /* BLOG PAGE */
