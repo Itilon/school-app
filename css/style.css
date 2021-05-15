@@ -1640,8 +1640,12 @@ nav { padding: 0 5px; }
 
 .blog-post p { margin-bottom: 20px; }
 
+.empty-space {
+    width: 30%;
+}
+
 @media only screen and (max-width: 1024px) {
-    .blog-post { width: 45%; }
+    .blog-post, .empty-space { width: 45%; }
 }
 
 @media only screen and (max-width: 680px) {
