@@ -1614,6 +1614,11 @@ nav { padding: 0 5px; }
         width: 100%;
     }
 
+    .current-container .gallery-img.full-size {
+        left: .5%;
+        transform: scale(1.1);
+    }
+
     .gallery-container .right-slider {
         flex-direction: row;
         height: 120px;
