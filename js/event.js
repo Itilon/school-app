@@ -8,20 +8,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const rightArrow = leftSlider.querySelector('.fa-angle-right');
     const leftArrow = leftSlider.querySelector('.fa-angle-left');
 
-    leftSliderImages.forEach((image) => image.addEventListener('click', showFullScreenImage));
+    leftSliderImages.forEach((image) => image.addEventListener('click', showFullScreenImage.bind(null, image, leftSlider, rightSlider)));
     rightArrow.addEventListener('click', slideToTheRight.bind(null, [...leftSliderImageContainers], [...rightSliderImageContainers]));
     leftArrow.addEventListener('click', slideToTheLeft.bind(null, [...leftSliderImageContainers], [...rightSliderImageContainers]));
 });
 
-const showFullScreenImage = () => {
-    const darkOverlay = createHTMLElement('div', 'overlay', null);
-    document.body.prepend(darkOverlay);
+const showFullScreenImage = (image, leftSlider, rightSlider) => {
+    if (!image.classList.contains('full-size')) {
+        image.classList.add('full-size');
+        rightSlider.classList.add('overlayed');
+        leftSlider.classList.add('overlayed');
 
-    darkOverlay.addEventListener('click', closeFullScreenImage.bind(null, darkOverlay));
+        const darkOverlay = createHTMLElement('div', 'overlay', null);
+        document.body.prepend(darkOverlay);
+
+        darkOverlay.addEventListener('click', closeFullScreenImage.bind(null, image, leftSlider, rightSlider, darkOverlay));
+    }
 };
 
-const closeFullScreenImage = (darkOverlay) => {
+const closeFullScreenImage = (image, leftSlider, rightSlider, darkOverlay) => {
+    image.classList.remove('full-size');
     removeHTMLElement(darkOverlay);
+
+    setTimeout(() => {
+        rightSlider.classList.remove('overlayed');
+        leftSlider.classList.remove('overlayed');
+    }, 500);
 };
 
 const slideToTheRight = (leftSliderContainers, rightSliderContainers) => {
