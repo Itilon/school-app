@@ -32,23 +32,14 @@ const slideToTheRight = (leftSliderContainers, rightSliderContainers) => {
     const currentRightSliderContainer = rightSliderContainers.find(container => container.classList.contains('current'));
     const nextRightSliderContainer = rightSliderContainers.find(container => container.classList.contains('next'));
 
-    previousContainer.classList.remove('previous-container');
-    previousContainer.classList.add('next-container');
+    changeClass(previousContainer, 'previous-container', 'next-container');
+    changeClass(previousRightSliderContainer, 'previous', 'next');
 
-    previousRightSliderContainer.classList.remove('previous');
-    previousRightSliderContainer.classList.add('next');
-    
-    currentContainer.classList.remove('current-container');
-    currentContainer.classList.add('previous-container');
+    changeClass(currentContainer, 'current-container', 'previous-container');
+    changeClass(currentRightSliderContainer, 'current', 'previous');
 
-    currentRightSliderContainer.classList.remove('current');
-    currentRightSliderContainer.classList.add('previous');
-
-    nextContainer.classList.remove('next-container');
-    nextContainer.classList.add('current-container');
-
-    nextRightSliderContainer.classList.remove('next');
-    nextRightSliderContainer.classList.add('current');
+    changeClass(nextContainer, 'next-container', 'current-container');
+    changeClass(nextRightSliderContainer, 'next', 'current');
 };
 
 const slideToTheLeft = (leftSliderContainers, rightSliderContainers) => {
@@ -59,17 +50,11 @@ const slideToTheLeft = (leftSliderContainers, rightSliderContainers) => {
     const currentRightSliderContainer = rightSliderContainers.find(container => container.classList.contains('current'));
     const nextRightSliderContainer = rightSliderContainers.find(container => container.classList.contains('next'));
 
-    previousContainer.classList.remove('previous-container');
-    previousContainer.classList.add('current-container');
+    changeClass(previousContainer, 'previous-container', 'current-container');
+    changeClass(previousRightSliderContainer, 'previous', 'current');
 
-    previousRightSliderContainer.classList.remove('previous');
-    previousRightSliderContainer.classList.add('current');
-    
-    currentContainer.classList.remove('current-container');
-    currentContainer.classList.add('next-container');
-
-    currentRightSliderContainer.classList.remove('current');
-    currentRightSliderContainer.classList.add('next');
+    changeClass(currentContainer, 'current-container', 'next-container');
+    changeClass(currentRightSliderContainer, 'current', 'next');
 
     changeClass(nextContainer, 'next-container', 'previous-container');
     changeClass(nextRightSliderContainer, 'next', 'previous');
