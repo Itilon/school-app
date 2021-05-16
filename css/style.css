@@ -595,8 +595,9 @@ nav { padding: 0 5px; }
 
 .quote blockquote {
     display: inline-block;
+    width: 100%;
     margin: auto;
-    padding: 0 5px;
+    padding: 0 10px;
     font-size: 1.6em;
     text-align: center;
     color: #222;
