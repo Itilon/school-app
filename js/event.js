@@ -71,9 +71,11 @@ const slideToTheLeft = (leftSliderContainers, rightSliderContainers) => {
     currentRightSliderContainer.classList.remove('current');
     currentRightSliderContainer.classList.add('next');
 
-    nextContainer.classList.remove('next-container');
-    nextContainer.classList.add('previous-container');
+    changeClass(nextContainer, 'next-container', 'previous-container');
+    changeClass(nextRightSliderContainer, 'next', 'previous');
+};
 
-    nextRightSliderContainer.classList.remove('next');
-    nextRightSliderContainer.classList.add('previous');
+const changeClass = (element, oldClass, newClass) => {
+    element.classList.remove(oldClass);
+    element.classList.add(newClass);
 };
