@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const openSignupForm = (button, signupFormContainer, inputs) => {
     const darkOverlay = createHTMLElement('div', 'overlay', null);
+    const closingBtn = createHTMLElement('span', 'closing-btn', '&#10005');
+    darkOverlay.appendChild(closingBtn);
     document.body.prepend(darkOverlay);
 
     const select = signupFormContainer.querySelector('select');

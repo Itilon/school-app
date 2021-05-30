@@ -30,6 +30,8 @@ const showFullScreenImage = (image, leftSlider, rightSlider) => {
         leftSlider.classList.add('overlayed');
 
         const darkOverlay = createHTMLElement('div', 'overlay', null);
+        const closingBtn = createHTMLElement('span', 'closing-btn', '&#10005');
+        darkOverlay.appendChild(closingBtn);
         document.body.prepend(darkOverlay);
 
         darkOverlay.addEventListener('click', closeFullScreenImage.bind(null, image, leftSlider, rightSlider, darkOverlay));

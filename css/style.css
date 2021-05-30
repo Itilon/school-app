@@ -73,6 +73,9 @@ a {
 .container { display: flex; }
 
 .overlay {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     background: rgba(20, 20, 20, .95);
     position: fixed;
     top: 0;
@@ -80,6 +83,15 @@ a {
     height: 100%;
     width: 100%;
     z-index: 1;
+    cursor: zoom-out;
+}
+
+.overlay .closing-btn {
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 1.6em;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .form-control {
@@ -1426,6 +1438,9 @@ nav { padding: 0 5px; }
     transition: color .6s ease-in-out;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .event-card .fa {
@@ -1605,6 +1620,7 @@ nav { padding: 0 5px; }
 .current-container .gallery-img.full-size {
     top: -40px;
     left: 15%;
+    cursor: default;
     z-index: 2;
     transform: scale(1.2);
 }
