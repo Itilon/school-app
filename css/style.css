@@ -1818,6 +1818,12 @@ nav { padding: 0 5px; }
     cursor: default;
 }
 
+.comment-form span {
+    color: #444;
+    font-size: .6em;
+    vertical-align: top;
+}
+
 .post-wrapper h4 {
     background: rgba(200, 200, 200, .4);
     padding: 10px 0;
