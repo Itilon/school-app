@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     feedbackForm.addEventListener('submit', submitFeedbackForm.bind(null, feedbackForm, feedbackBtnContainer, feedbackFormContainer));
 
     [...feedbackForm.children].forEach((child, index) => {
-        if (index !== 3) {
+        if (index !== 4) {
             child.children[0].addEventListener('keyup', checkForInvalidBorderAndErrorMessage.bind(null, child.children[0]));
             child.children[0].addEventListener('focusout', styleElementLabel.bind(null, child.children[0]));
             child.children[0].addEventListener('focusout', checkElementValidity.bind(null, child.children[0]));

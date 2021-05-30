@@ -50,10 +50,12 @@ const populateSuccessMessage = (container, text) => {
 const populateErrorMessage = (field, isShowcaseFormField) => {
     const fieldParent = field.parentNode;
     let messageContainer;
-    
+
     switch(field.type) {
         case 'text':
-            messageContainer = createErrorMessage('Моля, попълни името си!');
+            messageContainer = field.id === 'name' ?
+                createErrorMessage('Моля, попълни името си!') :
+                createErrorMessage('Моля, попълни заниманието си!');
             break;
         case 'email':
             messageContainer = createErrorMessage('Моля, попълни електронната си поща!');
