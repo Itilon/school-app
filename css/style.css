@@ -1934,14 +1934,12 @@ nav { padding: 0 5px; }
 
 /* POLICY PAGE */
 
-.policy-wrapper { padding: 20px 40px; }
+.policy-wrapper { padding: 20px; }
 
-.policy {
-    background: rgba(200, 200, 200, .4);
-    padding: 10px;
+.policy-wrapper .policy {
+    width: auto;
+    margin: 20px;
     border: 1px dotted #696969;
-    border-radius: 5px;
-    box-shadow: 4px 4px 6px -4px #9e9e9e;
 }
 
 .policy h4 { margin: 40px 0 20px 0; }
@@ -1950,6 +1948,10 @@ nav { padding: 0 5px; }
     margin: 10px 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.4;
+}
+
+@media only screen and (max-width: 760px) {
+    .policy-wrapper { padding: 20px 0; }
 }
 
 /* BREADCRUMBS */
