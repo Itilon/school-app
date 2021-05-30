@@ -2064,7 +2064,7 @@ a.breadcrumb:hover { color: #00796b; }
 
 .footer p { color: #ddd; }
 
-.footer a:last-child {
+.footer .icon {
     background: #ff9800;
     padding: 2px 5px;
     border: 1px solid #fff;
