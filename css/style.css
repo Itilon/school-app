@@ -1081,6 +1081,11 @@ nav { padding: 0 5px; }
 
 /* COURSE PAGE */
 
+.single-course-wrapper button {
+    display: block;
+    margin: 20px auto 10px;
+}
+
 @media only screen and (max-width: 760px) {
     .single-course-wrapper { padding: 20px 0; }
 }
