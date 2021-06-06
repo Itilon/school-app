@@ -47,6 +47,32 @@
             <button class="btn btn-light">Запиши се за безплатна консултация</button>
         </article>
     </section>
+    <div class="signup-form-container">
+        <form action="signup" method="POST" novalidate>
+            <div class="form-control">
+                <label for="personal-name">Име</label>
+                <input id="personal-name" type="text" autocomplete="off" required>
+            </div>
+            <div class="form-control">
+                <label for="personal-email">Електронна поща</label>
+                <input id="personal-email" type="email" autocomplete="off" required>
+            </div>
+            <div class="form-control">
+                <label for="telephone">Телефонен номер</label>
+                <input id="telephone" type="tel" autocomplete="off" minlength="5" pattern="^[0-9 +-\/]*$" required>
+            </div>
+            <div class="form-control">
+                <label for="courses">Желан курс</label>
+                <select name="courses" id="courses">
+                    <option value="pubspeak">Публично говорене</option>
+                    <option value="english">Английски език</option>
+                    <option value="theater">Актьорско майсторство</option>
+                    <option value="singing">Пеене</option>
+                </select>
+            </div>
+            <button class="btn btn-light">Заяви консултация</button>
+        </form>
+    </div>
     <footer class="footer container">
         <div class="copyright">
             <p>&copy 2021 Студио за творческо обучение "АЯ". Всички права запазени.</p>
