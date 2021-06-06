@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputs = signupFormContainer.querySelectorAll('input');
 
     signupBtn.addEventListener('click', openSignupForm.bind(null, signupBtn, signupFormContainer, inputs));
+    inputs.forEach((input) => {
+        input.addEventListener('keyup', checkForInvalidBorderAndErrorMessage.bind(null, input));
+        input.addEventListener('focusout', checkElementValidity.bind(null, input));
+    });
 });
 
 const openSignupForm = (button, signupFormContainer, inputs) => {
@@ -20,10 +24,15 @@ const openSignupForm = (button, signupFormContainer, inputs) => {
 
     signupFormContainer.classList.add('visible');
 
-    darkOverlay.addEventListener('click', closeSignupForm.bind(null, darkOverlay, signupFormContainer));
+    darkOverlay.addEventListener('click', closeSignupForm.bind(null, darkOverlay, signupFormContainer, inputs));
 };
 
-const closeSignupForm = (darkOverlay, signupFormContainer) => {
-    signupFormContainer.classList.remove('visible');
+const closeSignupForm = (darkOverlay, signupFormContainer, inputs) => {
     removeHTMLElement(darkOverlay);
+    signupFormContainer.classList.remove('visible');
+
+    inputs.forEach((input) => {
+        input.value = '';
+        removeInvalidBorderAndErrorMessage(input);
+    });
 };

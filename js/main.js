@@ -107,6 +107,14 @@ const removeHTMLElement = (element) => {
     element.remove();
 };
 
+const removeInvalidBorderAndErrorMessage = (input) => {
+    const nextSibling = input.parentNode.nextElementSibling;
+    if (nextSibling.classList.contains('error-message')) {
+        removeHTMLElement(nextSibling);
+    }
+    input.classList.remove('invalid');
+}
+
 const styleElementLabel = (element) => {
     if (element.value) {
         element.labels[0].classList.add('top-positioned');
@@ -122,5 +130,11 @@ const checkElementValidity = (element) => {
         } else {
             element.classList.add('invalid');
         }
+    }
+};
+
+const checkForInvalidBorderAndErrorMessage = (input) => {
+    if (input.checkValidity()) {
+        removeInvalidBorderAndErrorMessage(input);
     }
 };
