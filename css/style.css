@@ -54,6 +54,13 @@ a {
     color: #fff;
 }
 
+select[disabled] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
 @media only screen and (max-width: 760px) {
     iframe {
         height: 245px;
