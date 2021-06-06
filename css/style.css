@@ -1020,6 +1020,11 @@ nav { padding: 0 5px; }
     text-align: center;
 }
 
+.interview-inner-wrapper .interview-img {
+    height: 500px;
+    margin-bottom: 20px;
+}
+
 .interview-inner-wrapper h3 { text-align: left; }
 
 .interview-inner-wrapper h6 {
