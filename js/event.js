@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const rightSliderImageContainers = rightSlider.querySelectorAll('.right-container');
     const rightArrow = leftSlider.querySelector('.fa-angle-right');
     const leftArrow = leftSlider.querySelector('.fa-angle-left');
+    const videoBtn = document.querySelector('.btn');
 
     leftSliderImages.forEach((image) => {
         image.addEventListener('click', showFullScreenImage.bind(null, image, leftSlider, rightSlider))
@@ -21,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     rightArrow.addEventListener('click', slideRight.bind(null, [...leftSliderImageContainers], [...rightSliderImageContainers]));
     leftArrow.addEventListener('click', slideLeft.bind(null, [...leftSliderImageContainers], [...rightSliderImageContainers]));
+
+    videoBtn.addEventListener('click', openVideoContainer);
 });
 
 const showFullScreenImage = (image, leftSlider, rightSlider) => {
@@ -90,6 +93,19 @@ const slideDown = (leftSliderContainers, rightSlidercontainers) => {
 
 const slideUp = (leftSliderContainers, rightSlidercontainers) => {
 
+};
+
+const openVideoContainer = () => {
+    const darkOverlay = createHTMLElement('div', 'overlay', null);
+    const closingBtn = createHTMLElement('span', 'closing-btn', '&#10005');
+    darkOverlay.appendChild(closingBtn);
+    document.body.prepend(darkOverlay);
+
+    darkOverlay.addEventListener('click', closeVideoContainer.bind(null,  darkOverlay));
+};
+
+const closeVideoContainer = (darkOverlay) => {
+    removeHTMLElement(darkOverlay);
 };
 
 const changeClass = (element, oldClass, newClass) => {

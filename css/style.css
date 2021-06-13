@@ -1675,6 +1675,11 @@ nav { padding: 0 5px; }
 
 .right-container.next { top: 267px; }
 
+.single-event-wrapper button {
+    display: block;
+    margin: 20px auto;
+}
+
 @media only screen and (max-width: 760px) {
     .single-event-wrapper { padding: 20px 0; }
 }
