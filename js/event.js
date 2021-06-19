@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const rightArrow = leftSlider.querySelector('.fa-angle-right');
     const leftArrow = leftSlider.querySelector('.fa-angle-left');
     const videoBtn = document.querySelector('.btn');
+    const eventVideoContainer = document.querySelector('.event-video-container');
+    const videos = eventVideoContainer.querySelectorAll('iframe');
 
     leftSliderImages.forEach((image) => {
         image.addEventListener('click', showFullScreenImage.bind(null, image, leftSlider, rightSlider))
@@ -23,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     rightArrow.addEventListener('click', slideRight.bind(null, [...leftSliderImageContainers], [...rightSliderImageContainers]));
     leftArrow.addEventListener('click', slideLeft.bind(null, [...leftSliderImageContainers], [...rightSliderImageContainers]));
 
-    videoBtn.addEventListener('click', openVideoContainer);
+    videoBtn.addEventListener('click', openVideoContainer.bind(null, eventVideoContainer, videos));
 });
 
 const showFullScreenImage = (image, leftSlider, rightSlider) => {
@@ -95,16 +97,23 @@ const slideUp = (leftSliderContainers, rightSlidercontainers) => {
 
 };
 
-const openVideoContainer = () => {
+const openVideoContainer = (eventVideoContainer, videos) => {
     const darkOverlay = createHTMLElement('div', 'overlay', null);
     const closingBtn = createHTMLElement('span', 'closing-btn', '&#10005');
     darkOverlay.appendChild(closingBtn);
     document.body.prepend(darkOverlay);
 
-    darkOverlay.addEventListener('click', closeVideoContainer.bind(null,  darkOverlay));
+    eventVideoContainer.classList.add('visible');
+
+    darkOverlay.addEventListener('click', closeVideoContainer.bind(null,  darkOverlay, eventVideoContainer, videos));
 };
 
-const closeVideoContainer = (darkOverlay) => {
+const closeVideoContainer = (darkOverlay, eventVideoContainer, videos) => {
+    eventVideoContainer.classList.remove('visible');
+    videos.forEach(video => {
+        const videoSrc = video.src;
+        video.src = videoSrc
+    });
     removeHTMLElement(darkOverlay);
 };
 

@@ -1680,6 +1680,23 @@ nav { padding: 0 5px; }
     margin: 20px auto;
 }
 
+.event-video-container {
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    display: none;
+    transform: translate(-50%, 0);
+    padding: 10px;
+    border: 1px dotted #ddd;
+    border-radius: 5px;
+    color: #fff;
+    z-index: 2;
+}
+
+.event-video-container.visible {
+    display: block;
+}
+
 @media only screen and (max-width: 760px) {
     .single-event-wrapper { padding: 20px 0; }
 }
