@@ -132,9 +132,3 @@ const checkElementValidity = (element) => {
         }
     }
 };
-
-const checkForInvalidBorderAndErrorMessage = (input) => {
-    if (input.checkValidity()) {
-        removeInvalidBorderAndErrorMessage(input);
-    }
-};

@@ -86,3 +86,9 @@ const closeSignupForm = (signupFormContainer, inputs) => {
         removeInvalidBorderAndErrorMessage(input);
     });
 };
+
+const checkForInvalidBorderAndErrorMessage = (input) => {
+    if (input.checkValidity()) {
+        removeInvalidBorderAndErrorMessage(input);
+    }
+};
