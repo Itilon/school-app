@@ -17,23 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-const openSignupForm = (button, signupFormContainer, inputs) => {
-    const darkOverlay = createHTMLElement('div', 'overlay', null);
-    const closingBtn = createHTMLElement('span', 'closing-btn', '&#10005');
-    darkOverlay.appendChild(closingBtn);
-    document.body.prepend(darkOverlay);
-
-    const select = signupFormContainer.querySelector('select');
-    const options = signupFormContainer.querySelectorAll('option');
-
-    select.disabled = true;
-    [...options].find((option) => option.value === button.dataset.event).selected = 'selected';
-
-    signupFormContainer.classList.add('visible');
-
-    darkOverlay.addEventListener('click', closeSignupForm.bind(null, signupFormContainer, inputs));
-};
-
 const submitForm = (form, signupFormContainer, inputs) => {
     if (form.checkValidity()) {
         sendFormData(form)
