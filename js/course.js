@@ -1,9 +1,16 @@
+let signupFormTimeout = null;
+
 document.addEventListener('DOMContentLoaded', () => {
     const signupBtn = document.querySelector('.single-course-wrapper .btn');
     const signupFormContainer = document.querySelector('.signup-form-container');
-    const inputs = signupFormContainer.querySelectorAll('input');
+    const signupForm = signupFormContainer.querySelector('form');
+    const inputs = signupForm.querySelectorAll('input');
 
     signupBtn.addEventListener('click', openSignupForm.bind(null, signupBtn, signupFormContainer, inputs));
+    signupForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        submitForm(signupForm, signupFormContainer, inputs);
+    });
     inputs.forEach((input) => {
         input.addEventListener('keyup', checkForInvalidBorderAndErrorMessage.bind(null, input));
         input.addEventListener('focusout', checkElementValidity.bind(null, input));
@@ -24,17 +31,34 @@ const openSignupForm = (button, signupFormContainer, inputs) => {
 
     signupFormContainer.classList.add('visible');
 
-    darkOverlay.addEventListener('click', closeSignupForm.bind(null, darkOverlay, signupFormContainer, inputs));
+    darkOverlay.addEventListener('click', closeSignupForm.bind(null, signupFormContainer, inputs));
 };
 
-const closeSignupForm = (darkOverlay, signupFormContainer, inputs) => {
-    removeHTMLElement(darkOverlay);
-    signupFormContainer.classList.remove('visible');
+const submitForm = (form, signupFormContainer, inputs) => {
+    if (form.checkValidity()) {
+        sendFormData(form)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error();
+                }
 
-    inputs.forEach((input) => {
-        input.value = '';
-        removeInvalidBorderAndErrorMessage(input);
-    });
+                populateSuccessMessage(form, 'Записването е успешно.');
+                clearForm(form);
+                signupFormTimeout = setTimeout(() => closeSignupForm(signupFormContainer, inputs), 4000);
+            })
+            .catch(() => {
+                if (!form.children[0].classList.contains('error-message')) {
+                    populateErrorMessage(form, false);
+                }
+            });
+    } else {
+        const invalidFields = form.querySelectorAll(':invalid');
+        invalidFields.forEach((field) => {
+            if (!field.parentNode.nextElementSibling.classList.contains('error-message')) {
+                populateErrorMessage(field, true);
+            }
+        });
+    }
 };
 
 const checkForInvalidBorderAndErrorMessage = (input) => {

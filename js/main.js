@@ -132,3 +132,29 @@ const checkElementValidity = (element) => {
         }
     }
 };
+
+const closeSignupForm = (signupFormContainer, inputs) => {
+    const firstFormElement = signupFormContainer.firstElementChild.firstElementChild;
+    const successMessage = signupFormContainer.querySelector('.success-message');
+
+    if (firstFormElement.classList.contains('error-message')) {
+        removeHTMLElement(firstFormElement);
+    }
+
+    if (successMessage) {
+        removeHTMLElement(successMessage);
+    }
+ 
+    if (signupFormTimeout) {
+        clearTimeout(signupFormTimeout);
+        signupFormTimeout = null;
+    }
+
+    removeHTMLElement(document.querySelector('.overlay'));
+    signupFormContainer.classList.remove('visible');
+
+    inputs.forEach((input) => {
+        input.value = '';
+        removeInvalidBorderAndErrorMessage(input);
+    });
+};
