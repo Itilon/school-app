@@ -749,7 +749,7 @@ nav { padding: 0 5px; }
 
 .contacts input { padding: 5px 8px; }
 
-.contacts input:valid { border: 1px solid #009688; }
+.contacts input:valid:required { border: 1px solid #009688; }
 
 .contacts select {
     padding: 8px 5px;
@@ -1523,7 +1523,7 @@ nav { padding: 0 5px; }
 
 .signup-form-container input.invalid { border: 3px solid #b71c1c; }
 
-.signup-form-container input:valid { border: 3px solid #009688; }
+.signup-form-container input:valid:required { border: 3px solid #009688; }
 
 .signup-form-container select {
     padding: 8px 5px;
