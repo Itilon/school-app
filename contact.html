@@ -54,31 +54,52 @@
                 <div class="tab left-tab open">Консултация</div>
                 <div class="tab right-tab closed">Регистрация</div>
             </div>
-            <h3>Запишете се за безплатна консултация</h3>
-            <form action="consult" method="POST" novalidate>
-                <div class="form-control">
-                    <label for="name">Име</label>
-                    <input id="name" type="text" autocomplete="off" required>
-                </div>
-                <div class="form-control">
-                    <label for="email">Електронна поща</label>
-                    <input id="email" type="email" autocomplete="off" required>
-                </div>
-                <div class="form-control">
-                    <label for="telephone">Телефонен номер</label>
-                    <input id="telephone" type="tel" autocomplete="off" minlength="5" pattern="^[0-9 +-\/]*$">
-                </div>
-                <div class="form-control">
-                    <label for="courses">Желан курс</label>
-                    <select name="courses" id="courses">
-                        <option value="pubspeak">Публично говорене</option>
-                        <option value="english">Английски език</option>
-                        <option value="theater">Актьорско майсторство</option>
-                        <option value="singing">Пеене</option>
-                    </select>
-                </div>
-                <button class="btn btn-light">Заявете консултация</button>
-            </form>
+            <div class="consultancy-form visible">
+                <h3>Запишете се за безплатна консултация</h3>
+                <form action="consult" method="POST" novalidate>
+                    <div class="form-control">
+                        <label for="name">Име</label>
+                        <input id="name" type="text" autocomplete="off" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="email">Електронна поща</label>
+                        <input id="email" type="email" autocomplete="off" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="telephone">Телефонен номер</label>
+                        <input id="telephone" type="tel" autocomplete="off" minlength="5" pattern="^[0-9 +-\/]*$">
+                    </div>
+                    <div class="form-control">
+                        <label for="courses">Желан курс</label>
+                        <select name="courses" id="courses">
+                            <option value="pubspeak">Публично говорене</option>
+                            <option value="english">Английски език</option>
+                            <option value="theater">Актьорско майсторство</option>
+                            <option value="singing">Пеене</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-light">Заявете консултация</button>
+                </form>
+            </div>
+            <div class="registration-form">
+                <h3>Регистрирайте се, за да получавате безплатни полезни материали</h3>
+                <form action="subscribe" method="POST" novalidate>
+                    <div class="form-control">
+                        <label for="name">Име</label>
+                        <input id="name" type="text" name="name" autocomplete="off" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="email">Електронна поща</label>
+                        <input id="email" type="email" name="email" autocomplete="off" required>
+                    </div>
+                    <div class="form-control checkbox-container">
+                        <input id="check" type="checkbox" name="check" required>
+                        <span class="checkmark"></span>
+                        <label for="check" class="check">Съгласен съм личните ми данни да бъдат обработени от сайта с цел получаване на полезни материали.</label>
+                    </div>
+                    <button class="btn btn-light">Изпратете</button>
+                </form>
+            </div>
         </div>
     </div>
     <footer class="footer container">
