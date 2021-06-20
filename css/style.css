@@ -669,6 +669,7 @@ nav { padding: 0 5px; }
 .courses {
     background-image: url(../assets/library.jpg);
     background-size: cover;
+    background-position: center;
     height: 160px;
     padding: 40px 20px;
     text-align: center;
