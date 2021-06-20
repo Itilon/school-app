@@ -54,23 +54,23 @@ const populateErrorMessage = (field, isShowcaseFormField) => {
     switch(field.type) {
         case 'text':
             messageContainer = field.id === 'name' ?
-                createErrorMessage('Моля, попълни името си!') :
-                createErrorMessage('Моля, попълни заниманието си!');
+                createErrorMessage('Моля, попълнете името си!') :
+                createErrorMessage('Моля, попълнете заниманието си!');
             break;
         case 'email':
-            messageContainer = createErrorMessage('Моля, попълни електронната си поща!');
+            messageContainer = createErrorMessage('Моля, попълнете електронната си поща!');
             break;
         case 'textarea':
-            messageContainer = createErrorMessage('Моля, остави ни отзив!');
+            messageContainer = createErrorMessage('Моля, оставете ни отзив!');
             break;
         case 'tel':
-            messageContainer = createErrorMessage('Моля, въведи телефонния си номер!');
+            messageContainer = createErrorMessage('Моля, въведете коректен телефонен номер!');
             break;
         case 'checkbox':
-            messageContainer = createErrorMessage('Моля, приеми условията на сайта!');
+            messageContainer = createErrorMessage('Моля, приемете условията на сайта!');
             break;
         default:
-            messageContainer = createErrorMessage('Нещо се обърка. Моля, опитай отново!');
+            messageContainer = createErrorMessage('Нещо се обърка. Моля, опитайте отново!');
     }
 
     isShowcaseFormField ?
