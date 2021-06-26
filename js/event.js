@@ -89,12 +89,40 @@ const slideLeft = (leftSliderContainers, rightSliderContainers) => {
     changeClass(nextRightSliderContainer, 'next', 'previous');
 };
 
-const slideDown = (leftSliderContainers, rightSlidercontainers) => {
+const slideDown = (leftSliderContainers, rightSliderContainers) => {
+    const previousContainer = leftSliderContainers.find(container => container.classList.contains('previous-container'));
+    const currentContainer = leftSliderContainers.find(container => container.classList.contains('current-container'));
+    const nextContainer = leftSliderContainers.find(container => container.classList.contains('next-container'));
+    const previousRightSliderContainer = rightSliderContainers.find(container => container.classList.contains('previous'));
+    const currentRightSliderContainer = rightSliderContainers.find(container => container.classList.contains('current'));
+    const nextRightSliderContainer = rightSliderContainers.find(container => container.classList.contains('next'));
 
+    changeClass(previousContainer, 'previous-container', 'current-container');
+    changeClass(previousRightSliderContainer, 'previous', 'current');
+
+    changeClass(currentContainer, 'current-container', 'next-container');
+    changeClass(currentRightSliderContainer, 'current', 'next');
+
+    changeClass(nextContainer, 'next-container', 'previous-container');
+    changeClass(nextRightSliderContainer, 'next', 'previous');
 };
 
-const slideUp = (leftSliderContainers, rightSlidercontainers) => {
+const slideUp = (leftSliderContainers, rightSliderContainers) => {
+    const previousContainer = leftSliderContainers.find(container => container.classList.contains('previous-container'));
+    const currentContainer = leftSliderContainers.find(container => container.classList.contains('current-container'));
+    const nextContainer = leftSliderContainers.find(container => container.classList.contains('next-container'));
+    const previousRightSliderContainer = rightSliderContainers.find(container => container.classList.contains('previous'));
+    const currentRightSliderContainer = rightSliderContainers.find(container => container.classList.contains('current'));
+    const nextRightSliderContainer = rightSliderContainers.find(container => container.classList.contains('next'));
 
+    changeClass(previousContainer, 'previous-container', 'next-container');
+    changeClass(previousRightSliderContainer, 'previous', 'next');
+
+    changeClass(currentContainer, 'current-container', 'previous-container');
+    changeClass(currentRightSliderContainer, 'current', 'previous');
+
+    changeClass(nextContainer, 'next-container', 'current-container');
+    changeClass(nextRightSliderContainer, 'next', 'current');
 };
 
 const openVideoContainer = (eventVideoContainer, videos) => {
