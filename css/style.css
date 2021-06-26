@@ -620,14 +620,23 @@ nav { padding: 0 5px; }
 
 .quote { margin-top: 110px; }
 
-.quote blockquote {
+.quote blockquote, .quote small {
     display: inline-block;
     width: 100%;
     margin: auto;
     padding: 0 10px;
-    font-size: 1.6em;
     text-align: center;
+}
+
+.quote blockquote {
+    font-size: 1.6em;
     color: #222;
+}
+
+.quote small {
+    font-family: 'Franklin Gothic Light', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    color: #444;
 }
 
 /* CLIENT SECTION */
