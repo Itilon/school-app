@@ -2067,7 +2067,7 @@ nav { padding: 0 5px; }
 .four-o-four-showcase {
     display: flex;
     background-color: #009688;
-    height: calc(100vh - 158px);
+    min-height: calc(100vh - 158px);
     margin: 0;
 }
 
@@ -2111,7 +2111,7 @@ nav { padding: 0 5px; }
 }
 
 @media only screen and (max-width: 900px) {
-    .four-o-four-showcase { height: calc(100vh - 186px); }
+    .four-o-four-showcase { min-height: calc(100vh - 186px); }
 
     .not-found-text h2 { font-size: 1.2em; }
 
@@ -2147,11 +2147,11 @@ nav { padding: 0 5px; }
 
 
 @media only screen and (max-width: 531px) {
-    .four-o-four-showcase { height: calc(100vh - 204px); }
+    .four-o-four-showcase { min-height: calc(100vh - 204px); }
 }
 
 @media only screen and (max-width: 374px) {
-    .four-o-four-showcase { height: calc(100vh - 222px); }
+    .four-o-four-showcase { min-height: calc(100vh - 222px); }
 }
 
 /* BREADCRUMBS */
