@@ -1677,6 +1677,7 @@ nav { padding: 0 5px; }
 .right-slider .right-container {
     position: absolute;
     height: 128px;
+    width: 100%;
     transition: all .5s ease-in;
 }
 
