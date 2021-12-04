@@ -1596,11 +1596,11 @@ nav { padding: 0 5px; }
 
 /* EVENT PAGE */
 
-.gallery-container { height: 430px; }
+.gallery-container { height: 460px; }
 
 .gallery-container [class*="-slider"] {
     position: relative;
-    height: 430px;
+    height: 460px;
     padding: 5px 0;
 }
 
@@ -1644,7 +1644,7 @@ nav { padding: 0 5px; }
 
 .image-container .gallery-img {
     position: relative;
-    height: 420px;
+    height: 450px;
     width: 100%;
     top: 0;
     left: 0;
@@ -1676,7 +1676,7 @@ nav { padding: 0 5px; }
 
 .right-slider .right-container {
     position: absolute;
-    height: 138px;
+    height: 148px;
     width: 100%;
     transition: all .5s ease-in;
 }
@@ -1690,9 +1690,9 @@ nav { padding: 0 5px; }
 
 .right-container.previous { top: 5px; }
 
-.right-container.current { top: 146px; }
+.right-container.current { top: 156px; }
 
-.right-container.next { top: 287px; }
+.right-container.next { top: 307px; }
 
 .single-event-wrapper button {
     display: block;
