@@ -1323,16 +1323,23 @@ nav { padding: 0 5px; }
 
 .comment-wrapper .selected-comment {
     padding: 10px;
-    border: 1px dotted #ff9800;
+    border: 1px dotted #222;
+    transition: background-color .6s ease-in-out;
 }
 
 .comment-wrapper a:nth-child(2) .selected-comment, .comment-wrapper a:nth-child(3) .selected-comment { border-bottom: none; }
 
-.comment-heading h5 {
-    text-align: center;
+.comment-wrapper .selected-comment:hover { background: rgba(200, 200, 200, .4); }
+
+.selected-comment h5 {
+    padding: 10px 5px;
     font-size: 1.4em;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
+    color: #ff9800;
+}
+
+.selected-comment p {
+    padding: 0 5px 10px;
+    color: #222;
 }
 
 @media only screen and (max-width: 680px) {
@@ -2072,7 +2079,7 @@ nav { padding: 0 5px; }
 
 .four-o-four-showcase {
     display: flex;
-    background-color: #009688;
+    background: #009688;
     min-height: calc(100vh - 158px);
     margin: 0;
 }
