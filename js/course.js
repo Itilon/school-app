@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const signupFormContainer = document.querySelector('.signup-form-container');
     const signupForm = signupFormContainer.querySelector('form');
     const inputs = signupForm.querySelectorAll('input');
+    const priceContainer = document.querySelector('.single-course-wrapper .price-container');
+    const priceOverlay = priceContainer.querySelector('.price-overlay');
 
     signupBtn.addEventListener('click', openSignupForm.bind(null, signupBtn, signupFormContainer, inputs));
     signupForm.addEventListener('submit', (event) => {
@@ -15,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
         input.addEventListener('keyup', checkForInvalidBorderAndErrorMessage.bind(null, input));
         input.addEventListener('focusout', checkElementValidity.bind(null, input));
     });
+
+    priceOverlay.addEventListener('click', togglePriceOverlay.bind(null, priceOverlay, priceContainer));
 });
 
 const submitForm = (form, signupFormContainer, inputs) => {
@@ -48,4 +52,9 @@ const checkForInvalidBorderAndErrorMessage = (input) => {
     if (input.checkValidity()) {
         removeInvalidBorderAndErrorMessage(input);
     }
+};
+
+const togglePriceOverlay = (priceOverlay, priceContainer) => {
+    priceOverlay.classList.toggle('opaque');
+    priceContainer.classList.toggle('opaque');
 };
