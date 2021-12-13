@@ -207,7 +207,7 @@ select[disabled] {
 
 [class*="single-"] article {
     width: auto;
-    margin: 20px 40px;
+    margin: 20px;
     padding: 20px 40px;
 }
 
@@ -343,10 +343,7 @@ select[disabled] {
 }
 
 @media only screen and (max-width: 900px) {
-    [class*="single-"] article {
-        margin: 20px;
-        padding: 20px;
-    }
+    [class*="single-"] article { padding: 20px; }
 }
 
 @media only screen and (max-width: 680px) {
@@ -909,7 +906,7 @@ nav { padding: 0 5px; }
 
 .text-container {
     width: 60%;
-    margin: 20px 0;
+    margin: 10px 0;
     padding: 0 20px;
 }
 
@@ -1130,10 +1127,6 @@ nav { padding: 0 5px; }
     display: block;
     width: 100%;
     margin: 20px auto 10px;
-}
-
-.single-course-wrapper .text-container {
-    margin: 10px 0;
 }
 
 .single-course-wrapper .price-container {
