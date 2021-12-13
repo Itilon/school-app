@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const signupForm = signupFormContainer.querySelector('form');
     const inputs = signupForm.querySelectorAll('input');
     const priceContainer = document.querySelector('.single-course-wrapper .price-container');
-    const priceOverlay = priceContainer.querySelector('.price-overlay');
+    const priceOverlay = document.querySelector('.price-overlay');
 
     signupBtn.addEventListener('click', openSignupForm.bind(null, signupBtn, signupFormContainer, inputs));
     signupForm.addEventListener('submit', (event) => {
