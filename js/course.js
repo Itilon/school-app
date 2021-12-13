@@ -18,7 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
         input.addEventListener('focusout', checkElementValidity.bind(null, input));
     });
 
-    priceOverlay.addEventListener('click', togglePriceOverlay.bind(null, priceOverlay, priceContainer));
+    if (priceOverlay) {
+        priceOverlay.addEventListener('click', togglePriceOverlay.bind(null, priceOverlay, priceContainer));
+    }
 });
 
 const submitForm = (form, signupFormContainer, inputs) => {
