@@ -1302,7 +1302,7 @@ nav { padding: 0 5px; }
 .feedback-container img {
     float: left;
     max-height: 95%;
-    max-width: 30%;
+    max-width: 25%;
     margin: 0 20px 10px 0;
     padding: 2px;
     border: 1px dotted #ccc;
@@ -1326,6 +1326,10 @@ nav { padding: 0 5px; }
 }
 
 .practice-card p { margin-bottom: 20px; }
+
+@media only screen and (max-width: 900px) {
+    .feedback-container img { max-width: 30%; }
+}
 
 @media only screen and (max-width: 680px) {
     .feedback-btn-container,
@@ -1354,7 +1358,7 @@ nav { padding: 0 5px; }
 .comment-wrapper .article-image-container {
     background: #fdfdfd;
     float: left;
-    width: 25%;
+    width: 20%;
     margin: 0 10px 10px 0;
     padding: 10px;
     border: 1px dotted #222;
@@ -1413,9 +1417,11 @@ nav { padding: 0 5px; }
 }
 
 @media only screen and (max-width: 1024px) {
-    .comment-wrapper .article-image-container {
-        width: 100%;
-    }
+    .comment-wrapper .article-image-container { width: 30%; }
+}
+
+@media only screen and (max-width: 900px) {
+    .comment-wrapper .article-image-container { width: 100%; }
 }
 
 @media only screen and (max-width: 680px) {
