@@ -631,7 +631,10 @@ nav { padding: 0 5px; }
 
 /* QUOTE SECTION */
 
-.quote { margin-top: 110px; }
+.quote {
+    min-height: 110px;
+    margin-top: 110px;
+}
 
 .quote.shown { animation: slideInFromLeft .8s ease-in; }
 
