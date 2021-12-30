@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.querySelector('.contacts form');
     const contactInputFields = contactForm.querySelectorAll('input');
 
+    const quotes = [...document.querySelectorAll('.quote')];
+
     showcaseForm.addEventListener('submit', submitForm.bind(null, showcaseForm));
     showcaseInputFields.forEach((field) => {
         field.addEventListener('focusout', checkElementValidity.bind(null, field));
@@ -21,6 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
         field.addEventListener('focusout', checkElementValidity.bind(null, field));
         field.addEventListener('keyup', checkForInvalidBorderAndErrorMessage.bind(null, field));
     });
+
+    if (quotes.length > 1) {
+        setInterval(switchQuotes.bind(null, quotes), 10000);
+    }
 });
 
 const submitForm = (form) => {
@@ -62,5 +68,27 @@ const checkForInvalidBorderAndErrorMessage = (field) => {
         if (nextSibling.classList.contains('error-message')) {
             removeHTMLElement(nextSibling);
         }
+    }
+};
+
+switchQuotes = (quotes) => {
+    const currentQuoteIndex = quotes.findIndex(quote => quote.classList.contains('shown'));
+    quotes[currentQuoteIndex].classList.remove('shown');
+    quotes[currentQuoteIndex].classList.add('exiting');
+    setTimeout(() => {
+        quotes[currentQuoteIndex].classList.remove('exiting');
+        quotes[currentQuoteIndex].classList.add('hidden');
+    }, 800);
+
+    if (quotes[currentQuoteIndex + 1]) {
+        setTimeout(() => {
+            quotes[currentQuoteIndex + 1].classList.remove('hidden');
+            quotes[currentQuoteIndex + 1].classList.add('shown');
+        }, 800);
+    } else {
+        setTimeout(() => {
+            quotes[0].classList.remove('hidden');
+            quotes[0].classList.add('shown');
+        }, 800);
     }
 };
