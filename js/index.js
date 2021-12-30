@@ -76,19 +76,22 @@ switchQuotes = (quotes) => {
     quotes[currentQuoteIndex].classList.remove('shown');
     quotes[currentQuoteIndex].classList.add('exiting');
     setTimeout(() => {
-        quotes[currentQuoteIndex].classList.remove('exiting');
-        quotes[currentQuoteIndex].classList.add('hidden');
+        switchCSSClasses(quotes[currentQuoteIndex], 'exiting', 'hidden');
     }, 800);
 
     if (quotes[currentQuoteIndex + 1]) {
         setTimeout(() => {
-            quotes[currentQuoteIndex + 1].classList.remove('hidden');
-            quotes[currentQuoteIndex + 1].classList.add('shown');
+            switchCSSClasses(quotes[currentQuoteIndex + 1], 'hidden', 'shown');
         }, 800);
     } else {
         setTimeout(() => {
-            quotes[0].classList.remove('hidden');
-            quotes[0].classList.add('shown');
+            switchCSSClasses(quotes[0], 'hidden', 'shown');
         }, 800);
     }
 };
+
+
+switchCSSClasses = (element, classToRemove, classToAdd) => {
+    element.classList.remove(classToRemove);
+    element.classList.add(classToAdd);
+}
