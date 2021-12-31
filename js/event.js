@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const showFullScreenImage = (image, leftSlider, rightSlider) => {
     if (!image.classList.contains('full-size')) {
+        image.parentElement.classList.add('full-size');
         image.classList.add('full-size');
         rightSlider.classList.add('overlayed');
         leftSlider.classList.add('overlayed');
@@ -44,6 +45,7 @@ const showFullScreenImage = (image, leftSlider, rightSlider) => {
 };
 
 const closeFullScreenImage = (image, leftSlider, rightSlider, darkOverlay) => {
+    image.parentElement.classList.remove('full-size');
     image.classList.remove('full-size');
     removeHTMLElement(darkOverlay);
 
@@ -54,67 +56,27 @@ const closeFullScreenImage = (image, leftSlider, rightSlider, darkOverlay) => {
 };
 
 const slideRight = (leftSliderContainers, rightSliderContainers) => {
-    const {
-        previousContainer, currentContainer, nextContainer,
-        previousRightSliderContainer, currentRightSliderContainer, nextRightSliderContainer
-    } = getContainers(leftSliderContainers, rightSliderContainers);
-
-    changeClass(previousContainer, 'previous-container', 'next-container');
-    changeClass(previousRightSliderContainer, 'previous', 'next');
-
-    changeClass(currentContainer, 'current-container', 'previous-container');
-    changeClass(currentRightSliderContainer, 'current', 'previous');
-
-    changeClass(nextContainer, 'next-container', 'current-container');
-    changeClass(nextRightSliderContainer, 'next', 'current');
+    const { previousContainerIndex, currentContainerIndex, nextContainerIndex } = getContainerIndices(leftSliderContainers, rightSliderContainers);
+    removeContainers(leftSliderContainers, rightSliderContainers, previousContainerIndex, currentContainerIndex, nextContainerIndex);
+    moveImagesRightAndUp(leftSliderContainers, rightSliderContainers, currentContainerIndex, nextContainerIndex);
 };
 
 const slideLeft = (leftSliderContainers, rightSliderContainers) => {
-    const {
-        previousContainer, currentContainer, nextContainer,
-        previousRightSliderContainer, currentRightSliderContainer, nextRightSliderContainer
-    } = getContainers(leftSliderContainers, rightSliderContainers);
-
-    changeClass(previousContainer, 'previous-container', 'current-container');
-    changeClass(previousRightSliderContainer, 'previous', 'current');
-
-    changeClass(currentContainer, 'current-container', 'next-container');
-    changeClass(currentRightSliderContainer, 'current', 'next');
-
-    changeClass(nextContainer, 'next-container', 'previous-container');
-    changeClass(nextRightSliderContainer, 'next', 'previous');
+    const { previousContainerIndex, currentContainerIndex, nextContainerIndex } = getContainerIndices(leftSliderContainers, rightSliderContainers);
+    removeContainers(leftSliderContainers, rightSliderContainers, previousContainerIndex, currentContainerIndex, nextContainerIndex);
+    moveImagesLeftAndDown(leftSliderContainers, rightSliderContainers, previousContainerIndex, currentContainerIndex);
 };
 
 const slideDown = (leftSliderContainers, rightSliderContainers) => {
-    const {
-        previousContainer, currentContainer, nextContainer,
-        previousRightSliderContainer, currentRightSliderContainer, nextRightSliderContainer
-    } = getContainers(leftSliderContainers, rightSliderContainers);
-
-    changeClass(previousContainer, 'previous-container', 'current-container');
-    changeClass(previousRightSliderContainer, 'previous', 'current');
-
-    changeClass(currentContainer, 'current-container', 'next-container');
-    changeClass(currentRightSliderContainer, 'current', 'next');
-
-    changeClass(nextContainer, 'next-container', 'previous-container');
-    changeClass(nextRightSliderContainer, 'next', 'previous');
+    const { previousContainerIndex, currentContainerIndex, nextContainerIndex } = getContainerIndices(leftSliderContainers, rightSliderContainers);
+    removeContainers(leftSliderContainers, rightSliderContainers, previousContainerIndex, currentContainerIndex, nextContainerIndex);
+    moveImagesLeftAndDown(leftSliderContainers, rightSliderContainers, previousContainerIndex, currentContainerIndex);
 };
 
 const slideUp = (leftSliderContainers, rightSliderContainers) => {
-    const {
-        previousContainer, currentContainer, nextContainer,
-        previousRightSliderContainer, currentRightSliderContainer, nextRightSliderContainer
-    } = getContainers(leftSliderContainers, rightSliderContainers);
-
-    changeClass(previousContainer, 'previous-container', 'next-container');
-    changeClass(previousRightSliderContainer, 'previous', 'next');
-
-    changeClass(currentContainer, 'current-container', 'previous-container');
-    changeClass(currentRightSliderContainer, 'current', 'previous');
-
-    changeClass(nextContainer, 'next-container', 'current-container');
-    changeClass(nextRightSliderContainer, 'next', 'current');
+    const { previousContainerIndex, currentContainerIndex, nextContainerIndex } = getContainerIndices(leftSliderContainers, rightSliderContainers);
+    removeContainers(leftSliderContainers, rightSliderContainers, previousContainerIndex, currentContainerIndex, nextContainerIndex);
+    moveImagesRightAndUp(leftSliderContainers, rightSliderContainers, currentContainerIndex, nextContainerIndex);
 };
 
 const openVideoContainer = (eventVideoContainer, videos) => {
@@ -137,21 +99,61 @@ const closeVideoContainer = (darkOverlay, eventVideoContainer, videos) => {
     removeHTMLElement(darkOverlay);
 };
 
-const changeClass = (element, oldClass, newClass) => {
-    element.classList.remove(oldClass);
-    element.classList.add(newClass);
+const getContainerIndices = (leftSliderContainers) => {
+    const previousContainerIndex = leftSliderContainers.findIndex(container => container.classList.contains('previous-container'));
+    const currentContainerIndex = leftSliderContainers.findIndex(container => container.classList.contains('current-container'));
+    const nextContainerIndex = leftSliderContainers.findIndex(container => container.classList.contains('next-container'));
+
+    return { previousContainerIndex, currentContainerIndex, nextContainerIndex };
 };
 
-const getContainers = (leftSliderContainers, rightSliderContainers) => {
-    const previousContainer = leftSliderContainers.find(container => container.classList.contains('previous-container'));
-    const currentContainer = leftSliderContainers.find(container => container.classList.contains('current-container'));
-    const nextContainer = leftSliderContainers.find(container => container.classList.contains('next-container'));
-    const previousRightSliderContainer = rightSliderContainers.find(container => container.classList.contains('previous'));
-    const currentRightSliderContainer = rightSliderContainers.find(container => container.classList.contains('current'));
-    const nextRightSliderContainer = rightSliderContainers.find(container => container.classList.contains('next'));
+const removeContainers = (leftSliderContainers, rightSliderContainers, previousContainerIndex, currentContainerIndex, nextContainerIndex) => {
+    leftSliderContainers[currentContainerIndex].classList.remove('current-container');
+    leftSliderContainers[previousContainerIndex].classList.remove('previous-container');
+    leftSliderContainers[nextContainerIndex].classList.remove('next-container');
+    rightSliderContainers[currentContainerIndex].classList.remove('current');
+    rightSliderContainers[previousContainerIndex].classList.remove('previous');
+    rightSliderContainers[nextContainerIndex].classList.remove('next');
+};
 
-    return {
-        previousContainer, currentContainer, nextContainer,
-        previousRightSliderContainer, currentRightSliderContainer, nextRightSliderContainer
-    };
-}
+const moveImagesLeftAndDown = (leftSliderContainers, rightSliderContainers, previousContainerIndex, currentContainerIndex) => {
+    if (leftSliderContainers[currentContainerIndex - 1]) {
+        leftSliderContainers[currentContainerIndex - 1].classList.add('current-container');
+        rightSliderContainers[currentContainerIndex - 1].classList.add('current');
+    } else {
+        leftSliderContainers[leftSliderContainers.length - 1].classList.add('current-container');
+        rightSliderContainers[rightSliderContainers.length - 1].classList.add('current');
+    }
+
+    if (leftSliderContainers[previousContainerIndex - 1]) {
+        leftSliderContainers[previousContainerIndex - 1].classList.add('previous-container');
+        rightSliderContainers[previousContainerIndex - 1].classList.add('previous');
+    } else {
+        leftSliderContainers[leftSliderContainers.length - 1].classList.add('previous-container');
+        rightSliderContainers[rightSliderContainers.length - 1].classList.add('previous');
+    }
+
+    leftSliderContainers[currentContainerIndex].classList.add('next-container');
+    rightSliderContainers[currentContainerIndex].classList.add('next');
+};
+
+const moveImagesRightAndUp = (leftSliderContainers, rightSliderContainers, currentContainerIndex, nextContainerIndex) => {
+    if (leftSliderContainers[currentContainerIndex + 1]) {
+        leftSliderContainers[currentContainerIndex + 1].classList.add('current-container');
+        rightSliderContainers[currentContainerIndex + 1].classList.add('current');
+    } else {
+        leftSliderContainers[0].classList.add('current-container');
+        rightSliderContainers[0].classList.add('current');
+    }
+
+    if (leftSliderContainers[nextContainerIndex + 1]) {
+        leftSliderContainers[nextContainerIndex + 1].classList.add('next-container');
+        rightSliderContainers[nextContainerIndex + 1].classList.add('next');
+    } else {
+        leftSliderContainers[0].classList.add('next-container');
+        rightSliderContainers[0].classList.add('next');
+    }
+
+    leftSliderContainers[currentContainerIndex].classList.add('previous-container');
+    rightSliderContainers[currentContainerIndex].classList.add('previous');
+};

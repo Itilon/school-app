@@ -94,4 +94,4 @@ switchQuotes = (quotes) => {
 switchCSSClasses = (element, classToRemove, classToAdd) => {
     element.classList.remove(classToRemove);
     element.classList.add(classToAdd);
-}
+};
