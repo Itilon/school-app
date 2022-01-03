@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     [...commentForm.children].forEach((child, index) => {
         if (index !== 3) {
             child.children[0].addEventListener('focusout', styleElementLabel.bind(null, child.children[0]));
+            child.children[0].addEventListener('keyup', checkForInvalidErrorMessage.bind(null, child.children[0]));
         }
     });
 });
@@ -31,11 +32,11 @@ const submitSubscriberForm = (form) => {
                 removeHTMLElement(form.parentElement);
             })
             .catch(() => {
-                populateFormMessage(form, false, 'Нещо се обърка. Моля, опитай отново!');
+                populateFormMessage(form, false, 'Нещо се обърка. Моля, опитайте отново!');
             });
     } else {
         if (!form.querySelector('.error-message')) {
-            populateFormMessage(form, false, 'Моля, попълни електронната си поща!');
+            populateFormMessage(form, false, 'Моля, попълнете електронната си поща!');
         }
     }
 };
@@ -68,11 +69,18 @@ const submitCommentForm = (form) => {
                     }
                 });
 
-                populateFormMessage(form, true, 'Коментарът ти е изпратен успешно и очаква одобрение от модератор.');
+                populateFormMessage(form, true, 'Коментарът Ви е изпратен успешно и очаква одобрение от модератор.');
             })
             .catch(() => {
-                populateFormMessage(form, false, 'Нещо се обърка. Моля, опитай отново!');
+                populateFormMessage(form, false, 'Нещо се обърка. Моля, опитайте отново!');
             });
+    } else {
+        const invalidFields = form.querySelectorAll(':invalid');
+        invalidFields.forEach((field) => {
+            if (!field.parentNode.nextElementSibling.classList.contains('error-message')) {
+                populateErrorMessage(field, true);
+            }
+        });
     }
 };
 
@@ -125,4 +133,10 @@ const populateFormMessage = (form, isSuccess, messageText) => {
     form.prepend(messageContainer);
 
     exitBtn.addEventListener('click', () => removeHTMLElement(messageContainer));
+};
+
+const checkForInvalidErrorMessage = (input) => {
+    if (input.checkValidity()) {
+        removeInvalidBorderAndErrorMessage(input);
+    }
 };
