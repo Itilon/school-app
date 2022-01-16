@@ -1076,9 +1076,10 @@ nav { padding: 0 5px; }
 .interview-inner-wrapper .interview-img {
     display: block;
     height: auto;
-    width: 80%;
+    width: 60%;
     object-fit: contain;
     margin: 20px auto;
+    padding: 0 20px;
 }
 
 .interview-inner-wrapper h3 { text-align: left; }
@@ -1093,6 +1094,10 @@ nav { padding: 0 5px; }
     margin: 10px 0;
     line-height: 1.4;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+@media only screen and (max-width: 1024px) {
+    .interview-inner-wrapper .interview-img { width: 80%; }
 }
 
 @media only screen and (max-width: 760px) {
