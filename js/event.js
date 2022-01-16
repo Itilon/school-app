@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const leftArrow = leftSlider.querySelector('.fa-angle-left');
     const videoBtn = document.querySelector('.btn');
     const eventVideoContainer = document.querySelector('.event-video-container');
+    const videoWrappers = eventVideoContainer.querySelectorAll('.video');
     const videos = eventVideoContainer.querySelectorAll('iframe');
+    const dots = eventVideoContainer.querySelectorAll('.dot');
 
     leftSliderImages.forEach((image) => {
         image.addEventListener('click', showFullScreenImage.bind(null, image, leftSlider, rightSlider))
@@ -26,6 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     leftArrow.addEventListener('click', slideLeft.bind(null, [...leftSliderImageContainers], [...rightSliderImageContainers]));
 
     videoBtn.addEventListener('click', openVideoContainer.bind(null, eventVideoContainer, videos));
+    
+    if (dots) {
+        dots.forEach((dot) => dot.addEventListener('click', onDotClicked.bind(null, dot, [...dots], [...videoWrappers])));
+    }
 });
 
 const showFullScreenImage = (image, leftSlider, rightSlider) => {
@@ -156,4 +162,15 @@ const moveImagesRightAndUp = (leftSliderContainers, rightSliderContainers, curre
 
     leftSliderContainers[currentContainerIndex].classList.add('previous-container');
     rightSliderContainers[currentContainerIndex].classList.add('previous');
+};
+
+const onDotClicked = (dot, dots, videoWrappers) => {
+    if (!dot.classList.contains('selected')) {
+        dots.find(dot => dot.classList.contains('selected')).classList.remove('selected');
+        dot.classList.add('selected');
+        
+        const videoId = dot.dataset.id;
+        videoWrappers.find(wrapper => wrapper.classList.contains('shown')).classList.remove('shown');
+        videoWrappers.find(wrapper => wrapper.dataset.id === videoId).classList.add('shown');
+    }
 };
