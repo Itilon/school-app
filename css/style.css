@@ -1000,7 +1000,20 @@ nav { padding: 0 5px; }
     text-align: center;
 }
 
-.value-card-back p { color: #fff; }
+.value-card-back h4 { margin-bottom: 5px; }
+
+.value-card-back p {
+    margin-top: 5px;
+    color: #fff;
+}
+
+.value-card-back::-webkit-scrollbar { width: 10px; }
+
+.value-card-back::-webkit-scrollbar-thumb {
+    background: rgba(200, 200, 200, .4);
+    width: 5px;
+    border-radius: 10px;
+}
 
 .value-card.flipped .value-card-back { transform: rotate(0); }
 
