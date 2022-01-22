@@ -2217,11 +2217,14 @@ nav { padding: 0 5px; }
 
 .policy h4 { margin: 40px 0 20px 0; }
 
-.policy p {
-    margin: 10px 20px;
+.policy p, .policy li {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.4;
 }
+
+.policy p, .policy li li { margin: 10px 20px; }
+
+.policy li { margin: 10px 35px; }
 
 @media only screen and (max-width: 760px) {
     .policy-wrapper { padding: 20px 0; }
