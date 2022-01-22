@@ -552,7 +552,7 @@ nav { padding: 0 5px; }
     color: #fff;
 }
 
-.showcase-form input {
+.showcase-form input, .showcase-form select {
     background: rgba(80, 80, 80, .8);
     flex-grow: 100;
     padding: 5px;
