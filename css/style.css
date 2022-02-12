@@ -2462,7 +2462,17 @@ a.breadcrumb:hover { color: #00796b; }
 
 .pagination span:first-child, .pagination span:last-child { color: #009688; }
 
+.pagination span.disabled {
+    color: #222;
+    cursor: default;
+}
+
 .pagination .current {
+    background: #009688;
+    color: #fff;
+}
+
+.pagination span:not(.disabled):hover {
     background: #009688;
     color: #fff;
 }

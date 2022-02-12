@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closingBtn = feedbackFormContainer.querySelector('.closing-btn');
     const feedbackForm = feedbackFormContainer.querySelector('form');
     const textarea = feedbackForm.querySelector('textarea');
+    const paginationContainers = document.querySelectorAll('.pagination');
 
     feedbackBtn.addEventListener('click', toggleFeedbackFormContainer.bind(null, feedbackBtnContainer, feedbackFormContainer));
     closingBtn.addEventListener('click', toggleFeedbackFormContainer.bind(null, feedbackBtnContainer, feedbackFormContainer));
@@ -19,6 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     textarea.addEventListener('keydown', resizeTextarea.bind(null, textarea));
+
+    if (paginationContainers.length) {
+        paginationContainers.forEach((container) => {
+            const pageLinks = container.querySelectorAll('span');
+            pageLinks.forEach((link) => link.addEventListener('click', handlePagination.bind(null, link, [...pageLinks])));
+        });
+    }
 });
 
 const toggleFeedbackFormContainer = (feedbackBtnContainer, formContainer) => {
@@ -104,4 +112,34 @@ const checkForInvalidBorderAndErrorMessage = (field) => {
 const resizeTextarea = (textarea) => {
     textarea.style.height = 'auto';
     textarea.style.height = `${textarea.scrollHeight}px`;
+};
+
+const handlePagination = (link, pageLinks) => {
+    const linksLength = pageLinks.length;
+    const linkPosition = pageLinks.findIndex(pageLink => pageLink === link);
+
+    if (!link.classList.contains('current') && !link.classList.contains('disabled')) {
+        const currentLink = pageLinks.find((link) => link.classList.contains('current'));
+        let idx;
+
+        if (linkPosition === 0) {
+            idx = pageLinks.findIndex(pageLink => pageLink === currentLink) - 1;
+        } else if (linkPosition === linksLength - 1) {
+            idx = pageLinks.findIndex(pageLink => pageLink === currentLink) + 1;
+        } else {
+            idx = linkPosition;;
+        }
+        currentLink.classList.remove('current');
+        pageLinks[idx].classList.add('current');
+        handleDisabledLink(pageLinks[0], 1, idx);
+        handleDisabledLink(pageLinks[linksLength - 1], linksLength - 2, idx);
+    }
+};
+
+const handleDisabledLink = (link, pos, linkPosition) => {
+    if (linkPosition === pos) {
+        link.classList.add('disabled');
+    } else {
+        link.classList.remove('disabled');
+    }
 };
