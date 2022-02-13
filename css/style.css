@@ -1331,6 +1331,8 @@ nav { padding: 0 5px; }
     box-shadow: 4px 4px 6px -4px #9e9e9e;
 }
 
+.feedback-card.hidden { display: none; }
+
 .feedback-container {
     margin-bottom: 10px;
     overflow: hidden;
@@ -1361,6 +1363,8 @@ nav { padding: 0 5px; }
     text-align: right;
     box-shadow: 4px 4px 6px -4px #9e9e9e;
 }
+
+.practice-card.hidden { display: none; }
 
 .practice-card p { margin-bottom: 20px; }
 

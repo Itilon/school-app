@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const feedbackForm = feedbackFormContainer.querySelector('form');
     const textarea = feedbackForm.querySelector('textarea');
     const paginationContainers = document.querySelectorAll('.pagination');
+    const feedbackCards = document.querySelectorAll('.feedback-card');
+    const practiceCards = document.querySelectorAll('.practice-card');
 
     feedbackBtn.addEventListener('click', toggleFeedbackFormContainer.bind(null, feedbackBtnContainer, feedbackFormContainer));
     closingBtn.addEventListener('click', toggleFeedbackFormContainer.bind(null, feedbackBtnContainer, feedbackFormContainer));
@@ -22,9 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
     textarea.addEventListener('keydown', resizeTextarea.bind(null, textarea));
 
     if (paginationContainers.length) {
-        paginationContainers.forEach((container) => {
-            const pageLinks = container.querySelectorAll('span');
-            pageLinks.forEach((link) => link.addEventListener('click', handlePagination.bind(null, link, [...pageLinks])));
+        paginationContainers.forEach((container, i) => {
+            const pageLinks = [...container.querySelectorAll('span')];
+            const cards = i === 0 ? [...feedbackCards] : [...practiceCards];
+            pageLinks.forEach((link) => link.addEventListener('click', handlePagination.bind(null, link, pageLinks, cards)));
         });
     }
 });
@@ -114,7 +117,7 @@ const resizeTextarea = (textarea) => {
     textarea.style.height = `${textarea.scrollHeight}px`;
 };
 
-const handlePagination = (link, pageLinks) => {
+const handlePagination = (link, pageLinks, cards) => {
     const linksLength = pageLinks.length;
     const linkPosition = pageLinks.findIndex(pageLink => pageLink === link);
 
@@ -133,6 +136,7 @@ const handlePagination = (link, pageLinks) => {
         pageLinks[idx].classList.add('current');
         handleDisabledLink(pageLinks[0], 1, idx);
         handleDisabledLink(pageLinks[linksLength - 1], linksLength - 2, idx);
+        switchPage(idx, cards);
     }
 };
 
@@ -142,4 +146,16 @@ const handleDisabledLink = (link, pos, linkPosition) => {
     } else {
         link.classList.remove('disabled');
     }
+};
+
+const switchPage = (pageNumber, cards) => {
+    startIndex = (pageNumber - 1) * 4;
+
+    cards.forEach((card) => {
+        if (!card.classList.contains('hidden')) {
+            card.classList.add('hidden');
+        }
+    });
+
+    cards.slice(startIndex, startIndex + 4).forEach((card) => card.classList.remove('hidden'));
 };
