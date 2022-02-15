@@ -870,6 +870,25 @@ nav { padding: 0 5px; }
     }
 }
 
+/* LINK SECTION */
+
+.link-wrapper {
+    margin-top: 20px;
+    padding: 20px 0 40px 0;
+}
+
+.link-wrapper a {
+    display: block;
+    margin: 10px;
+    text-align: center;
+    color: #009688;
+}
+
+.link-wrapper a:hover {
+    color: #00796b;
+    text-decoration: underline;
+}
+
 /* ABOUT PAGE */
 
 .message-wrapper {
